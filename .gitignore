@@ -128,3 +128,20 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+.DS_Store
+
+# Ignore build artifacts and dependencies
+dist/
+build/
+*.log
+./package-lock.json
+
+# Client-side specific exclusions
+client/node_modules/
+client/dist/
+
+# Server-side specific exclusions
+server/node_modules/
+server/build/
