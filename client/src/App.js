@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import LoginForm from './components/LoginForm';
+import Nav from './components/nav'
 
 function App() {
   return (
