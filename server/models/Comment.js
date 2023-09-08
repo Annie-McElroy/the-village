@@ -15,14 +15,16 @@ const commentSchema = new Schema({
         trim: true
     },
 
-    authorID: {
-        type: Number,
+    authorId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Villager',
         required: true,
     },
 
-    requestID: {
-        type: Number,
-        required: true,
+    requestId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Request',
+        required: true
     },
 
     createdAt: {

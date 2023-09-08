@@ -45,14 +45,14 @@ const villagerSchema = new Schema({
 
     zipcode: {
         type: Number,
-        required: [true, 'Zipcode required']
+        required: [true, 'Zipcode required'],
+        // match regex for zipcode
+        match: [/\d{5}/, 'Not a valid zipcode!'],
     },
 
-    // match regex for zipcode
-    match: [/\d{5}/, 'Not a valid zipcode!'],
 
     //crayons associated w/ the villager
-    crayons: crayon,
+    crayons: [crayon],
 
     //requests associated w/ the villager
     requests: [
