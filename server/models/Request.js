@@ -30,12 +30,14 @@ const requestSchema = new Schema({
     },
 
     authorId: {
-        type: Number,
+        type: Schema.Types.ObjectId,
+        ref: 'Villager',
         required: true,
     },
 
     villageId: {
-        type: Number,
+        type: Schema.Types.ObjectId,
+        ref: 'Village',
         required: true,
     },
 

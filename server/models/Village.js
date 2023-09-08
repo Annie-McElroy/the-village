@@ -19,6 +19,12 @@ const villageSchema = new Schema({
         match: [/^\d{5}$/, 'Not a valid zipcode!'],
     },
 
+    admin: {
+        type: Schema.Types.ObjectId,
+        ref: 'Villager',
+        required: true
+    },
+
     //villagers associated w/ the village
     villagers: [
         {
