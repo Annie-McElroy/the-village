@@ -16,17 +16,18 @@ const villagerSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        // custom validator for email
+        validate: {
+            validator: function(v) {
+                return /^[\w\d\.-]+@[\w\d]{2,}\.([a-z]{2,6})$/.test(v);
+            },
+            // returns error message on invalid email
+            message: props => `${props.value} is not a valid email address!`
+        },
     },
 
-    // custom validator for email
-    validate: {
-        validator: function(v) {
-            return /^[\w\d\.-]+@[\w\d]{2,}\.([a-z]{2,6})$/.test(v);
-        },
-        // returns error message on invalid email
-        message: props => `${props.value} is not a valid email address!`
-    },
+
 
     //minimum password length is 8 characters. Hashed below.
     password: {
