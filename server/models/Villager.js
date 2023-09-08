@@ -96,5 +96,5 @@ villagerSchema.methods.isCorrectPassword = async function(password) {
 //create a mongoose model named Villager associated w/ the above schema
 const Villager = mongoose.model('Villager', villagerSchema);
 
-//export the village model
+//export the Villager model
 module.exports = Villager; 

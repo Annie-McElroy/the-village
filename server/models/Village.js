@@ -37,5 +37,5 @@ const villageSchema = new Schema({
 //create a mongoose model named Village associated w/ the above schema
 const Village = mongoose.model('Village', villageSchema);
 
-//export the village model
+//export the Village model
 module.exports = Village; 
