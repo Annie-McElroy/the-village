@@ -1,12 +1,13 @@
 import React from "react";
-import LoginForm from "../components/LoginForm";
+// import LoginForm from "../components/LoginForm";
+import Crayon from "../components/Crayons";
 
 
 const Home = () => {
   return (
     <div className="container">
-      <Nav />
-      <LoginForm />
+      {/* <Nav /> */}
+      <Crayon />
     </div>
   );
 };
