@@ -3,15 +3,33 @@ const { Comment, Request, Village, Villager } = require('../models');
 
 db.once('open', async () => {
     //delete all pre-existing comments
-    // await Comment.deleteMany();
+    await Comment.deleteMany();
 
-    // const comment = await Comment.insertMany([
-
-    // ])
+    const comments = await Comment.create([
+        {
+            body: "I got you!",
+            authorId: villagers[1]._id,
+            requestId: request[0]._id,
+        }
+    ])
 
     //delete all pre-existing requests
-    // await Request.deleteMany();
+    await Request.deleteMany();
 
+    const request = await Request.create([
+        {
+            title: "Carpool Request - Tuesday",
+            body: "I need someone to drop Kevin and Sara off at school on Tuesday",
+            crayons: 2,
+            authorId: villagers[0]._id,
+            isComplete: false,
+            isClaimed: true,
+            comments: comments[0].body,
+            response: villagers[1]._id,
+        }
+    ])
+    
+    console.table(request)
 
     //delete all pre-existing villages
     await Village.deleteMany();
