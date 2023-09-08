@@ -27,8 +27,6 @@ const villagerSchema = new Schema({
         },
     },
 
-
-
     //minimum password length is 8 characters. Hashed below.
     password: {
         type: String,

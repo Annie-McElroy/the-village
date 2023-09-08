@@ -25,8 +25,6 @@ const villageSchema = new Schema({
         },
     },
 
-
-
     //villagers associated w/ the village
     villagers: [
         {
