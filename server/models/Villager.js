@@ -92,3 +92,9 @@ villagerSchema.pre('save', async function(next) {
 villagerSchema.methods.isCorrectPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
 };
+
+//create a mongoose model named Villager associated w/ the above schema
+const Villager = mongoose.model('Villager', villagerSchema);
+
+//export the village model
+module.exports = Villager; 
