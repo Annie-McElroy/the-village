@@ -1,6 +1,9 @@
 // import mongoose
 const mongoose = require('mongoose');
 
+// import crayon schema
+const crayon = require('./Crayon')
+
 // use the schema constructor from mongoose
 const { Schema } = mongoose;
 
@@ -61,12 +64,7 @@ const villagerSchema = new Schema({
     },
 
     //crayons associated w/ the villager
-    crayons: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Crayon'
-        }
-    ],
+    crayons: crayon,
 
     //requests associated w/ the villager
     requests: [
@@ -75,8 +73,14 @@ const villagerSchema = new Schema({
             ref: 'Request'
         }
     ],
-
-});
+},
+{
+    toJSON: {
+        virtuals: true,
+    },
+    id: false,
+}
+);
 
 // set up pre-save middleware to create password
 villagerSchema.pre('save', async function(next) {
@@ -92,6 +96,17 @@ villagerSchema.pre('save', async function(next) {
 villagerSchema.methods.isCorrectPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
 };
+
+villagerSchema
+    .virtual('fullName')
+    .get(function () {
+        return `${this.firstName} ${this.lastName}`;
+    })
+    .set(function (v) {
+        const first = v.split(' ')[0];
+        const last = v.split(' ')[1];
+        this.set({ first, last})
+    });
 
 //create a mongoose model named Villager associated w/ the above schema
 const Villager = mongoose.model('Villager', villagerSchema);
