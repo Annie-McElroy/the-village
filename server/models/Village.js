@@ -15,14 +15,8 @@ const villageSchema = new Schema({
     zipcode: {
         type: Number,
         required: [true, 'Zipcode required'],
-        // custom validator for zipcode
-        validate: {
-            validator: function(v) {
-                return /^\d{5}$/.test(v);
-            },
-            // returns error message on invalid zip
-            message: props => `${props.value} is not a valid zip code!`
-        },
+        // custom match for zipcode
+        match: [/^\d{5}$/, 'Not a valid zipcode!'],
     },
 
     //villagers associated w/ the village

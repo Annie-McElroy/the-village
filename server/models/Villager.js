@@ -20,14 +20,8 @@ const villagerSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        // custom validator for email
-        validate: {
-            validator: function(v) {
-                return /^[\w\d\.-]+@[\w\d]{2,}\.([a-z]{2,6})$/.test(v);
-            },
-            // returns error message on invalid email
-            message: props => `${props.value} is not a valid email address!`
-        },
+        // match regex for email
+        match: [/^[\w\d\.-]+@[\w\d]{2,}\.([a-z]{2,6})$/, 'Not a valid email address!'],
     },
 
     //minimum password length is 8 characters. Hashed below.
@@ -54,14 +48,8 @@ const villagerSchema = new Schema({
         required: [true, 'Zipcode required']
     },
 
-    // custom validator for zipcode
-    validate: {
-        validator: function(v) {
-            return /\d{5}/.test(v);
-        },
-        // returns error message on invalid zip
-        message: props => `${props.value} is not a valid zip code!`
-    },
+    // match regex for zipcode
+    match: [/\d{5}/, 'Not a valid zipcode!'],
 
     //crayons associated w/ the villager
     crayons: crayon,
