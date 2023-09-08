@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Button from '@mui/material/Button';
+
 
 class ClaimRequestButton extends Component {
   constructor(props) {
@@ -13,8 +15,10 @@ class ClaimRequestButton extends Component {
   render() {
     return (
       <div>
-        <h1>{this.state.clicked ? 'Clicked!!!' : 'Not Clicked' } </h1>
-        <button onClick={this.handleClick}> Click Me!</button>
+        <Button variant="contained" color="primary" onClick={this.handleClick}> 
+        {this.state.clicked ? 'Request has been claimed!' : 'Claim Request' }
+        </Button>
+        
       </div>
     )
   }
