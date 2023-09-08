@@ -15,7 +15,7 @@ const responseSchema = new Schema({
 });
 
 //create a mongoose model named Response associated w/ the above schema
-const Response = mongoose.model('Response', responseSchema);
+// const Response = mongoose.model('Response', responseSchema);
 
 //export the Response model
-module.exports = Response;
+module.exports = responseSchema;

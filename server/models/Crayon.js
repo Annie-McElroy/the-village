@@ -13,7 +13,7 @@ const crayonSchema = new Schema({
 });
 
 //create a mongoose model named Crayon associated w/ the above schema
-const Crayon = mongoose.model('Crayon', crayonSchema);
+// const Crayon = mongoose.model('Crayon', crayonSchema);
 
 //export the Crayon model
-module.exports = Crayon;
+module.exports = crayonSchema;
