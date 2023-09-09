@@ -2,23 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import FormControl, { useFormControl } from '@mui/material/FormControl';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import FormHelperText from '@mui/material/FormHelperText';
+import TextField from '@mui/material/TextField';
 
-function MyFormHelperText() {
-  const { focused } = useFormControl() || {};
-
-  const helperText = React.useMemo(() => {
-    if (focused) {
-      return 'Comment here!';
-    }
-
-    return 'commenting...';
-  }, [focused]);
-
-  return <FormHelperText>{helperText}</FormHelperText>;
-}
 
 const style = {
   position: 'absolute',
@@ -52,13 +37,13 @@ function ChildModal() {
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       >
-        <Box sx={{ ...style, width: 200 }}>
-        <form noValidate autoComplete="off">
-      <FormControl sx={{ width: '25ch' }}>
-        <OutlinedInput placeholder="Please enter text" />
-        <MyFormHelperText />
-      </FormControl>
-    </form>
+        <Box component="form" sx={{ ...style, width: 200 }}>
+        <TextField
+          id="outlined-textarea"
+          label="Multiline Placeholder"
+          placeholder="Comment"
+          multiline
+        />
           <Button onClick={handleClose}>Submit Comment</Button>
         </Box>
       </Modal>

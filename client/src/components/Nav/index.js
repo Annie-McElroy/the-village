@@ -24,7 +24,7 @@ export default function Nav() {
         }}
       >
         <BottomNavigationAction label="Info" icon={<InfoIcon />} component={Link} to="/" />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} component={Link} to="/village/:id" />
+        <BottomNavigationAction label="Village" icon={<FavoriteIcon />} component={Link} to="/village/:id" />
         <BottomNavigationAction label="Profile" icon={<AccountCircleIcon />} component={Link} to="/profile/:id"  />
       </BottomNavigation>
     </Box>

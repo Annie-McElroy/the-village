@@ -40,30 +40,32 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          {/* <Nav /> */}
           <Routes>
             <Route
               path="/"
               element={<Home />}
-            />
+              />
             <Route
               path="/about"
               element={<About />}
-            />
+              />
             <Route
               path='/profile/:id'
               element={<Profile />}
-            />
+              />
             <Route
               path='/village/:id'
               element={<Village />}
-            />
+              />
             <Route
               path='/search'
               element={<Search />}
-            />
+              />
 
           </Routes>
+             <footer>
+              <Nav />
+              </footer> 
         </div>
       </Router>
 

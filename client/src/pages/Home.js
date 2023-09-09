@@ -3,7 +3,7 @@ import React from "react";
 import Crayon from "../components/Crayons";
 import ClaimRequestButton from "../components/ClaimRequestButton";
 import Village from "./Village";
-import Nav from "../components/Nav";
+
 
 
 const Home = () => {
@@ -16,7 +16,6 @@ const Home = () => {
         <Crayon />
         <ClaimRequestButton />
         <div><Village /></div>
-      <footer><Nav /></footer>
       </div>
     </div>
   );
