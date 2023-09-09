@@ -19,7 +19,7 @@ const typeDefs = gql`
         name: String
         zipcode: Int
         admin: Villager
-        villagers [Villager]
+        villagers: [Villager]
     }
 
     type Crayon {
@@ -34,7 +34,7 @@ const typeDefs = gql`
         crayons: Int
         authorId: Villager
         villageId: Village
-        createdAt: Date
+        createdAt: String
         isComplete: Boolean
         isClaimed: Boolean
         response: Response
@@ -51,7 +51,7 @@ const typeDefs = gql`
         body: String
         authorId: Villager
         requestId: Request
-        createdAt: Date
+        createdAt: String
     }
 
     type Auth {
