@@ -9,7 +9,7 @@ class ClaimRequestButton extends Component {
     this.handleClick = this.handleClick.bind(this);
 
   }
-  handleClick(e){
+  handleClick(e) {
     this.setState({ clicked: true });
   }
   render() {
@@ -18,7 +18,7 @@ class ClaimRequestButton extends Component {
         <Button variant="contained" color="primary" onClick={this.handleClick} disabled={this.state.clicked}> 
         {this.state.clicked ? 'Request has been claimed!' : 'Claim Request' }
         </Button>
-        
+
       </div>
     )
   }
