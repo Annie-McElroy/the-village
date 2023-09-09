@@ -14,7 +14,8 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Village from './pages/Village';
 import Search from './pages/Search';
-import Nav from './components/Nav'
+import Request from '.pages/Request';
+import Nav from './components/Nav';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -56,6 +57,10 @@ function App() {
             <Route
               path='/village/:id'
               element={<Village />}
+              />
+            <Route
+              path='/village/:id/request/:id'
+              element={<Request />}
               />
             <Route
               path='/search'
