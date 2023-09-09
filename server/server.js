@@ -3,6 +3,7 @@ const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
 
+
 // Import GraphQL schemas and db connection
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
