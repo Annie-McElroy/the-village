@@ -60,12 +60,12 @@ const typeDefs = gql`
     }
 
     type Query {
-        villager(_id: ID!, crayons: ID, amount: Int): Villager
-        villagers(crayons: ID, amount: Int): [Villager]
-        village(villagers: ID, username: String): Village
+        villager(_id: ID!): Villager
+        villagers(crayons: ID): [Villager]
+        village(_id: ID!, villagers: ID): Village
         villages: [Village]
-        request(_id: ID!, authorId: ID, villageId: ID, responses: ID, claimID: ID, comments: ID, body: String): Request
-        requests(authorId: ID, villageId: ID, responses: ID, claimID: ID, comments: ID, body: String): [Request]
+        request(_id: ID!): Request
+        requests: [Request]
     }
 
     type Mutation {
