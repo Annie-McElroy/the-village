@@ -15,7 +15,7 @@ class ClaimRequestButton extends Component {
   render() {
     return (
       <div>
-        <Button variant="contained" color="primary" onClick={this.handleClick}> 
+        <Button variant="contained" color="primary" onClick={this.handleClick} disabled={this.state.clicked}> 
         {this.state.clicked ? 'Request has been claimed!' : 'Claim Request' }
         </Button>
         

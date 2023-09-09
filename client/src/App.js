@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
-import Home from './pages/Home';
+import Village from './pages/Village';
+import Nav from './components/Nav'
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <div><Home /></div>
+      <div><Village /></div>
+      <footer><Nav /></footer>
     </div>
   );
 }
