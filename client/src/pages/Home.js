@@ -2,6 +2,8 @@ import React from "react";
 // import LoginForm from "../components/LoginForm";
 import Crayon from "../components/Crayons";
 import ClaimRequestButton from "../components/ClaimRequestButton";
+import Village from "./Village";
+import Nav from "../components/Nav";
 
 
 const Home = () => {
@@ -13,6 +15,8 @@ const Home = () => {
         <img className="layered-village clouds" alt="Layered village" src="/icons/layered-village-clouds-1.png" />
         <Crayon />
         <ClaimRequestButton />
+        <div><Village /></div>
+      <footer><Nav /></footer>
       </div>
     </div>
   );
