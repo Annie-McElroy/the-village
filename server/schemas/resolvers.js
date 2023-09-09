@@ -60,7 +60,7 @@ const resolvers = {
         },
         updateRequest: async (parent, args,) => {
             const token = signToken(Request);
-            if (request) {
+            if (Request) {
                 return await Request.findByIdAndUpdate(request._id, args, { new: true });
             }
             return { token }
@@ -84,3 +84,5 @@ const resolvers = {
         }
     }
 }
+
+module.exports = resolvers;
