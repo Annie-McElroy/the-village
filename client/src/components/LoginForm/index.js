@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import Button from '@mui/material-next/Button';
 
 
 export default function LoginForm(props) {
@@ -61,6 +62,11 @@ export default function LoginForm(props) {
           : null}
         <div className="flex-row flew-end">
           <button type="submit">Submit</button>
+          <Button
+            color="primary"
+            size="large"
+            variant="filled"
+            href="/signup"> sign up </Button>
         </div>
       </form>
     </div>

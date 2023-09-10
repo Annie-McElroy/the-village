@@ -84,9 +84,10 @@ function App() {
               />
           </Routes>
              <footer>
-              {
+              <Nav />
+              {/* {
                 AuthService.loggedIn() && (<Nav />) 
-              }              
+              }               */}
               </footer> 
         </div>
       </Router>
