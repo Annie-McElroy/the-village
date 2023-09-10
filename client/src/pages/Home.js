@@ -1,6 +1,7 @@
 import React from "react";
 import LoginForm from "../components/LoginForm";
 import AuthService from "../utils/auth";
+import './styles/home.css'
 
 
 
@@ -8,17 +9,17 @@ import AuthService from "../utils/auth";
 const Home = () => {
   return (
     <div className="landing-page">
-      <div className="hero-banner">
-        <img className="layered-village base" alt="Layered village" src="/icons/layered_village_base.png" />
-        <img className="layered-village foreground" alt="Layered village" src="/icons/layered_village_foreground.png" />
-        <img className="layered-village clouds" alt="Layered village" src="/icons/layered_village_clouds.png" />
-          
+      <div className="banner">
+        <div className="layered-village base" alt="base"></div>
+        <div className="layered-village foreground" alt="foreground"></div>
+        <div className="layered-village clouds" alt="foreground"></div>
+
       </div>
-    {AuthService.loggedIn()
-    ? (<div>Logged In!</div>)
-    : (<LoginForm />)
-    }
-  <div style={{height: '80px'}}></div>
+      {AuthService.loggedIn()
+        ? (<div>Logged In!</div>)
+        : (<LoginForm />)
+      }
+      <div style={{ height: '80px' }}></div>
     </div>
   );
 };
