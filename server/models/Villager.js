@@ -72,9 +72,13 @@ const villagerSchema = new Schema({
 
 // set up pre-save middleware to create password
 villagerSchema.pre('save', async function(next) {
+    console.log('pre hook triggered ');
+    
     if (this.isNew || this.isModified('password')) {
-        const saltRounds = 15;
+        console.log('if statement triggered');
+        const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds);
+        console.log('password salted')
     }
 
     next();

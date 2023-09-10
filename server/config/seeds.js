@@ -31,6 +31,7 @@ db.once('open', async () => {
     ]);
 
     console.log('Villagers seeded')
+    console.log(this.isNew);
     console.table(villagers);
 
     //delete all pre-existing villages
