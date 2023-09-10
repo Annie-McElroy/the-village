@@ -1,5 +1,7 @@
+const { AuthenticationError } = require('apollo-server-express');
 const { Comments, Crayon, Request, Response, Village, Villager } = require('../models');
 const { signToken } = require('../utils/auth')
+
 // api key required from stripe account
 // const stripe = require('stripe')('sk_test_51No9cQIuHUltsfZp85aTl9r2Dj0uPofFAVKO30aBrmloFqZBwockjnhjkrsxMMk0l3TNa5wQmpc2ROCsZdRBFlSI003MfzzWx7')
 // importing Elements and loadStripe to run stripes and pull from .json file
@@ -72,21 +74,25 @@ const resolvers = {
             return { token }
         },
         login: async (parent, { email, password }) => {
-            const villager = await Villager.findOne({ email });
+            const user = await Villager.findOne({ email });
 
-            if (!villager) {
+            if (!user) {
                 throw new AuthenticationError('Incorrect credentials');
             }
 
-            const correctPw = await villager.isCorrectPassword(password);
+            const correctPw = await user.isCorrectPassword(password);
 
             if (!correctPw) {
-                throw new AuthenticationError('Incorrect credentials');
+                console.log('password is actually "' + password + '"')
+                console.log('this.password is actually "' + this.password + '"')
+                throw new AuthenticationError('Incorrect credentials - password');
+                
             }
 
-            const token = signToken(villager);
+            const token = signToken(user);
+            console.log('This is the villager ' + user)
 
-            return { token, villager };
+            return { token, user };
         }
     }
 }
