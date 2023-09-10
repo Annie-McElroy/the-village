@@ -17,6 +17,9 @@ import Village from './pages/Village';
 import Search from './pages/Search';
 import Request from './pages/Request';
 import Nav from './components/Nav';
+import SignUp from './pages/SignUp';
+import CreateReq from './pages/CreateReq';
+import CreateVillages from './pages/CreateVillage';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -52,12 +55,20 @@ function App() {
               element={<About />}
               />
             <Route
+              path="/signup"
+              element={<SignUp />}
+              />
+            <Route
               path='/profile/:id'
               element={<Profile />}
               />
             <Route
               path='/village/:id'
               element={<Village />}
+              />
+            <Route
+              path ='/village/:id/create-request'
+              element ={<CreateReq />}
               />
             <Route
               path='/village/:id/request/:id'
@@ -67,7 +78,10 @@ function App() {
               path='/search'
               element={<Search />}
               />
-
+            <Route
+              path='village/:id/create-village'
+              element={<CreateVillages />}
+              />
           </Routes>
              <footer>
               {

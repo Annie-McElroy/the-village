@@ -10,3 +10,24 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const ADD_VILLAGER = gql`
+  mutation addVillager(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+  ) {
+    addVillager(
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      password: $password
+    ) {
+      token
+      user {
+        _id
+      }
+    }
+  }
+`;
