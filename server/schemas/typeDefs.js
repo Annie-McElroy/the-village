@@ -10,7 +10,7 @@ const typeDefs = gql`
         firstName: String
         lastName: String
         zipcode: Int
-        crayons: Crayon
+        crayons: [Crayon]
         requests: [Request]
     }
 
@@ -61,9 +61,9 @@ const typeDefs = gql`
 
     type Query {
         villager(_id: ID!): Villager
-        villagers(crayons: ID): [Villager]
-        village(_id: ID!, villagers: ID): Village
-        villages: [Village]
+        villagers: [Villager]
+        village(_id: ID!): Village
+        villages(zipcode: Int): [Village]
         request(_id: ID!): Request
         requests: [Request]
     }

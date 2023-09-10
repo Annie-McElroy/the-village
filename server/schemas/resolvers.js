@@ -11,23 +11,20 @@ const { signToken } = require('../utils/auth')
 const resolvers = {
     Query: {
         villager: async (parent, { _id }) => {
-            return await Villager.findById(_id).populate('crayons');
+            return await Villager.findById(_id);
         },
-        villagers: async (parent, { crayons }) => {
-            const params = {};
-
-            if (crayons) {
-                params.crayons = crayons
-            }
-
-            return await Villager.find(params).populate('crayons');
+        villagers: async () => {
+            return await Villager.find();
         },
         village: async (parent, { _id }) => {
-            return await Village.findById(_id).populate('villagers');
+            return await Village.findById(_id).populate('villagers').populate('admin');
         },
         villages: async () => {
-            return await Village.find();
+            return await Village.find().populate('villagers').populate('admin');
         },
+        request: async (parent, { _id }) => {
+            return await Request.findById(_id).populate('comments').populate('response');
+        }
     },
     Mutation: {
         addVillager: async (parent, args) => {
