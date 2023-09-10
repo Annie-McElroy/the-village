@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import ClaimRequestButton from '../ClaimRequestButton';
 
 
 const style = {
@@ -31,6 +32,7 @@ function ChildModal() {
   return (
     <React.Fragment>
       <Button onClick={handleOpen}>Comment</Button>
+      <ClaimRequestButton />
       <Modal
         open={open}
         onClose={handleClose}
@@ -51,7 +53,7 @@ function ChildModal() {
   );
 }
 
-export default function NestedModal() {
+export default function SingleRequest() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);

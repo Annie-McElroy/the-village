@@ -1,9 +1,7 @@
-import React from "react";
-import LoginForm from "../components/LoginForm";
+import React, { useEffect } from 'react';
+import Signup from '../components/CreateAccount'
 import AuthService from "../utils/auth";
 import './styles/home.css'
-
-
 
 
 const Home = () => {
@@ -16,8 +14,8 @@ const Home = () => {
 
       </div>
       {AuthService.loggedIn()
-        ? (<div>Logged In!</div>)
-        : (<LoginForm />)
+        ? (<div>Signed In!</div>)
+        : (<Signup />)
       }
       <div style={{ height: '80px' }}></div>
     </div>

@@ -1,12 +1,10 @@
 import React from 'react';
-import DisplayRequest from '../components/DisplayRequest';
-import ClaimRequestButton from '../components/ClaimRequestButton';
+import CreateReqButton from '../components/CreateReqButton.js';
 
 const Village = () => {
   return (
     <div className="container">
-      <DisplayRequest />
-      <ClaimRequestButton />
+      <CreateReqButton />
       
     </div>
 

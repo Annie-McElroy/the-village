@@ -7,6 +7,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import AuthService from './utils/auth';
 
 import './App.css';
 import About from './pages/About';
@@ -14,7 +15,11 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Village from './pages/Village';
 import Search from './pages/Search';
-import Nav from './components/Nav'
+import Request from './pages/Request';
+import Nav from './components/Nav';
+import SignUp from './pages/SignUp';
+import CreateReq from './pages/CreateReq';
+import CreateVillages from './pages/CreateVillage';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -50,6 +55,10 @@ function App() {
               element={<About />}
               />
             <Route
+              path="/signup"
+              element={<SignUp />}
+              />
+            <Route
               path='/profile/:id'
               element={<Profile />}
               />
@@ -58,13 +67,26 @@ function App() {
               element={<Village />}
               />
             <Route
+              path ='/village/:id/create-request'
+              element ={<CreateReq />}
+              />
+            <Route
+              path='/village/:id/request/:id'
+              element={<Request />}
+              />
+            <Route
               path='/search'
               element={<Search />}
               />
-
+            <Route
+              path='village/:id/create-village'
+              element={<CreateVillages />}
+              />
           </Routes>
              <footer>
-              <Nav />
+              {
+                AuthService.loggedIn() && (<Nav />) 
+              }              
               </footer> 
         </div>
       </Router>
