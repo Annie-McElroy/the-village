@@ -20,6 +20,7 @@ import Nav from './components/Nav';
 import SignUp from './pages/SignUp';
 import CreateReq from './pages/CreateReq';
 import CreateVillages from './pages/CreateVillage';
+import EditProf from './pages/EditProfile';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -61,6 +62,10 @@ function App() {
             <Route
               path='/profile/:id'
               element={<Profile />}
+              />
+            <Route
+              path='/profile/:id/edit-profile'
+              element={<EditProf />}
               />
             <Route
               path='/village/:id'
