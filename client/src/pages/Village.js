@@ -9,6 +9,7 @@ const Village = () => {
       {/* <DisplayRequest /> */}
       <ClaimRequestButton />
       <CreateRequest />
+      
     </div>
 
   );

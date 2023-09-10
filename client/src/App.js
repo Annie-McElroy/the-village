@@ -7,6 +7,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import AuthService from './utils/auth';
 
 import './App.css';
 import About from './pages/About';
@@ -14,7 +15,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Village from './pages/Village';
 import Search from './pages/Search';
-import Request from '.pages/Request';
+import Request from './pages/Request';
 import Nav from './components/Nav';
 
 const httpLink = createHttpLink({
@@ -69,7 +70,9 @@ function App() {
 
           </Routes>
              <footer>
-              <Nav />
+              {
+                AuthService.loggedIn() && (<Nav />) 
+              }              
               </footer> 
         </div>
       </Router>

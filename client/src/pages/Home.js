@@ -1,22 +1,25 @@
 import React from "react";
-// import LoginForm from "../components/LoginForm";
-import Crayon from "../components/Crayons";
-import ClaimRequestButton from "../components/ClaimRequestButton";
-import Village from "./Village";
+import LoginForm from "../components/LoginForm";
+import AuthService from "../utils/auth";
+import './styles/home.css'
+
 
 
 
 const Home = () => {
   return (
     <div className="landing-page">
-      <div className="hero-banner" style={{ position: 'relative' }}>
-        <img className="layered-village base" alt="Layered village" src="/icons/layered-village-base-1.png" />
-        <img className="layered-village foreground" alt="Layered village" src="/icons/layered-village-foreground-1.png" />
-        <img className="layered-village clouds" alt="Layered village" src="/icons/layered-village-clouds-1.png" />
-        <Crayon />
-        <ClaimRequestButton />
-        <div><Village /></div>
+      <div className="banner">
+        <div className="layered-village base" alt="base"></div>
+        <div className="layered-village foreground" alt="foreground"></div>
+        <div className="layered-village clouds" alt="foreground"></div>
+
       </div>
+      {AuthService.loggedIn()
+        ? (<div>Logged In!</div>)
+        : (<LoginForm />)
+      }
+      <div style={{ height: '80px' }}></div>
     </div>
   );
 };

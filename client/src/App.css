@@ -37,27 +37,6 @@
   }
 }
 
-/** Layered  image of village banner **/
-.layered-village {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.layered-village.base {
-  z-index: 10;
-}
-
-.layered-village.foreground {
-  z-index: 20;
-}
-
-.layered-village.clouds {
-  z-index: 30;
-}
-
-
-
 /** Fix navbar to the bottom of the page **/
 
 footer {
@@ -69,6 +48,7 @@ footer {
   align-items: center;
   height: 60px;
   background-color: #f5f5f5;
+  margin-top: 80px;
 }
 
 @media (max-width: 768px) {
