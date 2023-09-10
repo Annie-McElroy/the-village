@@ -72,9 +72,9 @@ const typeDefs = gql`
         addVillager(username: String!, email: String!, password: String!, firstName: String!, lastName: String!, zipcode: Int!, crayons: Int!): Auth
         addVillage(name: String!, zipcode: Int!): Village
         addRequest(title: String!, body: String!, crayons: Int!): Request
-        editVillager(username: String, email: String, password: String, firstName: String, lastName: String, zipcode: Int): Villager
-        editVillage(name: String, zipcode: Int): Village
-        editRequest(title: String, body: String, crayon: Int): Request
+        updateVillager(username: String, email: String, password: String, firstName: String, lastName: String, zipcode: Int): Villager
+        updateVillage(name: String, zipcode: Int): Village
+        updateRequest(title: String, body: String, crayon: Int): Request
         login(email: String!, password: String!): Auth
     }
 `;
