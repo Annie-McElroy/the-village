@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // import crayon schema
-const crayon = require('./Crayon')
+const crayons = require('./Crayon')
 
 // use the schema constructor from mongoose
 const { Schema } = mongoose;
@@ -52,7 +52,7 @@ const villagerSchema = new Schema({
 
 
     //crayons associated w/ the villager
-    crayons: [crayon],
+    crayons: [crayons],
 
     //requests associated w/ the villager
     requests: [
