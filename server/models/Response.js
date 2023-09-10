@@ -6,12 +6,10 @@ const { Schema } = mongoose;
 
 // reference the id from the Villager model
 const responseSchema = new Schema({
-    claimId: [
-        {
+    claimId: {
             type: Schema.Types.ObjectId,
             ref: 'Villager'
-        }
-    ]
+    },
 });
 
 //create a mongoose model named Response associated w/ the above schema

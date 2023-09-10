@@ -43,7 +43,7 @@ const typeDefs = gql`
 
     type Response {
         _id: ID
-        claimedId: Villager
+        claimId: Villager
     }
 
     type Comment {
