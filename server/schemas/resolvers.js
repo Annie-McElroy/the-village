@@ -22,8 +22,17 @@ const resolvers = {
         villages: async () => {
             return await Village.find().populate('villagers').populate('admin');
         },
+        requests: async () => {
+            return await Request.find().populate('authorId').populate({
+                path: 'response',
+                populate: 'claimId'
+            });
+        },
         request: async (parent, { _id }) => {
-            return await Request.findById(_id).populate('comments').populate('response');
+            return await Request.findById(_id).populate('authorId').populate({
+                path: 'response',
+                populate: 'claimId'
+            });
         }
     },
     Mutation: {

@@ -66,7 +66,9 @@ db.once('open', async () => {
             isComplete: false,
             isClaimed: true,
             // comments: comments[0].body,
-            response: villagers[1]._id,
+            response: {
+                claimId: villagers[1]._id,
+            }
         }
     ])
 
