@@ -1,3 +1,4 @@
+//Import required modules
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
@@ -17,16 +18,19 @@ const server = new ApolloServer({
     context: authMiddleware,
 });
 
+// Configure express middleware for parsing incoming req bodies in url-encoded and JSON formats
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Serve up static assets
+// Serve up static assets using built-in Express middleware
 app.use('/images', express.static(path.join(__dirname, '../client/images')));
 
+// Serve static assets once in production 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
+// Send root route to index html once in production 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
