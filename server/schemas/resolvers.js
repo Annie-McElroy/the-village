@@ -47,8 +47,6 @@ const resolvers = {
 
         addVillage: async (parent, args, context) => {
 
-            console.log(context)
-
             if (context.user) {
 
                 const village = Village.create({...args, admin: context.user, villagers: [context.user]})
@@ -59,10 +57,23 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
 
         },
-        addRequest: async (parent, args) => {
-            const request = await Request.create(args);
+        addRequest: async (parent, args, context) => {
 
-            return request;
+            if (context.user) {
+
+                console.log('args right here', args)
+
+                const request = await Request.create({...args, authorId: context.user, isClaimed: false, isComplete: false });
+
+                await Villager.findByIdAndUpdate(context.user._id, { $push: { requests: request } });
+
+                await Village.findByIdAndUpdate(context.user.village._id,{village: context.user.village._id} );
+
+                return request;
+            }
+
+            throw new AuthenticationError('Not logged in');
+
         },
         updateVillager: async (parent, args, context) => {
             if (context.user) {
@@ -75,11 +86,22 @@ const resolvers = {
             if (context.village) {
                 return await Village.findByIdAndUpdate(context.village._id, args, { new: true });
             }
+
+            throw new AuthenticationError('Not logged in')
         },
         updateRequest: async (parent, args, context) => {
             if (context.request) {
-                return await Request.findByIdAndUpdate(contest.request._id, args, { new: true });
+                return await Request.findByIdAndUpdate(context.request._id, args, { new: true });
             }
+
+            throw new AuthenticationError('Not logged in')
+        },
+        joinVillage: async (parent, { _id }, context) => {
+            if (context.user) {
+                return await Villager.findByIdAndUpdate(context.user._id, { $push: { village: _id} });
+            }
+
+            throw new AuthenticationError('Not logged in')
         },
         login: async (parent, { email, password }) => {
             const user = await Villager.findOne({ email });
@@ -91,14 +113,10 @@ const resolvers = {
             const correctPw = await user.isCorrectPassword(password);
 
             if (!correctPw) {
-                console.log('password is actually "' + password + '"')
-                console.log('this.password is actually "' + this.password + '"')
-                throw new AuthenticationError('Incorrect credentials - password');
-                
+                throw new AuthenticationError('Incorrect credentials');                
             }
 
             const token = signToken(user);
-            console.log('This is the villager ' + user)
 
             return { token, user };
         }

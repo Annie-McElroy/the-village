@@ -21,11 +21,11 @@ const commentSchema = new Schema({
         required: true,
     },
 
-    requestId: {
-        type: Schema.Types.ObjectId,
-        ref: 'Request',
-        required: true
-    },
+    // requestId: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Request',
+    //     required: true
+    // },
 
     createdAt: {
         type: Date,
