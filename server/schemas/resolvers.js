@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Comment, Crayon, Request, Response, Village, Villager } = require('../models');
+const { Comment, Request, Village, Villager } = require('../models');
 const { signToken } = require('../utils/auth')
 
 // api key required from stripe account
