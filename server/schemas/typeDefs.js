@@ -81,6 +81,10 @@ const typeDefs = gql`
         updateVillager(username: String, email: String, password: String, firstName: String, lastName: String, zipcode: Int): Villager
         updateVillage(name: String, zipcode: Int): Village
         updateRequest(title: String, body: String, crayon: Int): Request
+        deleteVillager(_id: ID!): Villager
+        deleteVillage(_id: ID!): Village
+        deleteRequest(_id: ID!): Request
+        deleteComment(_id: ID!): Comment
         login(email: String!, password: String!): Auth
     }
 `;

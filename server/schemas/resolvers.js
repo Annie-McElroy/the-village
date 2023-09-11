@@ -87,6 +87,18 @@ const resolvers = {
                 return await Request.findByIdAndUpdate(contest.request._id, args, { new: true });
             }
         },
+        deleteVillager: async (parent, {_id}) => {
+            return Villager.findOneAndDelete({ _id });
+        },
+        deleteVillage: async (parent, {_id}) => {
+            return Village.findOneAndDelete({ _id });
+        },
+        deleteRequest: async (parent, {_id}) => {
+            return Request.findOneAndDelete({ _id });
+        },
+        deleteComment: async (parent, {_id}) => {
+            return Comment.findOneAndDelete({ _id });
+        },
         login: async (parent, { email, password }) => {
             const user = await Villager.findOne({ email });
 
