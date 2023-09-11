@@ -63,7 +63,7 @@ function App() {
               path='/profile/:id'
               element={<Profile />}
               />
-            <Route
+              <Route
               path='/profile/:id/edit-profile'
               element={<EditProf />}
               />
