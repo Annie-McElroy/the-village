@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import Button from '@mui/material/Button';
+import { Email, Lock } from '@mui/icons-material';
 
 
 export default function LoginForm(props) {
@@ -32,41 +33,55 @@ export default function LoginForm(props) {
   };
 
   return (
-    <div className="container my-1">
-      <h2> Login </h2>
+    <div className="container my-1 login-form">
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email"> Email address: </label>
+      <div className="input">
+        <div className="flex-row space-between my-2 frame">
+        <span>
+    <Email style={{ color: '#CCCCCC' }} />
+  </span>
+  <div className="email-2">
+
+          <label htmlFor="email" className="text-wrapper-3"> Email address: </label>
           <input
             placeholder="youremail@email.com"
             name="email"
             type="email"
             id="email"
             onChange={handleChange}
-          />
+            className="text-wrapper-4"
+             />
+             </div>
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
+        <div className="flex-row space-between my-2 frame">
+          <span>
+            <Lock style={{ color: '#CCCCCC' }}/>
+          </span>
+          <div className="email-2">
+          <label htmlFor="pwd" className="text-wrapper-3">Password:</label>
           <input
             placeholder="******"
             name="password"
             type="password"
             id="pwd"
             onChange={handleChange}
+            className="text-wrapper-4"
           />
+          </div>
+        </div>
         </div>
         {error
           ? (<div>
             <p className="error-text">The provided credentials are incorrect</p>
           </div>)
           : null}
-        <div className="flex-row flew-end">
-          <button type="submit">Submit</button>
+        <div className="flex-row flew-end email-wrapper">
           <Button
-            color="primary"
+            color="tertiary"
             size="large"
-            variant="filled"
-            href="/signup"> Sign Up </Button>
+            variant="contained"
+            href="/profile/:id"
+            className="email-2"> <div className="text-wrapper-5">Login</div></Button>
         </div>
       </form>
     </div>
