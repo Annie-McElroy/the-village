@@ -13,6 +13,7 @@ import './App.css';
 import About from './pages/About';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import EditProf from './pages/EditProfile';
 import Village from './pages/Village';
 import Search from './pages/Search';
 import Request from './pages/Request';
@@ -20,7 +21,6 @@ import Nav from './components/Nav';
 import SignUp from './pages/SignUp';
 import CreateReq from './pages/CreateReq';
 import CreateVillages from './pages/CreateVillage';
-import EditProf from './pages/EditProfile';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
