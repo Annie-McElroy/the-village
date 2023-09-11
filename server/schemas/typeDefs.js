@@ -59,6 +59,10 @@ const typeDefs = gql`
         user: Villager
     }
 
+    input CrayonInput {
+        amount: Int!
+    }
+
     type Query {
         villager(_id: ID!): Villager
         villagers: [Villager]
@@ -69,7 +73,7 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addVillager(username: String!, email: String!, password: String!, firstName: String!, lastName: String!, zipcode: Int!): Auth
+        addVillager(username: String!, email: String!, password: String!, firstName: String!, lastName: String!, zipcode: Int!, crayons: CrayonInput!): Auth
         addVillage(name: String!, zipcode: Int!): Village
         addRequest(title: String!, body: String!, crayons: Int!): Request
         updateVillager(username: String, email: String, password: String, firstName: String, lastName: String, zipcode: Int): Villager
