@@ -15,10 +15,11 @@ const Home = () => {
         <div className="layered-village clouds" alt="foreground"></div>
 
       </div>
-      {AuthService.loggedIn()
+      <LoginForm />
+      {/* {AuthService.loggedIn()
         ? (<div>Logged In!</div>)
         : (<LoginForm />)
-      }
+      } */}
       <div style={{ height: '80px' }}></div>
     </div>
   );

@@ -15,11 +15,14 @@ export default function FormPropsTextFields() {
       <div>
         <TextField
           required
+          fullWidth
           id="outlined-required"
           label="Required"
           placeholder="Title"
         />
         <TextField
+          required
+          fullWidth
           id="outlined-textarea"
           label="Description"
           placeholder="Description"
