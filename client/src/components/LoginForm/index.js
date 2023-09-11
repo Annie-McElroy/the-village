@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
-import Button from '@mui/material-next/Button';
+import Button from '@mui/material/Button';
 
 
 export default function LoginForm(props) {
@@ -66,7 +66,7 @@ export default function LoginForm(props) {
             color="primary"
             size="large"
             variant="filled"
-            href="/signup"> sign up </Button>
+            href="/signup"> Sign Up </Button>
         </div>
       </form>
     </div>
