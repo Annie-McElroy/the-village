@@ -13,6 +13,7 @@ import './App.css';
 import About from './pages/About';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import EditProf from './pages/EditProfile';
 import Village from './pages/Village';
 import Search from './pages/Search';
 import Request from './pages/Request';
@@ -61,6 +62,10 @@ function App() {
             <Route
               path='/profile/:id'
               element={<Profile />}
+              />
+            <Route
+              path='/profile/:id/edit-profile'
+              element={<EditProf />}
               />
             <Route
               path='/village/:id'
