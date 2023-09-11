@@ -69,4 +69,79 @@
   line-height: normal;
   position: relative;
   top: 43px;
+  
+}
+
+.landing-page .p {
+  color: #00425a;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  left: 101px;
+  letter-spacing: 0;
+  line-height: 17.9px;
+  position: relative;
+  text-align: center;
+  top: 167px;
+  white-space: nowrap;
+}
+
+.landing-page .text-wrapper-2 {
+  color: #00425a;
+  font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+  font-weight: 400;
+  left: 78px;
+  letter-spacing: 0;
+  line-height: 19.3px;
+  position: relative;
+  text-align: center;
+  top: 351px;
+  white-space: nowrap;
+}
+
+.landing-page .login-CTA-2 {
+  left: 120px !important;
+  position: absolute !important;
+  top: 122px !important;
+}
+
+
+.landing-page .login-form {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 20px;
+  left: 41px;
+  position: absolute;
+  top: 390px;
+}
+
+.landing-page .input {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.landing-page .frame {
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #e9ecef;
+  border-radius: 8px;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 18px;
+  padding: 15px 20px;
+  position: relative;
+  width: 311px;
+}
+
+.landing-page .icon-instance-node {
+  height: 24px !important;
+  position: relative !important;
+  width: 24px !important;
 }

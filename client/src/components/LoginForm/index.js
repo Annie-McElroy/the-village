@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import Button from '@mui/material/Button';
+import { Email, Lock } from '@mui/icons-material';
 
 
 export default function LoginForm(props) {
@@ -32,10 +33,13 @@ export default function LoginForm(props) {
   };
 
   return (
-    <div className="container my-1">
-      <h2> Login </h2>
+    <div className="container my-1 login-form">
       <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
+      <div className="input">
+        <div className="flex-row space-between my-2 frame">
+        <span>
+    <Email style={{ color: '#CCCCCC' }} />
+  </span>
           <label htmlFor="email"> Email address: </label>
           <input
             placeholder="youremail@email.com"
@@ -43,9 +47,12 @@ export default function LoginForm(props) {
             type="email"
             id="email"
             onChange={handleChange}
-          />
+             />
         </div>
-        <div className="flex-row space-between my-2">
+        <div className="flex-row space-between my-2 frame">
+          <span>
+            <Lock style={{ color: '#CCCCCC' }}/>
+          </span>
           <label htmlFor="pwd">Password:</label>
           <input
             placeholder="******"
@@ -55,18 +62,18 @@ export default function LoginForm(props) {
             onChange={handleChange}
           />
         </div>
+        </div>
         {error
           ? (<div>
             <p className="error-text">The provided credentials are incorrect</p>
           </div>)
           : null}
         <div className="flex-row flew-end">
-          <button type="submit">Submit</button>
           <Button
-            color="primary"
+            color="secondary"
             size="large"
-            variant="filled"
-            href="/signup"> Sign Up </Button>
+            variant="contained"
+            href="/profile/:id"> Log In</Button>
         </div>
       </form>
     </div>
