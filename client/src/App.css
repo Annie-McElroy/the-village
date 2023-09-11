@@ -37,6 +37,13 @@
   }
 }
 
+/** Image transition for Nav Logo**/
+.logo-transition {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
 /** Fix navbar to the bottom of the page **/
 
 footer {

@@ -32,6 +32,7 @@ export default function CreateReq() {
       <div>
         <TextField
           required
+          fullWidth
           id="outlined-required"
           label="Required"
           placeholder="Title"
@@ -39,6 +40,8 @@ export default function CreateReq() {
           onChange={handleInputChange}
         />
         <TextField
+          required
+          fullWidth
           id="outlined-textarea"
           label="Description"
           placeholder="Description"

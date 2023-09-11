@@ -17,14 +17,31 @@ import Village from '../../pages/Village';
 const StyledFab = styled(Fab)({
   position: 'absolute',
   zIndex: 1,
-  top: -30,
+  top: -60,
   left: 0,
   right: 0,
   margin: '0 auto',
+  height: 120,
+  width: 120,
 });
 
 export default function Nav() {
   const [value, setValue] = React.useState(0);
+  const [imageSrc, setImageSrc] = React.useState('/icons/the-village-logo-white.svg');
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  const handleMouseEnter = () => {
+    setImageSrc('/icons/the-village-logo.svg');
+    setIsHovered(true);
+  };
+  const handleMouseLeave = () => {
+    setImageSrc('/icons/the-village-logo-white.svg');
+    setIsHovered(false);
+  };
+  const handleClick = () => {
+    setImageSrc('/icons/the-village-logo.svg');
+    setIsHovered(!isHovered);
+  };
 
   return (
     <React.Fragment>
@@ -33,11 +50,19 @@ export default function Nav() {
         <Toolbar>
 
           <IconButton color="inherit" component={Link} to="/">
-          <HolidayVillageIcon />
+            <HolidayVillageIcon />
           </IconButton>
 
-          <StyledFab color="secondary" aria-label="village" component={Link} to="/village/:id">
-                <Diversity1Icon />
+          <StyledFab
+            color="tertiary"
+            aria-label="village"
+            component={Link}
+            to="/village/:id"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={handleClick}
+          >
+            <img src={imageSrc} height='100px' className="logo-transition" />
           </StyledFab>
           <Box sx={{ flexGrow: 1 }} />
 
