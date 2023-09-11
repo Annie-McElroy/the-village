@@ -1,6 +1,10 @@
 /** Layered  image of village banner **/
 .landing-page {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 }
 
 .banner {
@@ -15,7 +19,7 @@
 .base {
   width: 100%;
   height: 600px;
-  background: url(../../../public/icons/layered_village_base.png) repeat-x center center;
+  background: url(../../../public/icons/layered_village_base.png) repeat-x top center;
   background-size: contain;
   position: absolute;
   top: 0;
@@ -26,7 +30,7 @@
 .foreground {
   width: 100%;
   height: 600px;
-  background: url(../../../public/icons/layered_village_foreground.png) no-repeat center center;
+  background: url(../../../public/icons/layered_village_foreground.png) no-repeat top center;
   background-size: contain;
   display: block;
   margin: 0 auto;
@@ -42,7 +46,7 @@
 .clouds {
   width: 100%;
   height: 600px;
-  background: url(../../../public/icons/layered_village_clouds.png) no-repeat center center;
+  background: url(../../../public/icons/layered_village_clouds.png) no-repeat top center;
   background-size: contain;
   display: block;
   margin: 0 auto;
@@ -53,4 +57,16 @@
   bottom: 0;
   z-index: 3;
   
+}
+
+.landing-page .text-wrapper {
+  color: #edf7fc;
+  font-family: "Oxygen", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 86px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  top: 43px;
 }
