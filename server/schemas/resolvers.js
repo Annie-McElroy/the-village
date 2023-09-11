@@ -39,15 +39,25 @@ const resolvers = {
     },
     Mutation: {
         addVillager: async (parent, args) => {
-            const villager = await Villager.create(args);
-            const token = signToken(villager);
+            const user = await Villager.create(args);
+            const token = signToken(user);
 
-            return { token, villager };
+            return { token, user };
         },
-        addVillage: async (parent, args) => {
-            const village = await Village.create(args);
 
-            return village;
+        addVillage: async (parent, args, context) => {
+
+            console.log(context)
+
+            if (context.user) {
+
+                const village = Village.create({...args, admin: context.user, villagers: [context.user]})
+                return village;
+
+            }
+
+            throw new AuthenticationError('Not logged in');
+
         },
         addRequest: async (parent, args) => {
             const request = await Request.create(args);
@@ -55,8 +65,8 @@ const resolvers = {
             return request;
         },
         updateVillager: async (parent, args, context) => {
-            if (context.villager) {
-                return await Villager.findByIdAndUpdate(context.villager._id, args, { new: true });
+            if (context.user) {
+                return await Villager.findByIdAndUpdate(context.user._id, args, { new: true });
             }
 
             throw new AuthenticationError('Not logged in');
@@ -66,12 +76,10 @@ const resolvers = {
                 return await Village.findByIdAndUpdate(context.village._id, args, { new: true });
             }
         },
-        updateRequest: async (parent, args,) => {
-            const token = signToken(Request);
-            if (Request) {
-                return await Request.findByIdAndUpdate(request._id, args, { new: true });
+        updateRequest: async (parent, args, context) => {
+            if (context.request) {
+                return await Request.findByIdAndUpdate(contest.request._id, args, { new: true });
             }
-            return { token }
         },
         login: async (parent, { email, password }) => {
             const user = await Villager.findOne({ email });
