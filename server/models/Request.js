@@ -35,12 +35,6 @@ const requestSchema = new Schema({
         required: true,
     },
 
-    villageId: {
-        type: Schema.Types.ObjectId,
-        ref: 'Village',
-        required: true,
-    },
-
     createdAt: {
         type: Date,
         default: Date.now,
