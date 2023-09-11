@@ -16,6 +16,7 @@ export const VillageTheme = createTheme({
       main: '#BFDB38', // Lime Green: highlight color
     },
   },
+  
   typography: {
     fontFamily: 'Cantarell, Kameron, Marcellus, Montserrat, Oxygen, sans-serif',
     fontSize: 16,
@@ -119,5 +120,15 @@ export const VillageTheme = createTheme({
   },
 
   spacing: 8, // Spacing between elements
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '::selection': {
+          backgroundColor: '#BFDB38', // Set the background color of selected text to lime green
+          color: '#000000', // Set the text color of selected text to black
+        },
+      },
+    },
+  },
 });
 

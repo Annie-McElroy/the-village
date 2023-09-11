@@ -1,6 +1,7 @@
 import React from "react";
 import LoginForm from "../components/LoginForm";
 import AuthService from "../utils/auth";
+import Button from '@mui/material/Button';
 import './styles/home.css'
 
 
@@ -18,9 +19,20 @@ const Home = () => {
         </div>
 
         <div className="text-wrapper">Welcome to the Village!</div>
-        <p className="p">Connect to your village today!</p>
+
+        <p className="p">
+        <Button
+            color="secondary"
+            size="large"
+            variant="contained"
+            href="/signup"
+            > <div className="text-wrapper-5">Sign Up</div></Button>
+        <br /><br />Connect to your village today!</p>
         <p className="text-wrapper-2">Already a Villager? Welcome back!</p>
-        <LoginForm  className="login-CTA-2"/>
+        <LoginForm className="login-CTA-2" />
+
+      
+
         {/* {AuthService.loggedIn()
         ? (<div>Logged In!</div>)
         : (<LoginForm />)

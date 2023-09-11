@@ -40,27 +40,34 @@ export default function LoginForm(props) {
         <span>
     <Email style={{ color: '#CCCCCC' }} />
   </span>
-          <label htmlFor="email"> Email address: </label>
+  <div className="email-2">
+
+          <label htmlFor="email" className="text-wrapper-3"> Email address: </label>
           <input
             placeholder="youremail@email.com"
             name="email"
             type="email"
             id="email"
             onChange={handleChange}
+            className="text-wrapper-4"
              />
+             </div>
         </div>
         <div className="flex-row space-between my-2 frame">
           <span>
             <Lock style={{ color: '#CCCCCC' }}/>
           </span>
-          <label htmlFor="pwd">Password:</label>
+          <div className="email-2">
+          <label htmlFor="pwd" className="text-wrapper-3">Password:</label>
           <input
             placeholder="******"
             name="password"
             type="password"
             id="pwd"
             onChange={handleChange}
+            className="text-wrapper-4"
           />
+          </div>
         </div>
         </div>
         {error
@@ -68,12 +75,13 @@ export default function LoginForm(props) {
             <p className="error-text">The provided credentials are incorrect</p>
           </div>)
           : null}
-        <div className="flex-row flew-end">
+        <div className="flex-row flew-end email-wrapper">
           <Button
-            color="secondary"
+            color="tertiary"
             size="large"
             variant="contained"
-            href="/profile/:id"> Log In</Button>
+            href="/profile/:id"
+            className="email-2"> <div className="text-wrapper-5">Login</div></Button>
         </div>
       </form>
     </div>
