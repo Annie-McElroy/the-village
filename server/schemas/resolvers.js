@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Comments, Crayon, Request, Response, Village, Villager } = require('../models');
+const { Comment, Crayon, Request, Response, Village, Villager } = require('../models');
 const { signToken } = require('../utils/auth')
 
 // api key required from stripe account
@@ -35,6 +35,12 @@ const resolvers = {
                 path: 'response',
                 populate: 'claimId'
             });
+        },
+        comment: async (parent, { _id }) => {
+            return await Comment.findById(_id).populate('authorId').populate('requestId');
+        },
+        comments: async () => {
+            return await Comment.find().populate('authorId').populate('requestId');
         }
     },
     Mutation: {

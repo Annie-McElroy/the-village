@@ -70,6 +70,8 @@ const typeDefs = gql`
         villages(zipcode: Int): [Village]
         request(_id: ID!): Request
         requests: [Request]
+        comment(_id: ID!): Comment
+        comments: [Comment]
     }
 
     type Mutation {
