@@ -1,8 +1,8 @@
 import React from 'react';
 import ProfileInfo from '../components/UserProfile';
+import BackMeUp from '../components/BackBtn';
 
 function Profile(){
-
   const cardData = [
     {
       avatarSrc: '/images/gravatar.png',
@@ -16,6 +16,7 @@ function Profile(){
 
   return (
     <div>
+      <BackMeUp />
       <h1>This is the Profile Page</h1>
       {cardData.map((data, index) => (
         <ProfileInfo key={index} {...data} />
