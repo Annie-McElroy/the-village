@@ -3,8 +3,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material';
 import ClaimRequestButton from '../ClaimRequestButton';
+import Comments from '../Comment';
 
 export default function MultiActionAreaCard() {
   return (
@@ -27,6 +28,9 @@ export default function MultiActionAreaCard() {
       </CardActionArea>
       <CardActions>
         <ClaimRequestButton />
+      </CardActions>
+      <CardActions>
+        <Comments />
       </CardActions>
     </Card>
   );
