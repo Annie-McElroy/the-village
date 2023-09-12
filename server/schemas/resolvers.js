@@ -61,15 +61,21 @@ const resolvers = {
 
             if (context.user) {
 
-                console.log('args right here', args)
+                // console.log('args right here', args)
 
                 const request = await Request.create({...args, authorId: context.user, isClaimed: false, isComplete: false });
 
-                await Villager.findByIdAndUpdate(context.user._id, { $addToSet: { requests: request } });
+                request.populate('authorId');
 
-                console.log(request)
+                
+                console.log('user info', context.user)
+                await Villager.findByIdAndUpdate(context.user._id, { $addToSet: { requests: request } }).populate('village');
+                
+                
+                console.log('new request id', request._id)
+                // console.log('village id', context.user.village)
 
-                await Village.findByIdAndUpdate(context.user.village._id,{village: context.user.village} );
+                await Village.findByIdAndUpdate(context.user.village, { $push: { requests: request._id } }, { new: true });
 
                 return request;
             }
