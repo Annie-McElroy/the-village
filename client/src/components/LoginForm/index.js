@@ -17,8 +17,12 @@ export default function LoginForm(props) {
       const mutationResponse = await LoginForm({
         variables: { email: formState.email, password: formState.password },
       });
+      const user = mutationResponse.data.login.user;
       const token = mutationResponse.data.login.token;
+
       Auth.login(token);
+
+      window.location.replace(`/profile/${user._id}`);
     } catch (e) {
       console.log(e);
     }
@@ -80,7 +84,6 @@ export default function LoginForm(props) {
             color="tertiary"
             size="large"
             variant="contained"
-            href="/profile/:id"
             onClick={handleFormSubmit}
             className="email-2"> <div className="text-wrapper-5">Login</div></Button>
         </div>

@@ -21,15 +21,15 @@ const Home = () => {
 
         <div className="text-wrapper">Welcome to The Village!</div>
 
-        <p className="p">
+        <div className="p">
           <Button
             color="secondary"
             size="large"
             variant="contained"
             href="/signup"
           > <div className="text-wrapper-5">Sign Up</div></Button>
-          </p>
-          <p className="p" id="subheading-for-signup">Connect to your village today!</p>
+          </div>
+          <div className="p" id="subheading-for-signup">Connect to your village today!</div>
 
         <div className="overlap-group">
           <p className="text-wrapper-2">Already a Villager? Welcome back!</p>
