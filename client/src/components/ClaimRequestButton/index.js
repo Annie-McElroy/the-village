@@ -18,7 +18,7 @@ class ClaimRequestButton extends Component {
         <Button variant="contained" color="primary" onClick={this.handleClick} disabled={this.state.clicked}> 
         {this.state.clicked ? 'Request has been claimed!' : 'Claim Request' }
         </Button>
-
+{/* need to find a way to attach the disabled button to a closed request */}
       </div>
     )
   }

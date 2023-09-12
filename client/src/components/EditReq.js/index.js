@@ -4,9 +4,9 @@ import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import Button from '@mui/material/Button'
 
-export default function CreateReq() {
+export default function EditReq() {
   const [userInput, setUserInput] = useState('');
   const [userInput2, setUserInput2] = useState('');
   const [userInput3, setUserInput3] = useState('');
@@ -73,11 +73,10 @@ export default function CreateReq() {
           </Typography>
         </CardContent>
         <Button variant="contained" href="/village/:id/">
-        Submit Request
+        Update Request
       </Button>
       </Card>
       </div>
     </Box>
   );
 }
-
