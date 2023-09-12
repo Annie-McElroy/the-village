@@ -74,11 +74,11 @@ db.once('open', async () => {
             zipcode: 44608,
             admin:
                 villagers[0]._id,
-            villagers:
-                [
-                    villagers[0]._id,
-                    villagers[1]._id,
-                ],
+            // villagers:
+            //     [
+            //         villagers[0]._id,
+            //         villagers[1]._id,
+            //     ],
             requests:
                 [
                     request[0]._id
