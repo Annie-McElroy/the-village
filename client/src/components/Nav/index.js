@@ -9,12 +9,10 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Diversity1Icon from '@mui/icons-material/Diversity1';
-import About from '../../pages/About';
-import Profile from '../../pages/Profile';
-import Village from '../../pages/Village';
+
 
 const StyledFab = styled(Fab)({
+  // styling for center Nav Village button
   position: 'absolute',
   zIndex: 1,
   top: -60,
@@ -28,8 +26,9 @@ const StyledFab = styled(Fab)({
 export default function Nav() {
   const [value, setValue] = React.useState(0);
   const [imageSrc, setImageSrc] = React.useState('/icons/the-village-logo-white.svg');
-  const [isHovered, setIsHovered] = React.useState(false);
+  const [isHovered, setIsHovered] = React.useState(false); // Transition effect state
 
+  // Villeage Logo hover and click effect will swap image for icon
   const handleMouseEnter = () => {
     setImageSrc('/icons/the-village-logo.svg');
     setIsHovered(true);
@@ -49,10 +48,12 @@ export default function Nav() {
       <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
         <Toolbar>
 
+          {/* "Home" button will direct logged in user to "what is the village page" */}
           <IconButton color="inherit" component={Link} to="/">
             <HolidayVillageIcon />
           </IconButton>
 
+          {/* "Village" button will direct logged in user to "their village" page */}
           <StyledFab
             color="tertiary"
             aria-label="village"
@@ -64,8 +65,11 @@ export default function Nav() {
           >
             <img src={imageSrc} height='100px' className="logo-transition" />
           </StyledFab>
+
+          {/* this line fixes the position of the profile button to the far right of the nav bar */}
           <Box sx={{ flexGrow: 1 }} />
 
+          {/* "Profile" button will direct logged in user to their own profile page */}
           <IconButton color="inherit" component={Link} to="/profile/:id">
             <AccountCircleIcon />
           </IconButton>

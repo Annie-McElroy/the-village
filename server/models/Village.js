@@ -31,7 +31,15 @@ const villageSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Villager'
         }
-    ]
+    ],
+
+    // requests associated w/ the village
+    requests: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Request'
+        }
+    ],
 })
 
 //create a mongoose model named Village associated w/ the above schema

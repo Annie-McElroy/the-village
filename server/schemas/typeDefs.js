@@ -12,6 +12,7 @@ const typeDefs = gql`
         zipcode: Int
         crayons: [Crayon]
         requests: [Request]
+        village: [Village]
     }
 
     type Village {
@@ -20,6 +21,7 @@ const typeDefs = gql`
         zipcode: Int
         admin: Villager
         villagers: [Villager]
+        requests: [Request]
     }
 
     type Crayon {
@@ -33,7 +35,6 @@ const typeDefs = gql`
         body: String
         crayons: Int
         authorId: Villager
-        villageId: Village
         createdAt: String
         isComplete: Boolean
         isClaimed: Boolean
@@ -79,6 +80,7 @@ const typeDefs = gql`
         updateVillager(username: String, email: String, password: String, firstName: String, lastName: String, zipcode: Int): Villager
         updateVillage(name: String, zipcode: Int): Village
         updateRequest(title: String, body: String, crayon: Int): Request
+        joinVillage(village: [ID]!): Villager
         login(email: String!, password: String!): Auth
     }
 `;
