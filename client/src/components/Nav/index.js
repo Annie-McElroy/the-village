@@ -19,8 +19,8 @@ const StyledFab = styled(Fab)({
   left: 0,
   right: 0,
   margin: '0 auto',
-  height: 120,
-  width: 120,
+  height: 90,
+  width: 90,
 });
 
 export default function Nav() {
@@ -63,7 +63,7 @@ export default function Nav() {
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}
           >
-            <img src={imageSrc} height='100px' className="logo-transition" />
+            <img src={imageSrc} height='80px' className="logo-transition" />
           </StyledFab>
 
           {/* this line fixes the position of the profile button to the far right of the nav bar */}

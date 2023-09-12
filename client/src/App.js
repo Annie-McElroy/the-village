@@ -12,6 +12,7 @@ import AuthService from './utils/auth';
 import './App.css';
 import About from './pages/About';
 import Home from './pages/Home';
+import WhatVillage from './pages/WhatVillage';
 import Profile from './pages/Profile';
 import EditProf from './pages/EditProfile';
 import Village from './pages/Village';
@@ -50,6 +51,10 @@ function App() {
             <Route
               path="/"
               element={<Home />}
+              />
+            <Route
+              path="/what-is-the-village"
+              element={<WhatVillage />}
               />
             <Route
               path="/about"
