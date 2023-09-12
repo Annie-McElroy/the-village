@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 
 
-export default function ProfileInfo(props) {
+export default function ProfileInfo({villager}) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -21,18 +21,18 @@ export default function ProfileInfo(props) {
   return (
     <Card sx={{ maxWidth: 500}}>
       <CardHeader
-        avatar={
-          <Avatar
-            alt="User Avatar"
-            src={props.avatarSrc} // Use the prop for the avatar source
-            sx={{ width: 56, height: 56 }}
-          />
-        }
-        title={props.userName} // Use the prop for the title
+        // avatar={
+        //   <Avatar
+        //     alt="User Avatar"
+        //     src={props.avatarSrc} // Use the prop for the avatar source
+        //     sx={{ width: 56, height: 56 }}
+        //   />
+        // }
+        title={villager.username} // Use the prop for the title
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-        <h1><img src="/images/pencil-crayon_6603971.png"  height={40}/>Crayons: {props.crayons}</h1>
+        <h1><img src="/images/pencil-crayon_6603971.png"  height={40}/>Crayons: {villager.crayons[0].amount}</h1>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -46,10 +46,10 @@ export default function ProfileInfo(props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{props.firstName}</Typography>
-          <Typography paragraph>{props.lastName}</Typography>
-          <Typography paragraph>{props.zipcode}</Typography>
-          <Typography paragraph>{props.email}</Typography>
+          <Typography paragraph>{villager.firstName}</Typography>
+          <Typography paragraph>{villager.lastName}</Typography>
+          <Typography paragraph>{villager.zipcode}</Typography>
+          <Typography paragraph>{villager.email}</Typography>
           <Button color="primary"
             size="large"
             variant="filled"
