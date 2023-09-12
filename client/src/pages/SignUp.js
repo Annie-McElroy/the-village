@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Signup from '../components/CreateAccount'
 import AuthService from "../utils/auth";
 import './styles/home.css'
-
+import BackMeUp from '../components/BackBtn';
 
 const Home = () => {
   return (
@@ -12,6 +12,9 @@ const Home = () => {
         <div className="layered-village foreground" alt="foreground"></div>
         <div className="layered-village clouds" alt="foreground"></div>
 
+      </div>
+      <div>
+      <BackMeUp />
       </div>
       {AuthService.loggedIn()
         ? (<div>Signed In!</div>)

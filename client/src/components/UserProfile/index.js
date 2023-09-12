@@ -8,7 +8,7 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import Button from '@mui/material/Button';
 
 
 export default function ProfileInfo(props) {
@@ -50,7 +50,10 @@ export default function ProfileInfo(props) {
           <Typography paragraph>{props.lastName}</Typography>
           <Typography paragraph>{props.zipcode}</Typography>
           <Typography paragraph>{props.email}</Typography>
-          <Typography paragraph>Edit Button Here</Typography>
+          <Button color="primary"
+            size="large"
+            variant="filled"
+            href="/profile/:id/edit-profile">Edit Your Profile</Button>
         </CardContent>
       </Collapse>
     </Card>
