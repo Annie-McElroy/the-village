@@ -7,24 +7,25 @@
   width: 100%;
 }
 
+
 .landing-page .text-wrapper {
-  color: #edf7fc;
-  font-family: "Kameron", sans-serif;
-  font-size: 24px;
-  font-weight: 400;
+  color: #00425a;
+  font-family: 'Marcellus', serif;
+  font-size: 32px;
+  font-weight: 600;
   letter-spacing: 0;
   line-height: normal;
   position: relative;
   top: 43px;
   text-align: center;
-  
+
 }
 
 .landing-page .p {
   color: #00425a;
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0;
   line-height: 17.9px;
   position: relative;
@@ -33,18 +34,26 @@
   white-space: nowrap;
 }
 
+.landing-page .overlap-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 20px;
+  
+}
+
+
 .landing-page .text-wrapper-2 {
   color: #00425a;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 400;
   letter-spacing: 0;
   line-height: 3em;
-  position: relative;
   text-align: center;
-  top: 351px;
   white-space: nowrap;
   background: #ffffffe3;
   border-radius: 2em;
+  
 }
 
 .landing-page .login-form {
@@ -52,8 +61,8 @@
   display: inline-flex;
   flex-direction: column;
   gap: 20px;
-  position: relative;
-  top: 360px;
+  margin-bottom: 4%;
+ 
 }
 
 .landing-page .input {
@@ -62,7 +71,7 @@
   flex: 0 0 auto;
   flex-direction: column;
   gap: 8px;
-  position: relative;
+  
 }
 
 .landing-page .frame {
@@ -75,13 +84,11 @@
   flex: 0 0 auto;
   gap: 18px;
   padding: 15px 20px;
-  position: relative;
-  width: 311px;
+  width: 356px;
 }
 
 .landing-page .icon-instance-node {
   height: 24px;
-  position: relative ;
   width: 24px;
 }
 
@@ -93,27 +100,24 @@
   flex-direction: column;
   flex-grow: 1;
   gap: 8px;
-  position: relative;
-}
+ }
 
 .landing-page .text-wrapper-3 {
   align-self: stretch;
   font-family: "Oxygen", sans-serif;
   font-size: 13px;
-  position: relative;
-}
+ }
 
 .landing-page .text-wrapper-4 {
   align-self: stretch;
   color: #8b8b8b;
   font-family: "Oxygen", sans-serif;
   font-size: 13px;
-  position: relative;
   border: hidden;
 }
 
 .text-wrapper-4:focus {
-  outline: none; 
+  outline: none;
 }
 
 
@@ -127,8 +131,8 @@
   gap: 18px;
   justify-content: center;
   padding: 10px;
-  position: relative;
-  }
+ 
+}
 
 .landing-page .text-wrapper-5 {
   align-self: stretch;
@@ -136,24 +140,41 @@
   font-family: "Oxygen", sans-serif;
   letter-spacing: 0;
   line-height: normal;
-  margin-top: -1px;
-  position: relative;
   text-align: center;
 }
 
 .landing-page .button-instance {
-  
+
   display: flex;
-  height: 35px;
-  justify-content: unset;
-  position: relative;
-  
+   width: 356px;
+   margin-top: 3%;
+   font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
 }
 
-.landing-page .button-2 {
-  height: 24px;
-  margin-bottom: -6.5px;
-  margin-top: -6.5px;
-  position: relative ;
-  width: 24px;
+
+
+@media (max-width: 600px) {
+  /* Adjust top property for screens up to 600px wide */
+  .landing-page .overlap-group {
+    top: 150px;
+  }
+  #subheading-for-signup{
+    display: none;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  /* Adjust top property for screens between 601px and 900px wide */
+  .landing-page .overlap-group {
+    top: 200px;
+  }
+}
+
+@media (min-width: 901px) {
+  /* Adjust top property for screens wider than 900px */
+  .landing-page .overlap-group {
+    top: 370px;
+  }
 }
