@@ -1,7 +1,7 @@
 # The Village
 >_It takes a village to raise a child._
 
-You've likely familiar with this old proverb. And while many members of our modern society may have children, there are very, very few among us who have a village at our disposal. This is where _The Village_ app seeks to assist users.
+You're likely familiar with this old proverb. And while many members of our modern society may have children, there are very, very few among us who have a village at our disposal. This is where _The Village_ app seeks to assist users.
 
 ## Description
 
