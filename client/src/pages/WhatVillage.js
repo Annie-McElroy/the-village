@@ -1,5 +1,4 @@
 // What is the Village? Info Page
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -9,6 +8,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import BackMeUp from '../components/BackBtn';
 
 
 const WhatVillage = () => {
@@ -19,6 +19,9 @@ const WhatVillage = () => {
         <div className="layered-village foreground" alt="foreground"></div>
         <div className="layered-village clouds" alt="foreground"></div>
   
+      </div>
+      <div>
+        <BackMeUp />
       </div>
         <h2>What Is The Village?</h2>
         <h4>"It Takes a Village to Raise a Child..."</h4>

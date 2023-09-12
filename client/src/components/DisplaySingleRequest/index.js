@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import ClaimRequestButton from '../ClaimRequestButton';
 
 export default function MultiActionAreaCard() {
   return (
@@ -12,23 +13,20 @@ export default function MultiActionAreaCard() {
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          image=""
+          alt="user icon"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            Request Title
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            Request Description
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
+        <ClaimRequestButton />
       </CardActions>
     </Card>
   );

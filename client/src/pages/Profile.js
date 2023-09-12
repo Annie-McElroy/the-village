@@ -28,6 +28,7 @@ function Profile() {
 
   return (
     <div>
+      <BackMeUp />
       <h1>This is the Profile Page</h1>
       <Button
         color="tertiary"
