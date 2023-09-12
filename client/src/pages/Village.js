@@ -5,6 +5,7 @@ import AllRequests from '../components/AllRequests.js'
 const Village = () => {
   return (
     <div className="container">
+      <h1>Village Name</h1>
       <CreateReqButton />
       <AllRequests />
     </div>
