@@ -31,7 +31,13 @@ const Home = () => {
         <p className="text-wrapper-2">Already a Villager? Welcome back!</p>
         <LoginForm className="login-CTA-2" />
 
-      
+      <Button 
+      className="button-instance"
+      ClassName="button-2"
+      size="regular"
+      state="default"
+      type="primary"
+      > What is the Village </Button>
 
         {/* {AuthService.loggedIn()
         ? (<div>Logged In!</div>)
