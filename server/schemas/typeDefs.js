@@ -83,7 +83,7 @@ const typeDefs = gql`
         updateVillage(_id: ID!, name: String, zipcode: Int): Village
         updateRequest(_id: ID!, title: String, body: String, crayon: Int): Request
         updateComment(_id: ID!, body: String!): Comment
-        joinVillage(village: [ID]!): Villager
+        joinVillage(village: ID!): Villager
         deleteVillager(_id: ID!): Villager
         deleteVillage(_id: ID!): Village
         deleteRequest(_id: ID!): Request
