@@ -16,10 +16,17 @@ function Signup(props) {
         password: formState.password,
         firstName: formState.firstName,
         lastName: formState.lastName,
+        username: formState.username,
+        zipcode: +formState.zipcode,
+        crayons: {
+          amount: +formState.crayons
+        }
       },
     });
-    const token = mutationResponse.data.addUser.token;
+    console.log(mutationResponse);
+    const token = mutationResponse.data.addVillager.token;
     Auth.login(token);
+    
   };
 
   const handleChange = (event) => {
@@ -53,6 +60,36 @@ function Signup(props) {
             name="lastName"
             type="lastName"
             id="lastName"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="username">Username:</label>
+          <input
+            placeholder="Username"
+            name="username"
+            type="username"
+            id="username"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="zipcode">Zipcode:</label>
+          <input
+            placeholder="Zipcode"
+            name="zipcode"
+            type="number"
+            id="zipcode"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="crayons">Crayons:</label>
+          <input
+            placeholder="Crayons"
+            name="crayons"
+            type="number"
+            id="crayons"
             onChange={handleChange}
           />
         </div>
