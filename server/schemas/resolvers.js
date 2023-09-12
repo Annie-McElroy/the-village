@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Comments, Crayon, Request, Response, Village, Villager } = require('../models');
+const { Comment, Request, Village, Villager } = require('../models');
 const { signToken } = require('../utils/auth')
 
 // api key required from stripe account
@@ -35,6 +35,12 @@ const resolvers = {
                 path: 'response',
                 populate: 'claimId'
             });
+        },
+        comment: async (parent, { _id }) => {
+            return await Comment.findById(_id).populate('authorId').populate('requestId');
+        },
+        comments: async () => {
+            return await Comment.find().populate('authorId').populate('requestId');
         }
     },
     Mutation: {
@@ -83,6 +89,19 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
 
         },
+        addComment: async (parent, args, context) => {
+            if (context.user) {
+                const comment = await Comment.create({...args, authorId: context.user});
+
+                // Cant not get authorId to show first time.
+                await comment.populate('authorId');
+
+                await Request.findByIdAndUpdate(args.requestId, { $addToSet: {comments: comment }},{new: true});
+
+                return comment;
+            }
+        },
+
         updateVillager: async (parent, args, context) => {
             if (context.user) {
                 return await Villager.findByIdAndUpdate(context.user._id, args, { new: true });
@@ -91,19 +110,26 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
         updateVillage: async (parent, args, context) => {
-            if (context.village) {
-                return await Village.findByIdAndUpdate(context.village._id, args, { new: true });
+            if (context.user) {
+                return await Village.findByIdAndUpdate(args._id, args, { new: true });
             }
 
             throw new AuthenticationError('Not logged in');
         },
         updateRequest: async (parent, args, context) => {
-            if (context.request) {
-                return await Request.findByIdAndUpdate(context.request._id, args, { new: true });
+            if (context.user) {
+                return await Request.findByIdAndUpdate(args._id, args, { new: true });
             }
 
             throw new AuthenticationError('Not logged in');
         },
+        updateComment: async (parent, args, context) => {
+            if (context.user) {
+                return await Comment.findByIdAndUpdate(args._id, args, {new: true}).populate('authorId');
+            }
+            // await Comment.populate('authorId');
+        },
+
         joinVillage: async (parent, { village }, context) => {
             if (context.user) {
 
@@ -115,7 +141,19 @@ const resolvers = {
                 return villager;
             }
 
-            throw new AuthenticationError('Not logged in');
+            throw new AuthenticationError('Not logged in')
+        },
+        deleteVillager: async (parent, {_id}) => {
+            return Villager.findOneAndDelete({ _id });
+        },
+        deleteVillage: async (parent, {_id}) => {
+            return Village.findOneAndDelete({ _id });
+        },
+        deleteRequest: async (parent, {_id}) => {
+            return Request.findOneAndDelete({ _id });
+        },
+        deleteComment: async (parent, {_id}) => {
+            return Comment.findOneAndDelete({ _id });
         },
         login: async (parent, { email, password }) => {
             const user = await Villager.findOne({ email });
