@@ -60,6 +60,18 @@ db.once('open', async () => {
                 response: {
                     claimId: villagers[1]._id,
                 }
+            },
+            {
+                title: "Carpool Request - Wednesday",
+                body: "I need someone to drop Kevin and Sara off at school on Tuesday",
+                crayons: 4,
+                authorId: villagers[1]._id,
+                isComplete: false,
+                isClaimed: true,
+                comments: comments[0]._id,
+                response: {
+                    claimId: villagers[0]._id,
+                }
             }
         ])
     

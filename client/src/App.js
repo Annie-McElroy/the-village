@@ -104,10 +104,14 @@ function App() {
               />
           </Routes>
              <footer>
-              <Nav />
+              {/* <Nav /> */}
               {/* {
                 AuthService.loggedIn() && (<Nav />) 
               }               */}
+              {AuthService.loggedIn()
+        ? (<div>Logged In!</div>)
+        : (<div>Logged Out</div>)
+      }
               </footer> 
         </div>
       </Router>
