@@ -34,6 +34,7 @@ const Home = () => {
       <Button 
       className="button-instance"
       ClassName="button-2"
+      
       size="regular"
       state="default"
       type="primary"

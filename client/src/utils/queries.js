@@ -7,8 +7,10 @@ export const QUERY_ALL_REQUEST = gql`
     title
     body
     crayons
-    authorId
+    authorId{
+      _id
+      username
+    }
     }
 }
 `
-

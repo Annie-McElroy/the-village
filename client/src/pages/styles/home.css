@@ -142,20 +142,18 @@
 }
 
 .landing-page .button-instance {
-  background-color: #00425a !important;
-  display: flex !important;
-  height: 35px !important;
-  justify-content: unset !important;
-  left: 30px !important;
-  position: absolute !important;
-  top: 663px !important;
-  width: 311px !important;
+  
+  display: flex;
+  height: 35px;
+  justify-content: unset;
+  position: relative;
+  
 }
 
 .landing-page .button-2 {
-  height: 24px !important;
-  margin-bottom: -6.5px !important;
-  margin-top: -6.5px !important;
-  position: relative !important;
-  width: 24px !important;
+  height: 24px;
+  margin-bottom: -6.5px;
+  margin-top: -6.5px;
+  position: relative ;
+  width: 24px;
 }
