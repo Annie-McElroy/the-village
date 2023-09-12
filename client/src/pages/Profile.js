@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ProfileInfo from '../components/UserProfile';
+import BackMeUp from '../components/BackBtn';
 import Auth from '../utils/auth';
 
 function Profile() {
@@ -17,11 +17,9 @@ function Profile() {
     }
   ]);
 
-  const history = useHistory();
-
-  const handleLogout = () => {
+    const handleLogout = () => {
     Auth.logout();
-    history.push('/');
+    
 
     console.log('logging out....');
   };
