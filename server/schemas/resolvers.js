@@ -55,9 +55,11 @@ const resolvers = {
 
             if (context.user) {
 
-                const village = Village.create({...args, admin: context.user, villagers: [context.user]})
-                return village;
+                const village = await Village.create({...args, admin: context.user, villagers: [context.user]})
 
+                await village.populate('admin');
+                
+                return village;
             }
 
             throw new AuthenticationError('Not logged in');
