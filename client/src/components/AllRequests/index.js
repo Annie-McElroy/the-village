@@ -42,6 +42,7 @@ export default function VillageRequests() {
       {loading ? (
         <Skeleton />
       ): (
+        requests ? (
         requests.map((request) =>(
           <Card key={request.id}>
             <Typography>{request.authorId}</Typography>
@@ -50,6 +51,9 @@ export default function VillageRequests() {
             <Typography>{request.crayons}</Typography>
           </Card>
         ))
+        ) :(
+          <p>No requests found</p>
+        )
       
       )}
       
