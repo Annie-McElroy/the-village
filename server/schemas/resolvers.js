@@ -67,13 +67,21 @@ const resolvers = {
 
             if (context.user) {
 
-                console.log('args right here', args)
+                // console.log('args right here', args)
 
                 const request = await Request.create({...args, authorId: context.user, isClaimed: false, isComplete: false });
 
-                await Villager.findByIdAndUpdate(context.user._id, { $push: { requests: request } });
+                await request.populate('authorId');
 
-                await Village.findByIdAndUpdate(context.user.village._id,{village: context.user.village._id} );
+                
+                // console.log('user info', context.user)
+                await Villager.findByIdAndUpdate(context.user._id, { $addToSet: { requests: request } }).populate('village');
+                
+                
+                // console.log('new request id', request._id)
+                // console.log('village id', context.user.village)
+
+                await Village.findByIdAndUpdate(context.user.village, { $push: { requests: request._id } }, { new: true });
 
                 return request;
             }
@@ -106,14 +114,14 @@ const resolvers = {
                 return await Village.findByIdAndUpdate(args._id, args, { new: true });
             }
 
-            throw new AuthenticationError('Not logged in')
+            throw new AuthenticationError('Not logged in');
         },
         updateRequest: async (parent, args, context) => {
             if (context.user) {
                 return await Request.findByIdAndUpdate(args._id, args, { new: true });
             }
 
-            throw new AuthenticationError('Not logged in')
+            throw new AuthenticationError('Not logged in');
         },
         updateComment: async (parent, args, context) => {
             if (context.user) {
@@ -122,9 +130,15 @@ const resolvers = {
             // await Comment.populate('authorId');
         },
 
-        joinVillage: async (parent, { _id }, context) => {
+        joinVillage: async (parent, { village }, context) => {
             if (context.user) {
-                return await Villager.findByIdAndUpdate(context.user._id, { $push: { village: _id} });
+
+                const villager = await Villager.findByIdAndUpdate(context.user._id, { $addToSet: { village: village } }, { new: true }).populate('village');
+
+                await Village.findByIdAndUpdate(village, { $addToSet: { villagers: context.user._id} }, { new: true });
+
+
+                return villager;
             }
 
             throw new AuthenticationError('Not logged in')
