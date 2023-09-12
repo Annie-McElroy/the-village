@@ -31,32 +31,30 @@ VillageResquests.propTypes = {
  ***** WE WILL BE ABLE TO USE THIS CODE ONCE DB IS READY*/
 
 export default function VillageRequests() {
-  
+
   const { loading, data } = useQuery(QUERY_ALL_REQUEST);
-  const requests = data?.requests; 
- console.log('this is the requests ' + requests);
- console.log('this is the data ' + data);
- console.log('the is QUERY_ALL_REQUEST ' + QUERY_ALL_REQUEST)
+  const requests = data?.requests;
+
   return (
     <div>
       {loading ? (
         <Skeleton />
-      ): (
+      ) : (
         requests ? (
-        requests.map((request) =>(
-          <Card key={request.id}>
-            <Typography>{request.authorId.username}</Typography>
-            <Typography>{request.title}</Typography>
-            <Typography>{request.body}</Typography>
-            <Typography>{request.crayons}</Typography>
-          </Card>
-        ))
-        ) :(
+          requests.map((request) => (
+            <Card key={request.id}>
+              <Typography>{request.authorId.username}</Typography>
+              <Typography>{request.title}</Typography>
+              <Typography>{request.body}</Typography>
+              <Typography>{request.crayons}</Typography>
+            </Card>
+          ))
+        ) : (
           <p>No requests found</p>
         )
-      
+
       )}
-      
+
     </div>
   );
 }
