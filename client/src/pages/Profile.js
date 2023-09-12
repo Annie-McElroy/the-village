@@ -1,49 +1,37 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
 import ProfileInfo from '../components/UserProfile';
 import BackMeUp from '../components/BackBtn';
-import Auth from '../utils/auth';
+import { useQuery } from '@apollo/client';
+import { QUERY_VILLAGER_CRAYON } from '../utils/queries';
+import { useParams } from 'react-router-dom';
+import LogoutBtn from '../components/LogoutBtn';
 
 function Profile() {
+  const { id } = useParams();
 
-  const [cardData, setCardData] = useState([
-    {
-      avatarSrc: '/images/gravatar.png',
-      userName: 'nyx',
-      firstName: 'Dahlia',
-      lastName: 'Guido',
-      email: 'Dahlia@gmail.com',
-      crayons: 4
+  const { data, loading, error } = useQuery(QUERY_VILLAGER_CRAYON, {
+    variables: {
+      id: id
     }
-  ]);
+  });
 
-    const handleLogout = () => {
-    Auth.logout();
-    
+  const villager = data?.villager || {};
+  console.log(villager);
+  // setCardData(villager);
+  // const [cardData, setCardData] = useState({});
 
-    console.log('logging out....');
-  };
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>{error.message}</div>
 
   return (
     <div>
       <BackMeUp />
+      <LogoutBtn />
       <h1>This is the Profile Page</h1>
-      <Button
-        color="tertiary"
-        size="large"
-        variant="contained"
-        onClick={handleLogout}
-        className="email-2">
-        <div className="text-wrapper-5">Logout</div>
-      </Button>
+      <ProfileInfo villager={villager} />
 
-
-
-      {cardData.map((data, index) => (
-        <ProfileInfo key={index} {...data} />
-      ))}
     </div>
-  )
+  );
 
 };
 

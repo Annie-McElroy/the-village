@@ -13,7 +13,7 @@ const { signToken } = require('../utils/auth')
 const resolvers = {
     Query: {
         villager: async (parent, { _id }) => {
-            return await Villager.findById(_id);
+            return await Villager.findById(_id).populate('requests').populate('village');
         },
         villagers: async () => {
             return await Villager.find();
