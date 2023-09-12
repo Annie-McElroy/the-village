@@ -80,7 +80,7 @@ const typeDefs = gql`
         updateVillager(username: String, email: String, password: String, firstName: String, lastName: String, zipcode: Int): Villager
         updateVillage(name: String, zipcode: Int): Village
         updateRequest(title: String, body: String, crayon: Int): Request
-        joinVillage(village: [ID]!): Villager
+        joinVillage(village: ID!): Villager
         login(email: String!, password: String!): Auth
     }
 `;

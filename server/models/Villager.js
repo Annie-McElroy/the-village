@@ -79,7 +79,7 @@ const villagerSchema = new Schema({
 // setup pre-hook to hash password for insertMany
 villagerSchema.pre('insertMany', async function(next, docs) {
     console.log('insertMany pre hook triggered');
-    console.log(docs)
+    // console.log(docs)
     if (Array.isArray(docs) && docs.length) {
         console.log('if statement called')
         const saltRounds = 10;
@@ -87,7 +87,7 @@ villagerSchema.pre('insertMany', async function(next, docs) {
             const hashedPassword = await bcrypt.hash(villager.password, saltRounds);
             villager.password = hashedPassword
             console.log('password salted');
-            console.log(villager)
+            // console.log(villager)
             return villager;
         })
         const villagers = await Promise.all(hashedVillagers);
