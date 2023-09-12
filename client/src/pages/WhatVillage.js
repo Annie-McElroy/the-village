@@ -1,6 +1,6 @@
 // What is the Village? Info Page
-
 import * as React from 'react';
+import {useNavigate} from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -12,6 +12,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 const WhatVillage = () => {
+  const navigate = useNavigate();
+	const goBack = () => {
+		navigate(-1);
+  }
   return (
     <div className="landing-page">
       <div className="banner">
@@ -19,6 +23,9 @@ const WhatVillage = () => {
         <div className="layered-village foreground" alt="foreground"></div>
         <div className="layered-village clouds" alt="foreground"></div>
   
+      </div>
+      <div>
+        <button onClick={goBack}>Back</button>
       </div>
         <h2>What Is The Village?</h2>
         <h4>"It Takes a Village to Raise a Child..."</h4>

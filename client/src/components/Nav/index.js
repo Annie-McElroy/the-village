@@ -28,7 +28,7 @@ export default function Nav() {
   const [imageSrc, setImageSrc] = React.useState('/icons/the-village-logo-white.svg');
   const [isHovered, setIsHovered] = React.useState(false); // Transition effect state
 
-  // Villeage Logo hover and click effect will swap image for icon
+  // Village Logo hover and click effect will swap image for icon
   const handleMouseEnter = () => {
     setImageSrc('/icons/the-village-logo.svg');
     setIsHovered(true);
