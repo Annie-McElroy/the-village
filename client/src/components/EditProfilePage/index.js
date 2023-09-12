@@ -6,6 +6,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import Autocomplete from '@mui/material/Autocomplete';
+import Button from '@mui/material/Button';
 
 const options = ['Female', 'Male', 'Prefer not to say'];
 
@@ -49,6 +50,12 @@ export default function EditProfile() {
         renderInput={(params) => <TextField {...params} label="Gender" />}
       />
       </Box>
+      <Button
+            color="tertiary"
+            size="large"
+            variant="contained"
+            href="/profile/:id"
+            className="email-2"> <div className="text-wrapper-5">Approve Changes to Profile</div></Button>
     </Card>
   );
 }
