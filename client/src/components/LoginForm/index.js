@@ -19,6 +19,7 @@ export default function LoginForm(props) {
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
+      console.log('handle form submit success!');
     } catch (e) {
       console.log(e);
     }
@@ -80,8 +81,8 @@ export default function LoginForm(props) {
             color="tertiary"
             size="large"
             variant="contained"
-            href="/profile/:id"
             onClick={handleFormSubmit}
+            href="/profile/:id"
             className="email-2"> <div className="text-wrapper-5">Login</div></Button>
         </div>
       </form>
