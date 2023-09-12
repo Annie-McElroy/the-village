@@ -1,15 +1,11 @@
 import React from 'react';
 import CreateReq from '../components/CreateRequest';
-import {useNavigate} from 'react-router-dom';
+import BackMeUp from '../components/BackBtn';
 
 function Create(){
-  const navigate = useNavigate();
-	const goBack = () => {
-		navigate(-1);
-  }
   return (
     <div>
-      <button onClick={goBack}>Back</button>
+      <BackMeUp />
       <h1>Villager's Request:</h1>
       <CreateReq />
     </div>

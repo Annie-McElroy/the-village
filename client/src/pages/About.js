@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import TeamMember from '../components/TeamMember';
-import {useNavigate} from 'react-router-dom';
+import BackMeUp from '../components/BackBtn';
 
 export default function About() {
   // Define an array of data for your cards
-  const navigate = useNavigate();
-	const goBack = () => {
-		navigate(-1);
-  }
+  
   const cardData = [
     {
       avatarSrc: '/images/gravatar.png',
@@ -51,7 +48,7 @@ export default function About() {
   return (
     
     <div>
-      <button onClick={goBack}>Back</button>
+      <BackMeUp />
       {cardData.map((data, index) => (
         <TeamMember key={index} {...data} />
       ))}

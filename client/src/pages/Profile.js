@@ -1,12 +1,8 @@
 import React from 'react';
 import ProfileInfo from '../components/UserProfile';
-import {useNavigate} from 'react-router-dom';
+import BackMeUp from '../components/BackBtn';
 
 function Profile(){
-  const navigate = useNavigate();
-	const goBack = () => {
-		navigate(-1);
-  }
   const cardData = [
     {
       avatarSrc: '/images/gravatar.png',
@@ -20,7 +16,7 @@ function Profile(){
 
   return (
     <div>
-      <button onClick={goBack}>Back</button>
+      <BackMeUp />
       <h1>This is the Profile Page</h1>
       {cardData.map((data, index) => (
         <ProfileInfo key={index} {...data} />

@@ -1,6 +1,5 @@
 // What is the Village? Info Page
 import * as React from 'react';
-import {useNavigate} from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -9,13 +8,10 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import BackMeUp from '../components/BackBtn';
 
 
 const WhatVillage = () => {
-  const navigate = useNavigate();
-	const goBack = () => {
-		navigate(-1);
-  }
   return (
     <div className="landing-page">
       <div className="banner">
@@ -25,7 +21,7 @@ const WhatVillage = () => {
   
       </div>
       <div>
-        <button onClick={goBack}>Back</button>
+        <BackMeUp />
       </div>
         <h2>What Is The Village?</h2>
         <h4>"It Takes a Village to Raise a Child..."</h4>
