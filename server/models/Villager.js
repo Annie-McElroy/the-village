@@ -61,6 +61,12 @@ const villagerSchema = new Schema({
             ref: 'Request'
         }
     ],
+    village: [
+        {
+        type: Schema.Types.ObjectId,
+        ref: 'Village'
+    }
+],
 },
 {
     toJSON: {

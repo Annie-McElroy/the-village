@@ -30,9 +30,40 @@ db.once('open', async () => {
         },
     ]);
 
-    console.log('Villagers seeded')
-    console.log(this.isNew);
-    console.table(villagers);
+    console.log('Villagers seeded');
+
+    //delete all pre-existing comments
+    await Comment.deleteMany();
+
+    const comments = await Comment.create([
+        {
+            body: "I got you!",
+            authorId: villagers[1]._id,
+            // requestId: request[0]._id,
+        }
+    ])
+
+    console.log('Comments seeded');
+    
+        //delete all pre-existing requests
+        await Request.deleteMany();
+    
+        const request = await Request.create([
+            {
+                title: "Carpool Request - Tuesday",
+                body: "I need someone to drop Kevin and Sara off at school on Tuesday",
+                crayons: 2,
+                authorId: villagers[0]._id,
+                isComplete: false,
+                isClaimed: true,
+                comments: comments[0]._id,
+                response: {
+                    claimId: villagers[1]._id,
+                }
+            }
+        ])
+    
+        console.log('Request seeded');
 
     //delete all pre-existing villages
     await Village.deleteMany();
@@ -47,49 +78,15 @@ db.once('open', async () => {
                 [
                     villagers[0]._id,
                     villagers[1]._id,
+                ],
+            requests:
+                [
+                    request[0]._id
                 ]
         }
     ]);
 
-    console.log('Village seeded')
-    console.table(village);
-
-    //delete all pre-existing requests
-    await Request.deleteMany();
-
-    const request = await Request.create([
-        {
-            title: "Carpool Request - Tuesday",
-            body: "I need someone to drop Kevin and Sara off at school on Tuesday",
-            crayons: 2,
-            authorId: villagers[0]._id,
-            villageId: village[0]._id,
-            isComplete: false,
-            isClaimed: true,
-            // comments: comments[0].body,
-            response: {
-                claimId: villagers[1]._id,
-            }
-        }
-    ])
-
-    console.log('Request seeded')
-    console.table(request)
-
-    //delete all pre-existing comments
-    await Comment.deleteMany();
-
-    const comments = await Comment.create([
-        {
-            body: "I got you!",
-            authorId: villagers[1]._id,
-            requestId: request[0]._id,
-        }
-    ])
-
-    console.table(comments);
-    console.log('Comments seeded');
-
+    console.log('Village seeded');
 
     console.log('Seeds Completed!!');
     process.exit();
