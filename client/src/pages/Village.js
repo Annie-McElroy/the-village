@@ -1,6 +1,6 @@
 import React from 'react';
 import CreateReqButton from '../components/CreateReqButton.js';
-import AllRequests from '../components/AllRequests.js'
+import AllRequests from '../components/AllRequests/index.js'
 
 const Village = () => {
   return (
