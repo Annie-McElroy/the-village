@@ -31,3 +31,62 @@ export const ADD_VILLAGER = gql`
   }
 }
 `
+
+export const ADD_VILLAGE = gql`
+mutation AddVillage($name: String!, $zipcode: Int!) {
+  addVillage(name: $name, zipcode: $zipcode) {
+    village {
+      _id
+      name
+      zipcode
+      admin {
+        _id
+        username
+      }
+    }
+  }
+}
+`
+
+export const JOIN_VILLAGE = gql`
+mutation JoinVillage($villageId: ID!) {
+  joinVillage(villageId: $villageID) {
+    villager {
+      _id
+      username
+      email
+      password
+      firstName
+      lastName
+      zipcode
+      crayons {
+        _id
+        amount
+      }
+    }
+  }
+}
+`
+
+export const DELETE_VILLAGER = gql`
+mutation DeleteVillager($villagerId: ID) {
+  deleteVillager(villagerId: $villagerId)
+}
+`
+
+export const ADD_COMMENT = gql`
+mutation AddComment($requestId: ID, $body: String!) {
+  addComment(requestId: $requestId, body: $body) {
+    comment {
+      _id
+      body
+      authorId {
+        _id
+        username
+      }
+    }
+  }
+}
+`
+
+
