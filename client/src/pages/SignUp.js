@@ -1,7 +1,8 @@
 import React from 'react';
-import Signup from '../components/CreateAccount'
+import Signup from '../components/Signup'
 import AuthService from "../utils/auth";
 import './styles/home.css'
+import './styles/signup.css'
 import BackMeUp from '../components/BackBtn';
 
 const Home = () => {
@@ -18,7 +19,7 @@ const Home = () => {
       </div>
       {AuthService.loggedIn()
         ? (<div>Signed In!</div>)
-        : (<Signup />)
+        : (<Signup className="signup-form" />)
       }
       <div style={{ height: '80px' }}></div>
     </div>

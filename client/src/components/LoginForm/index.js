@@ -42,7 +42,7 @@ export default function LoginForm(props) {
         <div className="input">
           <div className="flex-row space-between my-2 frame">
             <span>
-              <Email style={{ color: '#CCCCCC' }} />
+              <Email style={{ color: '#CCCCCC', }} />
             </span>
             <div className="email-2">
 
@@ -85,7 +85,9 @@ export default function LoginForm(props) {
             size="large"
             variant="contained"
             onClick={handleFormSubmit}
-            className="email-2"> <div className="text-wrapper-5">Login</div></Button>
+            className="email-2"> 
+            <div className="text-wrapper-5">Login</div>
+            </Button>
         </div>
       </form>
     </div>
