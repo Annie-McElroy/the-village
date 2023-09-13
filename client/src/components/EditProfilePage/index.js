@@ -66,7 +66,7 @@ export default function EditProfile(props) {
   }
 
   return (
-    <Card sx={{ mx: 50, mb: 5 }}>
+    <Card sx={{ mx: 10, mb: 5 }}>
       <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
         <AccountCircle sx={{ mr: 1, my: 0.5 }}/>
         <TextField fullWidth id="input-with-sx" label="First Name" variant="standard" name="firstName" value={formState.firstName} defaultValue={props.villager.firstName} onChange={handleEdit}/>
