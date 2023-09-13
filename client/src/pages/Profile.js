@@ -6,10 +6,9 @@ import { QUERY_VILLAGER_CRAYON } from '../utils/queries';
 import { useParams } from 'react-router-dom';
 import LogoutBtn from '../components/LogoutBtn';
 import Grid from '@mui/material/Grid'
-import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import './styles/profile.css';
 import { Padding } from '@mui/icons-material';
+import DeleteHook from '../components/DeleteHook'
 
 function Profile() {
   const { id } = useParams();
@@ -77,19 +76,7 @@ function Profile() {
           <h1>This is the Profile Page</h1>
           <ProfileInfo villager={villager} />
         
-        <div className='deleteAccountbtn'>
-          <Button
-            variant="outlined"
-            sx={{ marginTop: '8%' }}
-            size="small"
-            startIcon={<DeleteIcon />}
-            onClick={() => {
-              window.confirm('Are you sure you would like to delete your account');
-            }}
-          >
-            Delete Account
-          </Button>
-        </div>
+      <DeleteHook villager={id} />
         </div>
       </div>
     </div >
