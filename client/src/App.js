@@ -53,66 +53,68 @@ function App() {
             <Route
               path="/"
               element={<Home />}
-              />
+            />
             <Route
               path="/what-is-the-village"
               element={<WhatVillage />}
-              />
+            />
             <Route
               path="/about"
               element={<About />}
-              />
+            />
             <Route
               path="/village/:id/request/:id/edit-request"
               element={<EditRequest />}
-              />
+            />
             <Route
               path="/village/:id/edit-village"
               element={<EditVillages />}
-              />
+            />
             <Route
               path="/signup"
               element={<SignUp />}
-              />
+            />
             <Route
               path='/profile/:id'
               element={<Profile />}
-              />
-              <Route
+            />
+            <Route
               path='/profile/:id/edit-profile'
               element={<EditProf />}
-              />
+            />
             <Route
               path='/village/:id'
               element={<Village />}
-              />
+            />
             <Route
-              path ='/village/:id/create-request'
-              element ={<CreateReq />}
-              />
+              path='/village/:id/create-request'
+              element={<CreateReq />}
+            />
             <Route
               path='/village/:id/request/:id'
               element={<Request />}
-              />
+            />
             <Route
               path='/search'
               element={<Search />}
-              />
+            />
             <Route
               path='village/:id/create-village'
               element={<CreateVillages />}
-              />
+            />
           </Routes>
-             <footer>
-              <Nav />
-              {/* {
-                AuthService.loggedIn() && (<Nav />) 
-              }               */}
-              {AuthService.loggedIn()
+
+
+          {
+            AuthService.loggedIn() && (<footer><Nav /></footer>)
+          }
+
+
+          {/* {AuthService.loggedIn()
         ? (<div>Logged In!</div>)
         : (<div>Logged Out</div>)
-      }
-              </footer> 
+      } */}
+
         </div>
       </Router>
 
