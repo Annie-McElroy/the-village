@@ -79,7 +79,7 @@ const typeDefs = gql`
         addVillage(name: String!, zipcode: Int!): Village
         addRequest(title: String!, body: String!, crayons: Int!): Request
         addComment(requestId: ID, body: String!): Comment
-        updateVillager(username: String, email: String, password: String, firstName: String, lastName: String, zipcode: Int): Villager
+        updateVillager(username: String, email: String, firstName: String, lastName: String, zipcode: Int): Villager
         updateVillage(_id: ID!, name: String, zipcode: Int): Village
         updateRequest(_id: ID!, title: String, body: String, crayon: Int): Request
         updateComment(_id: ID!, body: String!): Comment

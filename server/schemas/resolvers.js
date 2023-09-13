@@ -106,7 +106,7 @@ const resolvers = {
 
         updateVillager: async (parent, args, context) => {
             if (context.user) {
-                return await Villager.findByIdAndUpdate(context.user._id, args, { new: true });
+                return await Villager.findByIdAndUpdate({_id: context.user._id}, args, { new: true });
             }
 
             throw new AuthenticationError('Not logged in');
