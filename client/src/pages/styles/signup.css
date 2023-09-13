@@ -1,0 +1,29 @@
+.landing-page .signup-form {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 4%;
+ 
+}
+
+
+.landing-page .input-field {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 8px;
+ }
+
+ .landing-page .signup-heading{
+  text-align: center;
+  margin: 8% 0%;
+  font-family: 'Marcellus', serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  position: relative;
+  color: #00425a;
+}
