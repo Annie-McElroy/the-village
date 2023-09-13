@@ -69,10 +69,14 @@ mutation JoinVillage($villageId: ID!) {
 `
 
 export const DELETE_VILLAGER = gql`
-mutation DeleteVillager($villagerId: ID) {
-  deleteVillager(villagerId: $villagerId)
+mutation Mutation($_id: ID!) {
+  deleteVillager(_id: $_id) {
+    _id
+    username
+  }
 }
 `
+
 
 export const ADD_COMMENT = gql`
 mutation AddComment($requestId: ID, $body: String!) {
@@ -88,5 +92,3 @@ mutation AddComment($requestId: ID, $body: String!) {
   }
 }
 `
-
-
