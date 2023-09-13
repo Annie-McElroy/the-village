@@ -19,17 +19,15 @@ export default function CreateVillage() {
           required
           id="outlined-required"
           label="Required"
-          defaultValue="Hello World"
+          placeholder='Village Name'
         />
-         <TextField 
-         id="outlined-search" 
-         label="Search field" 
-         type="search"
-         />
-         <TextField 
-         id="outlined-search" 
-         label="Search field" 
-         type="search"
+         <TextField
+          id="outlined-number"
+          label="Number"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
+          }}
          />
         </div>
         <Button variant="contained" component={Link} to="/village/:id/">

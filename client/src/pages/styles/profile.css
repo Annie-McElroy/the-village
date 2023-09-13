@@ -50,3 +50,15 @@
   margin-bottom: 10px;
 }
 
+.profile-info .frame {
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #e9ecef;
+  border-radius: 8px;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 18px;
+  padding: 15px 20px;
+  width: 356px;
+}
