@@ -9,7 +9,7 @@ const BackMeUp = () => {
 		navigate(-1);
   }
   return (
-    <Button color="primary" onClick={goBack}><span><ArrowCircleLeftOutlinedIcon /></span></Button>
+    <Button color="primary" onClick={goBack} className="back-btn"><span><ArrowCircleLeftOutlinedIcon /></span></Button>
   )
 };
 

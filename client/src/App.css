@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -72,7 +73,7 @@
   right: 0;
   bottom: 0;
   z-index: 2;
-  
+
 }
 
 .clouds {
@@ -88,8 +89,15 @@
   right: 0;
   bottom: 0;
   z-index: 3;
-  
+
 }
+
+/*** back button styling ***/
+
+.back-btn {
+  justify-content: flex-start;
+}
+
 
 
 /** Image transition for Nav Logo**/
