@@ -92,3 +92,15 @@ mutation AddComment($requestId: ID, $body: String!) {
   }
 }
 `
+
+export const UPDATE_VILLAGER = gql`
+mutation Mutation($username: String, $email: String, $firstName: String, $lastName: String, $zipcode: Int) {
+  updateVillager(username: $username, email: $email, firstName: $firstName, lastName: $lastName, zipcode: $zipcode) {
+    username
+    email
+    firstName
+    lastName
+    zipcode
+  }
+}
+`
