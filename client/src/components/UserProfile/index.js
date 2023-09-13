@@ -3,13 +3,18 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
 // import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import '../../pages/styles/profile.css';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Divider from '@mui/material/Divider';
+import ListItemText from '@mui/material/ListItemText';
+import { ListItemIcon } from '@mui/material';
+import { AccountCircle, EmailRounded, PinDropRounded, DrawRounded } from '@mui/icons-material';
 
 
 export default function ProfileInfo({ villager }) {
@@ -20,7 +25,7 @@ export default function ProfileInfo({ villager }) {
   };
 
   return (
-    <Card sx={{ maxWidth: 500 }}>
+    <Card sx={{ maxWidth: 500}}>
       <CardHeader
         // avatar={
         //   <Avatar
@@ -31,37 +36,72 @@ export default function ProfileInfo({ villager }) {
         // }
         title={villager.username} // Use the prop for the title
       />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          <h2><img src="/images/pencil-crayon_6603971.png" height={35} />Crayons: {villager.crayons[0].amount}</h2>
+      <CardContent style={{ textAlign: 'center'}}>
+        <Typography style={{}} variant="body2" color="text.secondary">
+          <h2><DrawRounded />Crayons: {villager.crayons[0].amount}</h2>
         </Typography>
       </CardContent>
 
-      <CardContent >
-        <Typography paragraph>{villager.firstName}</Typography>
-        <Typography paragraph>{villager.lastName}</Typography>
-        <Typography paragraph>{villager.zipcode}</Typography>
-        <Typography paragraph>{villager.email}</Typography>
-        <Button color="primary"
+      <CardContent>
+      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      <ListItem alignItems="flex-start">
+        <ListItemIcon>
+          <AccountCircle />
+        </ListItemIcon>
+      <ListItemText
+        primary={
+          <Typography>First Name:  
+            {villager.firstName}
+          </Typography>
+          }
+        />
+        </ListItem>
+      <Divider variant="inset" component="li" />
+      <ListItem alignItems="flex-start">
+        <ListItemIcon>
+          <AccountCircle />
+        </ListItemIcon>
+      <ListItemText
+        primary={
+          <Typography>Last Name:  
+            {villager.lastName}
+          </Typography>
+          }
+        />
+        </ListItem>
+      <Divider variant="inset" component="li" />
+      <ListItem alignItems="flex-start">
+        <ListItemIcon>
+          <EmailRounded />
+        </ListItemIcon>
+      <ListItemText
+        primary={
+          <Typography>Email:  
+            {villager.email}
+          </Typography>
+          }
+        />
+        </ListItem>
+      <Divider variant="inset" component="li" />
+      <ListItem alignItems="flex-start">
+        <ListItemIcon>
+          <PinDropRounded />
+        </ListItemIcon>
+      <ListItemText
+        primary={
+          <Typography>Zipcode: 
+            {villager.zipcode}
+          </Typography>
+          }
+        />
+        </ListItem>
+      </List>
+        <Button 
+          color="primary"
           size="large"
           variant="filled"
           href="/profile/:id/edit-profile">Edit Your Profile</Button>
       </CardContent>
-
-      <CardActions disableSpacing>
-        <IconButton
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-
-        </CardContent>
-      </Collapse>
     </Card>
   );
 }

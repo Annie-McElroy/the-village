@@ -39,7 +39,7 @@ function Profile() {
           if (response.ok) {
             console.log( 'Account deleted successfully')
           } else {
-            console.error(err)
+            console.error(error)
           }
         })
         .catch(error => {
@@ -73,7 +73,6 @@ function Profile() {
 
       <div className="div-2">
         <div className="overlap">
-          <h1>This is the Profile Page</h1>
           <ProfileInfo villager={villager} />
         
       <DeleteHook villager={id} />
