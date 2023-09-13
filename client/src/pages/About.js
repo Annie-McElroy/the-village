@@ -14,7 +14,7 @@ export default function About() {
       gitHub: 'https://www.github.com'
     },
     {
-      avatarSrc: '/images/gravatar.png',
+      avatarSrc: '/images/AvatarMakerVal.png',
       title: 'Valerie Rojas',
       description: 'This impressive UI developer was the artiste behind our app.',
       linkedIn: 'https://www.linkedin.com/in/dahlia-guido/',
