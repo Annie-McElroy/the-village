@@ -106,6 +106,20 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+/**Vertical (column) centered content div for inner pages **/
+
+.pageFrame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+
 
 /** Fix navbar to the bottom of the page **/
 
@@ -126,3 +140,4 @@ footer {
     height: 80px;
   }
 }
+
