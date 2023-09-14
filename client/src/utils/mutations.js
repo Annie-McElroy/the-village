@@ -12,16 +12,16 @@ export const LOGIN = gql`
 `;
 
 export const ADD_VILLAGER = gql`
-  mutation AddVillager($username: String!, $email: String!, $password: String!, $firstName: String!, $lastName: String!, $zipcode: String!, $crayons: CrayonInput!) {
+mutation AddVillager($username: String!, $email: String!, $password: String!, $firstName: String!, $lastName: String!, $zipcode: String!, $crayons: CrayonInput!) {
   addVillager(username: $username, email: $email, password: $password, firstName: $firstName, lastName: $lastName, zipcode: $zipcode, crayons: $crayons) {
     token
     user {
       _id
       username
       email
-      password
       firstName
       lastName
+      password
       zipcode
       crayons {
         _id
