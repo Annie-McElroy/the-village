@@ -30,7 +30,7 @@ function Signup(props) {
     const user = mutationResponse.data.addVillager.user;
     const token = mutationResponse.data.addVillager.token;
     Auth.login(token);
-    window.location.replace(`/profile/${user._id}`);
+    window.location.assign(`/profile/${user._id}`);
   };
 
   const handleChange = (event) => {

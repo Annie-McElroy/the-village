@@ -89,7 +89,7 @@ query Query($id: ID!) {
 export const QUERY_VILLAGER_CRAYON = gql`
 query Query($id: ID!) {
   villager(_id: $id) {
-    
+    _id
     username
     email
     firstName

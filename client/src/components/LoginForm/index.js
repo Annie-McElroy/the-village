@@ -22,7 +22,7 @@ export default function LoginForm(props) {
 
       Auth.login(token);
 
-      window.location.replace(`/profile/${user._id}`);
+      window.location.assign(`/profile/${user._id}`);
     } catch (e) {
       console.log(e);
     }

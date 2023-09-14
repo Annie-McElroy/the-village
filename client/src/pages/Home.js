@@ -26,10 +26,10 @@ const Home = () => {
             color="secondary"
             size="large"
             variant="contained"
-            href="/signup"
+            component={Link} to="/signup"
           > <div className="text-wrapper-5">Sign Up</div></Button>
-          </div>
-          <div className="p" id="subheading-for-signup">Connect to your village today!</div>
+        </div>
+        <div className="p" id="subheading-for-signup">Connect to your village today!</div>
 
         <div className="overlap-group">
           <p className="text-wrapper-2">Already a Villager? Welcome back!</p>
@@ -51,7 +51,7 @@ const Home = () => {
             type="primary"
             component={Link} to="/about"
           ><span><ArrowCircleRightOutlinedIcon />{'\u00A0'}{'\u00A0'}</span> All about our team </Button>
-          
+
 
         </div>
 
