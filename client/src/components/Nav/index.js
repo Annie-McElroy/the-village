@@ -9,7 +9,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Auth from '../../utils/auth';
 import auth from '../../utils/auth';
 
 
