@@ -1,13 +1,13 @@
 /*team member title*/
 
 #root > div > div > div > div > div > div.MuiCardHeader-root.css-185gdzj-MuiCardHeader-root > div.MuiCardHeader-content.css-1qbkelo-MuiCardHeader-content > span {
-  font-family: Montserrat, sans-serif;
-  font-weight: 600;
-  font-size: x-large;
-}
-
-#root > div > div > div > div > div > div.MuiCardContent-root.css-46bh2p-MuiCardContent-root > p {
-  font-family: Montserrat, sans-serif;
-  font-weight: 500;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    font-size: x-large;
+  }
   
-}
+  #root > div > div > div > div > div > div.MuiCardContent-root.css-46bh2p-MuiCardContent-root > p {
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    
+  }

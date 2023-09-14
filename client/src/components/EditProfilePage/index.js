@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import { useMutation } from '@apollo/client';
 import { UPDATE_VILLAGER } from '../../utils/mutations';
 
+
 // const options = ['Female', 'Male', 'Prefer not to say'];
 
 export default function EditProfile(props) {
@@ -47,9 +48,11 @@ export default function EditProfile(props) {
         });
 
 
-        // window.location.assign(`/profile/${props.villager._id}`)
+        window.location.assign(`/profile/${props.villager._id}`)
 
         console.log('Updated')
+
+        
 
       } catch (mutationError) {
         console.error('Mutation error:', mutationError);

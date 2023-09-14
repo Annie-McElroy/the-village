@@ -1,0 +1,56 @@
+/***  page container ***/
+
+div.pageFrame.patternbkg{
+  background-image: url(../../../public/images/village_patterns.png);
+  background-repeat: repeat;
+  padding-bottom: 320px;
+}
+
+.request-card {
+  margin: 2% 0;
+  border-radius: 1em;
+  filter: drop-shadow(2px 4px 6px #bfbfbf);
+  text-align: left;
+  padding: 3%;
+  display: flex;
+  justify-content: space-between
+}
+
+.request-card .req-info {
+  width: 85%;
+  
+}
+
+.request-card .req-info .requested-by {
+  font-size: 13px;
+}
+
+.request-card .req-info .request-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.8;
+  color: #00425a;
+}
+
+.request-card .req-info .request-card-description {
+  font-size: 16px;
+}
+
+.request-card .request-card-crayons {
+  max-width: 19%;
+  text-align: right;
+  
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Oxygen", sans-serif;
+  color: #fc7300;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.request-card .request-card-crayons span {
+  font-size: 13px;
+  display: block;
+}
+
