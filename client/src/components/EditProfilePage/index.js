@@ -47,7 +47,7 @@ export default function EditProfile(props) {
         });
 
 
-        // window.location.replace(`/profile/${props.villager._id}`)
+        // window.location.assign(`/profile/${props.villager._id}`)
 
         console.log('Updated')
 

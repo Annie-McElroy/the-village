@@ -9,7 +9,7 @@ const typeDefs = gql`
         password: String
         firstName: String
         lastName: String
-        zipcode: Int
+        zipcode: String
         crayons: [Crayon]
         requests: [Request]
         village: [Village]
@@ -18,7 +18,7 @@ const typeDefs = gql`
     type Village {
         _id: ID
         name: String
-        zipcode: Int
+        zipcode: String
         admin: Villager
         villagers: [Villager]
         requests: [Request]
@@ -67,7 +67,7 @@ const typeDefs = gql`
         villager(_id: ID!): Villager
         villagers: [Villager]
         village(_id: ID!): Village
-        villages(zipcode: Int): [Village]
+        villages(zipcode: String): [Village]
         request(_id: ID!): Request
         requests: [Request]
         comment(_id: ID!): Comment
@@ -75,12 +75,12 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addVillager(username: String!, email: String!, password: String!, firstName: String!, lastName: String!, zipcode: Int!, crayons: CrayonInput!): Auth
-        addVillage(name: String!, zipcode: Int!): Village
+        addVillager(username: String!, email: String!, password: String!, firstName: String!, lastName: String!, zipcode: String!, crayons: CrayonInput!): Auth
+        addVillage(name: String!, zipcode: String!): Village
         addRequest(title: String!, body: String!, crayons: Int!): Request
         addComment(requestId: ID, body: String!): Comment
-        updateVillager(username: String, email: String, firstName: String, lastName: String, zipcode: Int): Villager
-        updateVillage(_id: ID!, name: String, zipcode: Int): Village
+        updateVillager(username: String, email: String, firstName: String, lastName: String, zipcode: String): Villager
+        updateVillage(_id: ID!, name: String, zipcode: String): Village
         updateRequest(_id: ID!, title: String, body: String, crayon: Int): Request
         updateComment(_id: ID!, body: String!): Comment
         joinVillage(village: ID!): Villager

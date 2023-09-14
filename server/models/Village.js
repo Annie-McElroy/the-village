@@ -13,7 +13,7 @@ const villageSchema = new Schema({
     },
 
     zipcode: {
-        type: Number,
+        type: String,
         required: [true, 'Zipcode required'],
         // custom match for zipcode
         match: [/^\d{5}$/, 'Not a valid zipcode!'],

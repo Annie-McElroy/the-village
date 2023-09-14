@@ -25,7 +25,7 @@ export default function ProfileInfo({ villager }) {
   };
 
   const handleClick = () => {
-    window.location.replace(`/profile/${villager._id}/edit-profile`)
+    window.location.assign(`/profile/${villager._id}/edit-profile`)
 
     console.log(villager)
   };
