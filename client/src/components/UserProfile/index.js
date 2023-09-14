@@ -7,6 +7,7 @@ import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import '../../pages/styles/profile.css';
 import List from '@mui/material/List';
@@ -102,7 +103,8 @@ export default function ProfileInfo({ villager }) {
         />
         </ListItem>
       </List>
-        <Button 
+      <Box textAlign='center'>
+        <Button
           color="primary"
           size="large"
           variant="filled"
