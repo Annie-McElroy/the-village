@@ -16,6 +16,7 @@ export const VillageTheme = createTheme({
       main: '#BFDB38', // Lime Green: highlight color
     },
   },
+
   
   typography: {
     fontFamily: 'Cantarell, Kameron, Marcellus, Montserrat, Oxygen, sans-serif',
@@ -58,6 +59,7 @@ export const VillageTheme = createTheme({
       fontSize: '1.25rem',
       lineHeight: 1.2,
       letterSpacing: '0em',
+      color: '#00425a'
     },
     h6: {
       fontFamily: 'Montserrat, sans-serif',

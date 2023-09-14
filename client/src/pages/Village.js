@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateReqButton from '../components/CreateReqButton.js';
+import CreateReqButton from '../components/CreateReqButton';
 import AllRequests from '../components/AllRequests/index.js'
 import BackMeUp from '../components/BackBtn/index.js';
 
