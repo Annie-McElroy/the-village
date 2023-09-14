@@ -20,7 +20,7 @@ function Signup(props) {
         firstName: formState.firstName,
         lastName: formState.lastName,
         username: formState.username,
-        zipcode: +formState.zipcode,
+        zipcode: formState.zipcode,
         crayons: {
           amount: +formState.crayons
         }
@@ -105,7 +105,7 @@ function Signup(props) {
               <input
                 placeholder="Zipcode"
                 name="zipcode"
-                type="number"
+                type="zipcode"
                 id="zipcode"
                 onChange={handleChange}
                 className="text-wrapper-4"
