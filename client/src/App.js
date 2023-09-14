@@ -63,14 +63,6 @@ function App() {
               element={<About />}
             />
             <Route
-              path="/village/:id/request/:id/edit-request"
-              element={<EditRequest />}
-            />
-            <Route
-              path="/village/:id/edit-village"
-              element={<EditVillages />}
-            />
-            <Route
               path="/signup"
               element={<SignUp />}
             />
@@ -83,8 +75,16 @@ function App() {
               element={<EditProf />}
             />
             <Route
+              path='/village/:id/create-village'
+              element={<CreateVillages />}
+            />
+            <Route
               path='/village/:id'
               element={<Village />}
+            />
+            <Route
+              path="/village/:id/edit-village"
+              element={<EditVillages />}
             />
             <Route
               path='/village/:id/create-request'
@@ -95,13 +95,14 @@ function App() {
               element={<Request />}
             />
             <Route
+              path="/village/:id/request/:id/edit-request"
+              element={<EditRequest />}
+            />             
+            <Route
               path='/search'
               element={<Search />}
             />
-            <Route
-              path='village/:id/create-village'
-              element={<CreateVillages />}
-            />
+            
           </Routes>
 
 
