@@ -4,12 +4,15 @@ import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import Button from '@mui/material/Button';
 import { Email, Lock } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function LoginForm(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [LoginForm, { error }] = useMutation(LOGIN);
 
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -18,11 +21,15 @@ export default function LoginForm(props) {
         variables: { email: formState.email, password: formState.password },
       });
       const user = mutationResponse.data.login.user;
-      const token = mutationResponse.data.login.token;
+      const token = mutationResponse.data.login.token;     
 
       Auth.login(token);
 
-      window.location.assign(`/profile/${user._id}`);
+      navigate(`/what-is-the-village`)
+
+      console.log()
+
+      // window.location.replace(`/profile/${user._id}`);
     } catch (e) {
       console.log(e);
     }
