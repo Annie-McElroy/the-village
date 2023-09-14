@@ -46,7 +46,7 @@ export default function TeamMember(props) {
         {props.description} {/* Use the prop for the description */}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      {/* <CardActions disableSpacing>
         <IconButton
           onClick={handleExpandClick}
           aria-expanded={expanded}
@@ -62,7 +62,7 @@ export default function TeamMember(props) {
           <Typography paragraph>GitHub:</Typography>
           <Typography paragraph>{props.gitHub}</Typography>
         </CardContent>
-      </Collapse>
+      </Collapse> */}
     </Card>
   </Grid>
  </Grid>
