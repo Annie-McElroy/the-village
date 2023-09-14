@@ -10,7 +10,7 @@ export const VillageTheme = createTheme({
     },
     tertiary: {
       main: '#1F8A70', // Ligther Teal: Call to Action Buttons - tertiary color
-      
+
     },
     highlight: {
       main: '#BFDB38', // Lime Green: highlight color
@@ -123,14 +123,14 @@ export const VillageTheme = createTheme({
 
   spacing: 8, // Spacing between elements
   overrides: {
-    MuiCssBaseline: {
-      '@global': {
-        '::selection': {
-          backgroundColor: '#BFDB38', // Set the background color of selected text to lime green
-          color: '#000000', // Set the text color of selected text to black
-        },
+  MuiCssBaseline: {
+    '@global': {
+      '::selection': {
+        backgroundColor: '#BFDB38', // Set the background color of selected text to lime green
+        color: '#000000', // Set the text color of selected text to black
       },
     },
   },
+},
 });
 

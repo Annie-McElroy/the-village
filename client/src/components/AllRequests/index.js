@@ -5,30 +5,8 @@ import Skeleton from '@mui/material/Skeleton';
 import Card from '@mui/material/Card';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_REQUEST } from '../../utils/queries';
+import DrawIcon from '@mui/icons-material/Draw';
 
-
-/** THIS IS TEMPORARY PLACE HOLDERS TO PREVENT PAGE FROM BREAKING  
- export default function VillageResquests() {
-  
-  return (
-    <div>
-      <Skeleton /> 
-          <Card>
-            <Typography>This will be a card</Typography>
-            
-          </Card>
-            
-    </div>
-  );
-}
-
-VillageResquests.propTypes = {
-  loading: PropTypes.bool,
-};*/
-
-
-/***** DO NOT DELETE!!!!! ****
- ***** WE WILL BE ABLE TO USE THIS CODE ONCE DB IS READY*/
 
 export default function VillageRequests() {
 
@@ -42,11 +20,18 @@ export default function VillageRequests() {
       ) : (
         requests ? (
           requests.map((request) => (
-            <Card key={request.id}>
-              <Typography>{request.authorId.username}</Typography>
-              <Typography>{request.title}</Typography>
-              <Typography>{request.body}</Typography>
-              <Typography>{request.crayons}</Typography>
+            <Card className="request-card" key={request.id}>
+              <div className='req-info'>
+                <Typography className='requested-by'>Requested by: {request.authorId.username}</Typography>
+                <Typography className='request-card-title'>{request.title}</Typography>
+                <Typography className='request-card-description'>{request.body}</Typography>
+              </div>
+              <Typography className='request-card-crayons'> 
+              <span>
+              <DrawIcon style={{ color: '#FC7300', fontSize: '2.3rem' }} />
+            </span>{request.crayons} <br />
+            <span>Crayons</span></Typography>
+
             </Card>
           ))
         ) : (
@@ -58,9 +43,3 @@ export default function VillageRequests() {
     </div>
   );
 }
-/*
-VillageRequests.propTypes = {
-  loading: PropTypes.bool,
-};
-****************** DO NOT DELETE!!! *********************
-*/
