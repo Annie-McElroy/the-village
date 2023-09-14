@@ -9,6 +9,14 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import BackMeUp from '../components/BackBtn';
+import Stack from '@mui/material/Stack';
+import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
+import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
+import AuthService from '../utils/auth';
+
+
+
 
 
 const WhatVillage = () => {
@@ -20,22 +28,24 @@ const WhatVillage = () => {
         <div className="layered-village clouds" alt="foreground"></div>
   
       </div>
-      <div>
-        <BackMeUp />
-      </div>
+      <div className='pageFrame'>
+        <Typography sx={{ fontSize: '2.3rem', fontFamily: 'Marcellus, serif', color: '#00425a', paddingTop: '3%'}}>
         <h2>What Is The Village?</h2>
+        </Typography>
+        <Typography sx={{ marginTop: "37.5%", fontSize: 20}}>
         <h4>"It Takes a Village to Raise a Child..."</h4>
+        </Typography>
+        <Typography sx={{ fontSize: 20, fontWeight: 'bold', m: 1, marginTop: "-5.6%", marginBottom: "2%"}}>
         <p>You may be familiar with the old proverb, but...where do you find your village...and how do you use it? </p>
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            '& > :not(style)': {
-              m: 1,
-            },
-          }}
-          >
-          <Card sx={{ minWidth: 275 }}>
+        </Typography>
+        <Stack
+        // marginTop="15%"
+        marginBottom="12%"
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}>
+          <Card sx={{ minWidth: 275, border: 1, borderColor:'#ADCC5E', boxShadow:10}}>
             <CardContent sx={{ mb: 1.3 }}>
               <Typography variant="h5" component="div">
                 The Village
@@ -45,17 +55,9 @@ const WhatVillage = () => {
               </Typography>
             </CardContent>
           </Card>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            '& > :not(style)': {
-              m: 1,
-            },
-          }}
-          >
-          <Card sx={{ minWidth: 275 }}>
+        
+        
+          <Card sx={{ minWidth: 275, border: 1, borderColor:'#ADCC5E', boxShadow:10 }}>
             <CardContent sx={{ mb: 1.3 }}>
               <Typography variant="h5" component="div">
                 So How Do I Actually Use The Village?
@@ -65,8 +67,30 @@ const WhatVillage = () => {
               </Typography>
             </CardContent>
           </Card>
-        </Box>
-        <Card sx={{ minWidth: 275 }}>
+        
+          
+          {
+            !AuthService.loggedIn() && (  <Button
+              className="button-instance"
+              variant="contained"
+              size="regular"
+              state="default"
+              type="primary"
+              component={Link} to="/"
+            ><span><ArrowCircleRightOutlinedIcon />{'\u00A0'}{'\u00A0'}</span> Login or Signup </Button>)
+          }
+          
+          
+          <Button
+            className="button-instance"
+            variant="contained"
+            size="regular"
+            state="default"
+            type="primary"
+            component={Link} to="/about"
+          ><span><ArrowCircleRightOutlinedIcon />{'\u00A0'}{'\u00A0'}</span> All about our team </Button>
+      
+        <Card sx={{ minWidth: 275, border: 1, borderColor:'#ADCC5E', boxShadow:10 }}>
             <CardContent sx={{ mb: 1.3 }}>
               <Typography variant="h5" component="div">
                 FAQs
@@ -79,7 +103,7 @@ const WhatVillage = () => {
             >
               <Typography>What Are Crayons?</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ minWidth: 275, border: 1, borderColor:'#ADCC5E', boxShadow:10 }}>
               <Typography>
                 Within the village, Crayons are the exchange currency! You can use your Crayons to request help. Whenever you list a new request, you'll be prompted to include how many Crayons you'll give to the villager who helps you out! 
               </Typography>
@@ -93,7 +117,7 @@ const WhatVillage = () => {
             >
               <Typography>How Do I Get More Crayons?</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ minWidth: 275, border: 1, borderColor:'#ADCC5E', boxShadow:10 }}>
               <Typography>
                 Help more villagers! You'll receive Crayons to the amount listed for every request you complete. 
               </Typography>
@@ -107,7 +131,7 @@ const WhatVillage = () => {
             >
               <Typography>Who Controls Village Access?</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ minWidth: 275, border: 1, borderColor:'#ADCC5E', boxShadow:10 }}>
               <Typography>
                 The creator of a village has administrative privilege, granting them control over who they invite to their village. 
               </Typography>
@@ -121,7 +145,7 @@ const WhatVillage = () => {
             >
               <Typography>How Many Crayons Should I Charge For My Request?</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ minWidth: 275, border: 1, borderColor:'#ADCC5E', boxShadow:10 }}>
               <Typography>
                 Each village will likely end up setting their own local value, but we suggest a base rate of 4 CPH (Crayons Per Hour). Of course, more difficult requests merit extra Crayons. Villagers are always able to comment on a request, so if your request seems to be short on Crayons, one of your fellow villagers may comment to let you know just how much you should bump it up. 
               </Typography>
@@ -129,6 +153,8 @@ const WhatVillage = () => {
           </Accordion>
             </CardContent>
           </Card>
+          </Stack>
+          </div>
         </div>
     );
   };

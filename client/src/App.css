@@ -38,6 +38,18 @@
   }
 }
 
+/* body {
+  background: hsla(0, 0%, 100%, 1);
+
+  background: linear-gradient(90deg, hsla(0, 0%, 100%, 1) 10%, hsla(77, 52%, 58%, 1) 70%);
+  
+  background: -moz-linear-gradient(90deg, hsla(0, 0%, 100%, 1) 10%, hsla(77, 52%, 58%, 1) 70%);
+  
+  background: -webkit-linear-gradient(90deg, hsla(0, 0%, 100%, 1) 10%, hsla(77, 52%, 58%, 1) 70%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFFFFF", endColorstr="#ADCC5E", GradientType=1 );
+} */
+
 /* Village Banner */
 
 .banner {
