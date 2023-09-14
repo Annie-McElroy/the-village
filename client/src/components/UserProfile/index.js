@@ -109,6 +109,7 @@ export default function ProfileInfo({ villager }) {
           size="large"
           variant="filled"
           onClick={handleClick}>Edit Your Profile</Button>
+          </Box>
       </CardContent>
     </Card>
   );
