@@ -21,21 +21,21 @@ export default function About() {
       gitHub: 'https://www.github.com'
     },
     {
-      avatarSrc: '/images/gravatar.png',
+      avatarSrc: '/images/avatar-annie.png',
       title: 'Annie McElroy',
       description: 'This impressive UI developer was the artiste behind our app.',
       linkedIn: 'https://www.linkedin.com/in/dahlia-guido/',
       gitHub: 'https://www.github.com'
     },
     {
-      avatarSrc: '/images/gravatar.png',
+      avatarSrc: '/images/avatar-abe.png',
       title: 'Abe Omaits',
       description: 'This impressive UI developer was the artiste behind our app.',
       linkedIn: 'https://www.linkedin.com/in/dahlia-guido/',
       gitHub: 'https://www.github.com'
     },
     {
-      avatarSrc: '/images/gravatar.png',
+      avatarSrc: '/images/kenny.png',
       title: 'Lekendrick McKeller',
       description: 'This impressive UI developer was the artiste behind our app.',
       linkedIn: 'https://www.linkedin.com/in/dahlia-guido/',
@@ -47,7 +47,7 @@ export default function About() {
 
   return (
     
-    <div>
+    <div className='pageFrame'>
       <BackMeUp />
       {cardData.map((data, index) => (
         <TeamMember key={index} {...data} />
