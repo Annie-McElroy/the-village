@@ -4,12 +4,15 @@ import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import Button from '@mui/material/Button';
 import { Email, Lock } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function LoginForm(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [LoginForm, { error }] = useMutation(LOGIN);
 
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -22,7 +25,11 @@ export default function LoginForm(props) {
 
       Auth.login(token);
 
-      window.location.assign(`/profile/${user._id}`);
+      navigate(`/profile/${user._id}`);
+
+      console.log()
+
+      // window.location.replace(`/profile/${user._id}`);
     } catch (e) {
       console.log(e);
     }
@@ -85,9 +92,9 @@ export default function LoginForm(props) {
             size="large"
             variant="contained"
             onClick={handleFormSubmit}
-            className="email-2"> 
+            className="email-2">
             <div className="text-wrapper-5">Login</div>
-            </Button>
+          </Button>
         </div>
       </form>
     </div>
