@@ -21,11 +21,11 @@ export default function LoginForm(props) {
         variables: { email: formState.email, password: formState.password },
       });
       const user = mutationResponse.data.login.user;
-      const token = mutationResponse.data.login.token;     
+      const token = mutationResponse.data.login.token;
 
       Auth.login(token);
 
-      navigate(`/what-is-the-village`)
+      navigate(`/profile/${user._id}`);
 
       console.log()
 
@@ -92,9 +92,9 @@ export default function LoginForm(props) {
             size="large"
             variant="contained"
             onClick={handleFormSubmit}
-            className="email-2"> 
+            className="email-2">
             <div className="text-wrapper-5">Login</div>
-            </Button>
+          </Button>
         </div>
       </form>
     </div>
