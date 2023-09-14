@@ -9,6 +9,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import auth from '../../utils/auth';
 
 
 const StyledFab = styled(Fab)({
@@ -27,6 +28,8 @@ export default function Nav() {
   const [value, setValue] = React.useState(0);
   const [imageSrc, setImageSrc] = React.useState('/icons/the-village-logo-white.svg');
   const [isHovered, setIsHovered] = React.useState(false); // Transition effect state
+  const villageID = auth.getProfile().data.village[0];
+  const villagerID = auth.getProfile().data._id;
 
   // Village Logo hover and click effect will swap image for icon
   const handleMouseEnter = () => {
@@ -49,7 +52,7 @@ export default function Nav() {
         <Toolbar>
 
           {/* "Home" button will direct logged in user to "what is the village page" */}
-          <IconButton color="inherit" component={Link} to="/">
+          <IconButton color="inherit" component={Link} to="/what-is-the-village">
             <HolidayVillageIcon />
           </IconButton>
 
@@ -58,7 +61,7 @@ export default function Nav() {
             color="tertiary"
             aria-label="village"
             component={Link}
-            to="/village/:id"
+            to={`/village/${villageID}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}
@@ -70,7 +73,7 @@ export default function Nav() {
           <Box sx={{ flexGrow: 1 }} />
 
           {/* "Profile" button will direct logged in user to their own profile page */}
-          <IconButton color="inherit" component={Link} to="/profile/:id">
+          <IconButton color="inherit" component={Link} to={`/profile/${villagerID}`}>
             <AccountCircleIcon />
           </IconButton>
 

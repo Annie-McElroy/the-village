@@ -24,6 +24,12 @@ export default function ProfileInfo({ villager }) {
     setExpanded(!expanded);
   };
 
+  const handleClick = () => {
+    window.location.assign(`/profile/${villager._id}/edit-profile`)
+
+    console.log(villager)
+  };
+
   return (
     <Card sx={{ maxWidth: 500}}>
       <CardHeader
@@ -100,7 +106,7 @@ export default function ProfileInfo({ villager }) {
           color="primary"
           size="large"
           variant="filled"
-          href="/profile/:id/edit-profile">Edit Your Profile</Button>
+          onClick={handleClick}>Edit Your Profile</Button>
       </CardContent>
     </Card>
   );

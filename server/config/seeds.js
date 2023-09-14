@@ -12,7 +12,7 @@ db.once('open', async () => {
             password: "password",
             firstName: "Shaq",
             lastName: "Williams",
-            zipcode: 44608,
+            zipcode: "44608",
             crayons: {
                 amount: 4
             },
@@ -23,7 +23,7 @@ db.once('open', async () => {
             password: "password",
             firstName: "Yael",
             lastName: "Iffaut",
-            zipcode: 44608,
+            zipcode: "44608",
             crayons: {
                 amount: 6
             },
@@ -83,7 +83,7 @@ db.once('open', async () => {
     const village = await Village.create([
         {
             name: "Big Village",
-            zipcode: 44608,
+            zipcode: "44608",
             admin:
                 villagers[0]._id,
             // villagers:

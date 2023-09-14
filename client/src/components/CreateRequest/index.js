@@ -5,21 +5,51 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { useMutation } from '@apollo/client';
+import { ADD_REQUEST } from '../../utils/mutations';
+import { useParams } from 'react-router-dom';
+
 
 export default function CreateReq() {
+  const { id } = useParams();
+
   const [userInput, setUserInput] = useState('');
   const [userInput2, setUserInput2] = useState('');
   const [userInput3, setUserInput3] = useState('');
 
+  const [addRequestMutation, { data, loading, error }] = useMutation(ADD_REQUEST);
+
+  if (loading) return 'Submitting...';
+  if (error) return `Submission error! ${error.message}`;
+
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
-  }; 
+  };
   const handleInputChange2 = (e) => {
     setUserInput2(e.target.value);
-  }; 
+  };
   const handleInputChange3 = (e) => {
     setUserInput3(e.target.value);
-  }; 
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await addRequestMutation({
+        variables: {
+          title: userInput,
+          body: userInput2,
+          crayons: parseInt(userInput3)
+        }
+      });
+
+    window.location.assign(`/village/${id}`);
+    
+    }
+    catch (err) {
+      console.err('Mutation error:', err.message);
+    }
+  };
 
   return (
     <Box
@@ -36,6 +66,7 @@ export default function CreateReq() {
           fullWidth
           id="outlined-required"
           label="Required"
+          name="title"
           placeholder="Title"
           value={userInput}
           onChange={handleInputChange}
@@ -45,6 +76,7 @@ export default function CreateReq() {
           fullWidth
           id="outlined-textarea"
           label="Description"
+          name="body"
           placeholder="Description"
           value={userInput2}
           onChange={handleInputChange2}
@@ -53,6 +85,7 @@ export default function CreateReq() {
         <TextField
           id="outlined-number"
           label="Number"
+          name="crayons"
           type="number"
           InputLabelProps={{
             shrink: true,
@@ -61,21 +94,21 @@ export default function CreateReq() {
           onChange={handleInputChange3}
         />
         <Card variant="h6" gutterBottom>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Title: {userInput}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Description: {userInput2}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Crayons: {userInput3}
-          </Typography>
-        </CardContent>
-        <Button variant="contained" href="/village/:id/">
-        Submit Request
-      </Button>
-      </Card>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Title: {userInput}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Description: {userInput2}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Crayons: {userInput3}
+            </Typography>
+          </CardContent>
+          <Button variant="contained" onClick={handleSubmit}>
+            Submit Request
+          </Button>
+        </Card>
       </div>
     </Box>
   );

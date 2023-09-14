@@ -44,7 +44,7 @@ const villagerSchema = new Schema({
     },
 
     zipcode: {
-        type: Number,
+        type: String,
         required: [true, 'Zipcode required'],
         // match regex for zipcode
         match: [/\d{5}/, 'Not a valid zipcode!'],
