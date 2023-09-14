@@ -8,6 +8,8 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Grid from '@mui/material/Grid';
+import '../../pages/styles/style.css';
 
 export default function TeamMember(props) {
   const [expanded, setExpanded] = React.useState(false);
@@ -16,21 +18,32 @@ export default function TeamMember(props) {
     setExpanded(!expanded);
   };
 
+  
   return (
+    <Grid
+  container
+  spacing={0}
+  direction="column"
+  alignItems="center"
+  justifyContent="center"
+  >
+  <Grid item large={1}>
     <Card sx={{ maxWidth: 500}}>
-      <CardHeader
+      <CardHeader 
         avatar={
           <Avatar
-            alt="User Avatar"
+          alt="User Avatar"
             src={props.avatarSrc} // Use the prop for the avatar source
-            sx={{ width: 56, height: 56 }}
+            sx={{ width: 70, height: 70 }}
           />
         }
+        
         title={props.title} // Use the prop for the title
-      />
+        
+        />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {props.description} {/* Use the prop for the description */}
+        {props.description} {/* Use the prop for the description */}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -38,7 +51,7 @@ export default function TeamMember(props) {
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
-        >
+          >
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
@@ -51,5 +64,7 @@ export default function TeamMember(props) {
         </CardContent>
       </Collapse>
     </Card>
+  </Grid>
+ </Grid>
   );
 }
