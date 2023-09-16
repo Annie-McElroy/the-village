@@ -7,12 +7,15 @@ You're likely familiar with this old proverb. And while many members of our mode
 
 Using _The Village_ app, users can create a private "village" or join a pre-existing village in their location by using their zip code. Users are granted "crayons" (the app's local form of currency) when they create a profile. These crayons can be used to trade for favors related to childcare with fellow villagers. 
 
+### [>>Link to live application - deployed in Heroku](https://the-village-pr3-499485f65b78.herokuapp.com/)
+
 For a detailed explanation of how to use the app, see the Usage section below. 
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Technologies Used](#technologies-used)
 - [Near Future Improvements](#near-future-improvements)
 - [Future Version Improvements](#future-version-improvements)
 - [Credits](#credits)
@@ -30,23 +33,58 @@ This application was designed with an emphasis on mobile-first, so ideally futur
 Upon opening the app, users are greeted by a landing page that allows them to sign up, log in, or navigate to our "Team Member" and "What Is the Village" pages. 
 
 ### What is the Village
-If a user navigates to this page, they will get a brief introduction to what The Village does and how they can access it. A short list of FAQs is accessible through a drop-down menu. 
+If a user navigates to this page, they will get a brief introduction to what The Village does and how they can access it. A short list of FAQs is accessible through a drop-down menu.
+
+![what is the village](./client/src/assets/screencapture-the-village-07-what-village.png)
 
 #### Team Member
 When a user navigates to this page, they are greeted with a list of our contributing team members and a brief biography for each. 
 
 ### Log-In 
+![log in](./client/src/assets/screencapture-the-village-01-login-page.png)
 
-### Sign-In
+### Sign-Up
+![sign up](./client/src/assets/screencapture-the-village-02-signup-page.png)
 
 ### Profile Page
-
+![profile](./client/src/assets/screencapture-the-village-03-profile.png)
 Edit profile
 Delete profile
 
 ### Village Home Page
+![the village](./client/src/assets/screencapture-the-village-05-village.png)
+
+### Villager's Request
+![request](./client/src/assets/screencapture-the-village-06-villager-request.png)
 
 More functionality is coming in future versions! 
+
+## Technologies Used
+
+### Back End
+
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) 
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
+
+### Front End 
+
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![JSX](https://img.shields.io/badge/JSX-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)  
+
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+
+![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+
+
+- [Slideshow presentation](https://www.canva.com/design/DAFuWZ87jNw/QFra1uHNmDWNgkdraLw61A/view?utm_content=DAFuWZ87jNw&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+- [Figma Mockup](https://www.figma.com/file/j5PmmiUv0WUYdM8C1grWte/Login-%2F-signup-%2F-profile-%2F?type=design&node-id=0-1&mode=design)
+- [WireFrame](https://excalidraw.com/#json=GY7e7kdIy13utvEjPlK10,VBYFQH7GSuG4CyLG03kUiQ)
+
 
 ## Near Future Improvements
 
@@ -84,9 +122,13 @@ The development team for _The Village_ app includes:
 
 ## Art 
 
-Much of the art used in our app was created using [Figma](https://www.figma.com/). 
-Some images were also sourced from [Excalidraw](https://excalidraw.com/).
-The developer profile avatars came from [Avatar Maker](https://avatarmaker.com/).
+- We created a mockup version of our app using [Figma](https://www.figma.com/) for prototyping navigation and UI. 
+
+- Some images were also sourced from [Excalidraw](https://excalidraw.com/).
+
+- Our developer profile avatars were created using [Avatar Maker](https://avatarmaker.com/).
+
+- Additional clipart and images were sourced from [Freepick](https://www.freepik.com/).
 
 ## License
 A [MIT license](https://github.com/Annie-McElroy/the-village/blob/main/LICENSE) was used for this project.
