@@ -7,7 +7,7 @@ You're likely familiar with this old proverb. And while many members of our mode
 
 Using _The Village_ app, users can create a private "village" or join a pre-existing village in their location by using their zip code. Users are granted "crayons" (the app's local form of currency) when they create a profile. These crayons can be used to trade for favors related to childcare with fellow villagers. 
 
-### [>>Link to live application - deployed in Heroku](https://the-village-pr3-499485f65b78.herokuapp.com/)
+### [>>Link to live application - deployed in Heroku ➡️](https://the-village-pr3-499485f65b78.herokuapp.com/)
 
 For a detailed explanation of how to use the app, see the Usage section below. 
 
@@ -20,6 +20,7 @@ For a detailed explanation of how to use the app, see the Usage section below.
 - [Future Version Improvements](#future-version-improvements)
 - [Credits](#credits)
 - [Art](#art)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
@@ -117,7 +118,7 @@ The development team for _The Village_ app includes:
 - [Annie McElroy](https://github.com/Annie-McElroy)
 - [Dahlia Guido](https://github.com/CypherNyx)
 - [Valerie Rojas](https://github.com/Valeriereds)
-- [Lekendrick Mckeller](@https://github.com/KenMck92) 
+- [Lekendrick Mckeller](https://github.com/KenMck92) 
 - [Abe Omaits](https://github.com/aomaits) 
 
 ## Art 
@@ -130,5 +131,12 @@ The development team for _The Village_ app includes:
 
 - Additional clipart and images were sourced from [Freepick](https://www.freepik.com/).
 
+## Contributing
+Pull requests are welcome. Please open an issue first to discuss any proposed changes or additions.
+<br>
+
 ## License
-A [MIT license](https://github.com/Annie-McElroy/the-village/blob/main/LICENSE) was used for this project.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  
+  https://opensource.org/licenses/MIT <br> 
+  This project is open source and available under the MIT License.
