@@ -38,27 +38,42 @@ If a user navigates to this page, they will get a brief introduction to what The
 
 ![what is the village](./client/src/assets/screencapture-the-village-07-what-village.png)
 
-#### Team Member
+#### Team Members
 When a user navigates to this page, they are greeted with a list of our contributing team members and a brief biography for each. 
 
 ### Log-In 
+The application offers returning users (or villagers) the opportunity to login. 
+
 ![log in](./client/src/assets/screencapture-the-village-01-login-page.png)
 
 ### Sign-Up
+New users are able to create a profile and enter the app. 
+
 ![sign up](./client/src/assets/screencapture-the-village-02-signup-page.png)
 
 ### Profile Page
+Logged in villagers can see their profile page, listing their current crayon count. Villagers can also view their: 
+- username
+- first and last name
+- email
+- zipcode
+
+Any of these selected profile details can be edited by the villager as needed. Villagers can also delete their account at any time.   
+
 ![profile](./client/src/assets/screencapture-the-village-03-profile.png)
-Edit profile
-Delete profile
 
 ### Village Home Page
+Villagers can access the village home page of the village they've joined. This page will list all active requests from other villagers. By clicking on the "Ask the Village!" button they are able to create a new request.
+
 ![the village](./client/src/assets/screencapture-the-village-05-village.png)
 
 ### Villager's Request
+Villagers can select a title, description, and number of crayons when making a new request to the village. 
+
 ![request](./client/src/assets/screencapture-the-village-06-villager-request.png)
 
-More functionality is coming in future versions! 
+### ...and more!
+Even more functionality is coming in future versions. 
 
 ## Technologies Used
 
@@ -82,12 +97,12 @@ More functionality is coming in future versions!
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
 
-- [Slideshow presentation](https://www.canva.com/design/DAFuWZ87jNw/QFra1uHNmDWNgkdraLw61A/view?utm_content=DAFuWZ87jNw&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
-- [Figma Mockup](https://www.figma.com/file/j5PmmiUv0WUYdM8C1grWte/Login-%2F-signup-%2F-profile-%2F?type=design&node-id=0-1&mode=design)
-- [WireFrame](https://excalidraw.com/#json=GY7e7kdIy13utvEjPlK10,VBYFQH7GSuG4CyLG03kUiQ)
+- Our [Slideshow presentation](https://www.canva.com/design/DAFuWZ87jNw/QFra1uHNmDWNgkdraLw61A/view?utm_content=DAFuWZ87jNw&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) of The Village.
+- We utilized this [Figma Mockup](https://www.figma.com/file/j5PmmiUv0WUYdM8C1grWte/Login-%2F-signup-%2F-profile-%2F?type=design&node-id=0-1&mode=design) to understand the user experience and to mock-up our application's graphics.
+- This initial [WireFrame](https://excalidraw.com/#json=GY7e7kdIy13utvEjPlK10,VBYFQH7GSuG4CyLG03kUiQ) was our first glance at what the UI and UX for the site might encompass.
 
 
-## Near Future Improvements
+## Near-Future Improvements
 
 In the short time we had for this initial build, we were unable to include some of the basic functionality in the app that we had initially planned for our MVC release version. The top priority improvements for us will allow: 
 
@@ -107,6 +122,7 @@ For future version releases, we have further goals and possibilities for the app
 
 - Providing a more detailed profile page which lists closed requests, open requests, and claimed requests belonging to the user
 - Allowing users to search for villages geographically (or with other means than simply matching a zip code)
+- Incorporating Stripe to allow donations in support of the developers
 - Allowing village administrators to invite new villagers to join their village via external means (possibly through a passcode or email link)
 - Permitting users to join more than one village
 - Allowing users to select a profile image (or perhaps upload their own)
