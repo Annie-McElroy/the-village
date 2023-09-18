@@ -1,10 +1,6 @@
 /***  page container ***/
 
-div.pageFrame.patternbkg{
-  background-image: url(../../../public/images/village_patterns.png);
-  background-repeat: repeat;
-  padding-bottom: 320px;
-}
+
 
 .request-card {
   margin: 2% 0;
