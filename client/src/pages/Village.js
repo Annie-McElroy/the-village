@@ -14,7 +14,7 @@ const Village = () => {
 
     <div className="pageFrame patternbkg">
       <BackMeUp />
-      <h1>Big Village</h1>
+      <h1>Parentland</h1>
       <CreateReqButton url={`${url}/create-request`}
       />
       <AllRequests />
