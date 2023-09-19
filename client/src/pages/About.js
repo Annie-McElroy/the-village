@@ -46,12 +46,13 @@ export default function About() {
   ];
 
   return (
-    
+    <div className='villagehero'>
     <div className='pageFrame'>
       <BackMeUp />
       {cardData.map((data, index) => (
         <TeamMember key={index} {...data} />
       ))}
+    </div>
     </div>
   );
 }
