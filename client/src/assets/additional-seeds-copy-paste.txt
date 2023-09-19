@@ -1,0 +1,238 @@
+
+Villagers: [
+    {
+      username: 'shaqattack',
+      email: 'shaqattack@hotmail.com',
+      password: 'password',
+      firstName: 'Shaq',
+      lastName: 'Williams',
+      zipcode: '44608',
+      crayons: {
+        amount: 4
+      },
+    },
+    {
+      username: 'yoyo',
+      email: 'yoyoyael@hotmail.com',
+      password: 'password',
+      firstName: 'Yael',
+      lastName: 'Iffaut',
+      zipcode: '44608',
+      crayons: {
+        amount: 6
+      },
+    },
+
+    // New villagers
+    {
+      username: 'soccermom',
+      email: 'soccermom@gmail.com',
+      password: 'password',
+      firstName: 'Sarah',
+      lastName: 'Johnson',
+      zipcode: '44608',
+      crayons: {
+        amount: 10
+      },
+    },
+    {
+      username: 'superdad',
+      email: 'superdad@gmail.com',
+      password: 'password',
+      firstName: 'John',
+      lastName: 'Smith',
+      zipcode: '44608',
+      crayons: {
+        amount: 12
+      },
+    },
+    {
+      username: 'dancemom',
+      email: 'dancemom@yahoo.com',
+      password: 'password',
+      firstName: 'Elizabeth',
+      lastName: 'James',
+      zipcode: '44608',
+      crayons: {
+        amount: 20
+      },
+    },
+    {
+      username: 'basketballfan',
+      email: 'basketballfan@hotmail.com',
+      password: 'password',
+      firstName: 'Michael',
+      lastName: 'Jordan',
+      zipcode: '44608',
+      crayons: {
+        amount: 15
+      },
+    },
+    {
+      username: 'musiclover',
+      email: 'musiclover@gmail.com',
+      password: 'password',
+      firstName: 'Adele',
+      lastName: 'Rolling',
+      zipcode: '44608',
+      crayons: {
+        amount: 9
+      },
+    },
+    {
+      username: 'bookworm',
+      email: 'bookworm@hotmail.com',
+      password: 'password',
+      firstName: 'Hermione',
+      lastName: 'Granger',
+      zipcode: '44608',
+      crayons: {
+        amount: 16
+      },
+    }
+
+  ]
+
+  console.log('Villagers seeded');
+
+  
+  REQUESTS: [
+    {
+      title: 'Carpool to Soccer Practice',
+      body: "Need someone to pick up my son from school and drive him to soccer practice on Tuesdays and Thursdays at 4pm",
+      crayons: 4,
+      authorId: villagers[2]._id,
+      isComplete: false,
+      isClaimed: true,
+      comments: comments[0]._id,
+      response: {
+        claimId: villagers[3]._id
+      }
+    },
+    {
+      title: 'Help with Drop Offs',
+      body: "My daughter needs to be dropped off at dance class on Mondays and ballet on Wednesdays after school. Looking for help with transportation.",
+      crayons: 6,
+      authorId: villagers[4]._id,
+      isComplete: false,
+      isClaimed: false
+    },
+    {
+      title: 'After School Program Pickup',
+      body: "I need someone to pick up my twins from their after school program on Fridays at 5pm. They attend Washington Elementary.",
+      crayons: 3,
+      authorId: villagers[2]._id,
+      isComplete: false,
+      isClaimed: false
+    },
+    {
+      title: 'Bus Stop Supervision',
+      body: "Can someone please supervise the bus stop on Cherry St in the mornings at 7:15am? My son is 7 and gets nervous waiting alone.",
+      crayons: 5,
+      authorId: villagers[6]._id,
+      isComplete: false,
+      isClaimed: false
+    },
+    {
+      title: 'Swim Practice Drop Off',
+      body: "Looking for help getting my daughter to swim team practice on Mondays and Wednesdays at the community center pool. Practice is 6-7pm.",
+      crayons: 5,
+      authorId: villagers[5]._id,
+      isComplete: false,
+      isClaimed: false
+    },
+    {
+      title: 'Carpool to Piano Lessons',
+      body: "My daughter has piano lessons downtown on Thursdays at 3:30pm. Need someone to pick her up from school and drive her to her lesson.",
+      crayons: 4,
+      authorId: villagers[7]._id,
+      isComplete: false,
+      isClaimed: false
+    },
+    {
+      title: 'Grocery Pick Up',
+      body: "I need 6 cases of water, 10 bags of apples, and 3 boxes of granola bars for my son's soccer team end of season party. Can someone do a quick grocery run and deliver to the park?",
+      crayons: 6,
+      authorId: villagers[3]._id,
+      isComplete: false,
+      isClaimed: false
+    },
+    {
+      title: 'Fundraiser Help',
+      body: "Our swim team is doing a fundraiser and needs help coordinating snacks, setting up, and supervising the dunk tank on Saturday 9/12 from 10am-2pm.",
+      crayons: 8,
+      authorId: villagers[5]._id,
+      isComplete: false,
+      isClaimed: false
+    },
+    {
+      title: 'Diaper Donation',
+      body: "Does anyone have extra size 5 diapers they would be willing to donate? Going through a hard time financially. Will trade crayons!",
+      crayons: 3,
+      authorId: villagers[6]._id,
+      isComplete: false,
+      isClaimed: false
+    },
+    {
+      title: 'Help with Sick Kid',
+      body: "My daughter is home sick from school today with a fever. I can't take off work - could someone come over and watch her today?",
+      crayons: 4,
+      authorId: villagers[2]._id,
+      isComplete: false,
+      isClaimed: false
+    },
+    {
+      title: 'Emergency Babysitting',
+      body: "My regular sitter bailed last minute - I have a work event tonight from 5-9pm. Need someone to watch my twins (age 8) for a few hours tonight. I know it's last minute but I'd really appreciate the help!",
+      crayons: 6,
+      authorId: villagers[4]._id,
+      isComplete: false,
+      isClaimed: false
+    },
+    {
+      title: 'School Project Help',
+      body: "My son has a science project due tomorrow that he's been procrastinating on. Could someone help him with his volcano model tonight after dinner?",
+      crayons: 3,
+      authorId: villagers[7]._id,
+      isComplete: false,
+      isClaimed: false
+    },
+    {
+      title: 'Parent-Teacher Conference',
+      body: "I can't make my daughter's parent-teacher conference at school next Thursday at 4pm. Could someone attend in my place and report back?",
+      crayons: 4,
+      authorId: villagers[1]._id,
+      isComplete: false,
+      isClaimed: false
+    }
+
+  ]
+
+  console.log('Request seeded');
+
+  Village [
+    {
+      name: "Parentland",
+      zipcode: "44608",
+      admin:
+        villagers[0]._id,
+      villagers:
+        [
+          villagers[0]._id,
+          villagers[1]._id,
+          villagers[2]._id,
+          villagers[3]._id,
+          villagers[4]._id,
+          villagers[5]._id,
+          villagers[6]._id,
+          villagers[7]._id
+        ],
+      requests:
+        [
+          request[0]._id
+        ]
+    }
+  ]);
+
+  console.log('Village seeded');
+
