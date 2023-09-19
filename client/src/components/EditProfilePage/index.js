@@ -10,6 +10,7 @@ import PinDropIcon from '@mui/icons-material/PinDrop';
 import Button from '@mui/material/Button';
 import { useMutation } from '@apollo/client';
 import { UPDATE_VILLAGER } from '../../utils/mutations';
+import { useNavigate } from 'react-router-dom';
 
 
 // const options = ['Female', 'Male', 'Prefer not to say'];
@@ -27,41 +28,43 @@ export default function EditProfile(props) {
   })
 
   console.log(props.villager)
-  
-  const [updateVillagerMutation, {data, loading, error }] = useMutation(UPDATE_VILLAGER);
+
+  const [updateVillagerMutation, { data, loading, error }] = useMutation(UPDATE_VILLAGER);
+  const navigate = useNavigate();
 
   if (loading) return 'Submitting...';
   if (error) return `Submission error! ${error.message}`;
 
   const handleSubmit = async () => {
     // if (window.confirm('Press okay to confirm these changes.')) {
-      try {
-        await updateVillagerMutation({
-          variables: {
-            ...formState
-            // email: formState.email,
-            // firstName: formState.firstName,
-            // lastName: formState.lastName,
-            // username: formState.username,
-            // zipcode: formState.zipcode
-          },
-        });
+    try {
+      await updateVillagerMutation({
+        variables: {
+          ...formState
+          // email: formState.email,
+          // firstName: formState.firstName,
+          // lastName: formState.lastName,
+          // username: formState.username,
+          // zipcode: formState.zipcode
+        },
+      });
 
 
-        window.location.assign(`/profile/${props.villager._id}`)
+      navigate(`/profile/${props.villager._id}`);
+      // window.location.assign(`/profile/${props.villager._id}`);
 
-        console.log('Updated')
+      console.log('Updated')
 
-        
 
-      } catch (mutationError) {
-        console.error('Mutation error:', mutationError);
-      }
+
+    } catch (mutationError) {
+      console.error('Mutation error:', mutationError);
+    }
     // }
   };
 
   const handleEdit = async (event) => {
-    const {name, value } = event.target;
+    const { name, value } = event.target;
     setFormState({
       ...formState,
       [name]: value,
@@ -71,24 +74,24 @@ export default function EditProfile(props) {
   return (
     <Card sx={{ mx: 10, mb: 5 }}>
       <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-        <AccountCircle sx={{ mr: 1, my: 0.5 }}/>
-        <TextField fullWidth id="input-with-sx" label="First Name" variant="standard" name="firstName" value={formState.firstName} defaultValue={props.villager.firstName} onChange={handleEdit}/>
+        <AccountCircle sx={{ mr: 1, my: 0.5 }} />
+        <TextField fullWidth id="input-with-sx" label="First Name" variant="standard" name="firstName" value={formState.firstName} defaultValue={props.villager.firstName} onChange={handleEdit} />
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
         <AccountCircle sx={{ mr: 1, my: 0.5 }} />
-        <TextField fullWidth id="input-with-sx" label="Last Name" variant="standard" name="lastName" value={formState.lastName} defaultValue={props.villager.lastName} onChange={handleEdit}/>
+        <TextField fullWidth id="input-with-sx" label="Last Name" variant="standard" name="lastName" value={formState.lastName} defaultValue={props.villager.lastName} onChange={handleEdit} />
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
         <AccountCircle sx={{ mr: 1, my: 0.5 }} />
-        <TextField fullWidth id="input-with-sx" label="Username" variant="standard" name="username" value={formState.username} defaultValue={props.villager.username} onChange={handleEdit}/>
+        <TextField fullWidth id="input-with-sx" label="Username" variant="standard" name="username" value={formState.username} defaultValue={props.villager.username} onChange={handleEdit} />
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
         <AlternateEmailIcon sx={{ mr: 1, my: 0.5 }} />
-        <TextField fullWidth id="input-with-sx" label="Email" variant="standard" name="email" value={formState.email} defaultValue={props.villager.email} onChange={handleEdit}/>
+        <TextField fullWidth id="input-with-sx" label="Email" variant="standard" name="email" value={formState.email} defaultValue={props.villager.email} onChange={handleEdit} />
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
         <PinDropIcon sx={{ mr: 1, my: 0.5 }} />
-        <TextField fullWidth id="input-with-sx" label="Zip Code" variant="standard" defaultValue={props.villager.zipcode} name="zipcode" value={formState.zipcode} onChange={handleEdit}/>
+        <TextField fullWidth id="input-with-sx" label="Zip Code" variant="standard" defaultValue={props.villager.zipcode} name="zipcode" value={formState.zipcode} onChange={handleEdit} />
         {/* <Autocomplete
         value={value}
         onChange={(event, newValue) => {
@@ -105,12 +108,12 @@ export default function EditProfile(props) {
       /> */}
       </Box>
       <Button
-            color="tertiary"
-            size="large"
-            variant="contained"
-            // href="/profile/:id"
-            onClick={handleSubmit}
-            className="email-2"> <div className="text-wrapper-5">Approve Changes to Profile</div></Button>
+        color="tertiary"
+        size="large"
+        variant="contained"
+        // href="/profile/:id"
+        onClick={handleSubmit}
+        className="email-2"> <div className="text-wrapper-5">Approve Changes to Profile</div></Button>
     </Card>
   );
 }
