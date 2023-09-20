@@ -1,9 +1,10 @@
 import React from 'react';
 import Signup from '../components/Signup'
-import AuthService from "../utils/auth";
 import './styles/home.css'
 import './styles/signup.css'
 import BackMeUp from '../components/BackBtn';
+import AuthService from "../utils/auth";
+
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
 
       </div>
       <div>
-      <BackMeUp />
+        <BackMeUp />
       </div>
       {AuthService.loggedIn()
         ? (<div>Signed In!</div>)

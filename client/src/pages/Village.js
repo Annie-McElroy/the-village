@@ -3,6 +3,8 @@ import CreateReqButton from '../components/CreateReqButton';
 import AllRequests from '../components/AllRequests/index.js'
 import BackMeUp from '../components/BackBtn/index.js';
 import './styles/village.css';
+import AuthService from '../utils/auth';
+import Nav from '../components/Nav';
 
 
 
@@ -20,6 +22,9 @@ const Village = () => {
         <AllRequests />
 
       </div>
+      {
+        AuthService.loggedIn() && (<footer><Nav /></footer>)
+      }
     </div>
 
 
