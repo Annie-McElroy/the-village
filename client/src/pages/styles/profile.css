@@ -62,3 +62,13 @@
   padding: 15px 20px;
   width: 356px;
 }
+
+
+#root > div > div > div.div-2 > div > div.deleteAccountbtn {
+  position: fixed;
+  bottom: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
