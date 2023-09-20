@@ -4,6 +4,8 @@ import BackMeUp from '../components/BackBtn';
 import { useQuery } from '@apollo/client';
 import { QUERY_VILLAGER_CRAYON } from '../utils/queries';
 import { useParams } from 'react-router-dom';
+import AuthService from '../utils/auth';
+import Nav from '../components/Nav';
 
 const EditProf = () => {
   const { id } = useParams();
@@ -27,6 +29,9 @@ const EditProf = () => {
       <BackMeUp />
       <h1>Edit Your Profile</h1>
       <EditProfile villager={villager}/>
+      {
+            AuthService.loggedIn() && (<footer><Nav /></footer>)
+          }
     </div>
 
   );
