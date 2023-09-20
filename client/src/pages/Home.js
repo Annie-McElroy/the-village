@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import './styles/home.css';
+import Nav from "../components/Nav";
 
 
 
@@ -63,6 +64,9 @@ const Home = () => {
         <div style={{ height: '80px' }}></div>
 
       </div>
+      {
+        AuthService.loggedIn() && (<footer><Nav /></footer>)
+      }
     </div>
   );
 };
