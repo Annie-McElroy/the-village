@@ -8,10 +8,13 @@ import Button from '@mui/material/Button';
 import { useMutation } from '@apollo/client';
 import { ADD_REQUEST } from '../../utils/mutations';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function CreateReq() {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const [userInput, setUserInput] = useState('');
   const [userInput2, setUserInput2] = useState('');
@@ -43,8 +46,9 @@ export default function CreateReq() {
         }
       });
 
-    window.location.assign(`/village/${id}`);
-    
+      // window.location.assign(`/village/${id}`);
+      navigate(`/village/${id}`);
+
     }
     catch (err) {
       console.err('Mutation error:', err.message);

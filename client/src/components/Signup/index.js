@@ -1,36 +1,44 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { ADD_VILLAGER } from '../../utils/mutations';
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 import { Email, Lock, Draw, AccountCircle, Badge, AddLocationAlt } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
-function Signup(props) {
+
+export default function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addUser] = useMutation(ADD_VILLAGER);
 
+  const navigate = useNavigate();
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
-        username: formState.username,
-        zipcode: formState.zipcode,
-        crayons: {
-          amount: +formState.crayons
-        }
-      },
-    });
-    console.log(mutationResponse);
-    const user = mutationResponse.data.addVillager.user;
-    const token = mutationResponse.data.addVillager.token;
-    Auth.login(token);
-    window.location.assign(`/profile/${user._id}`);
+    try {
+      const mutationResponse = await addUser({
+        variables: {
+          email: formState.email,
+          password: formState.password,
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+          username: formState.username,
+          zipcode: formState.zipcode,
+          crayons: {
+            amount: +formState.crayons
+          }
+        },
+      });
+      console.log(mutationResponse);
+      const user = mutationResponse.data.addVillager.user;
+      const token = mutationResponse.data.addVillager.token;
+      Auth.login(token);
+      navigate(`/profile/${user._id}`);
+
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const handleChange = (event) => {
@@ -63,10 +71,10 @@ function Signup(props) {
             </div>
           </div>
           <div className="flex-row space-between  my-2 frame">
-          <span>
+            <span>
               <AccountCircle style={{ color: '#CCCCCC' }} />
             </span>
-          
+
             <div className="email-2">
               <label htmlFor="lastName">Last Name:</label>
               <input
@@ -80,10 +88,10 @@ function Signup(props) {
             </div>
           </div>
           <div className="flex-row space-between  my-2 frame">
-          <span>
+            <span>
               <Badge style={{ color: '#CCCCCC' }} />
             </span>
-          
+
             <div className="email-2">
               <label htmlFor="username">Username:</label>
               <input
@@ -97,7 +105,7 @@ function Signup(props) {
             </div>
           </div>
           <div className="flex-row space-between  my-2 frame">
-          <span>
+            <span>
               <AddLocationAlt style={{ color: '#CCCCCC' }} />
             </span>
             <div className="email-2">
@@ -175,6 +183,6 @@ function Signup(props) {
       </form>
     </div>
   );
-}
+};
 
-export default Signup;
+
