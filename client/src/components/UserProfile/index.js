@@ -16,23 +16,26 @@ import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import { ListItemIcon } from '@mui/material';
 import { AccountCircle, EmailRounded, PinDropRounded, DrawRounded } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function ProfileInfo({ villager }) {
   const [expanded, setExpanded] = React.useState(false);
+
+  const navigate = useNavigate();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   const handleClick = () => {
-    window.location.assign(`/profile/${villager._id}/edit-profile`)
+    navigate(`/profile/${villager._id}/edit-profile`)
 
     console.log(villager)
   };
 
   return (
-    <Card sx={{ maxWidth: 500}}>
+    <Card sx={{ maxWidth: 500 }}>
       <CardHeader
         // avatar={
         //   <Avatar
@@ -43,73 +46,73 @@ export default function ProfileInfo({ villager }) {
         // }
         title={villager.username} // Use the prop for the title
       />
-      <CardContent style={{ textAlign: 'center'}}>
+      <CardContent style={{ textAlign: 'center' }}>
         <Typography style={{}} variant="body2" color="text.secondary">
           <h2><DrawRounded />Crayons: {villager.crayons[0].amount}</h2>
         </Typography>
       </CardContent>
 
       <CardContent>
-      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      <ListItem alignItems="flex-start">
-        <ListItemIcon>
-          <AccountCircle />
-        </ListItemIcon>
-      <ListItemText
-        primary={
-          <Typography>First Name:  
-            {villager.firstName}
-          </Typography>
-          }
-        />
-        </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem alignItems="flex-start">
-        <ListItemIcon>
-          <AccountCircle />
-        </ListItemIcon>
-      <ListItemText
-        primary={
-          <Typography>Last Name:  
-            {villager.lastName}
-          </Typography>
-          }
-        />
-        </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem alignItems="flex-start">
-        <ListItemIcon>
-          <EmailRounded />
-        </ListItemIcon>
-      <ListItemText
-        primary={
-          <Typography>Email:  
-            {villager.email}
-          </Typography>
-          }
-        />
-        </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem alignItems="flex-start">
-        <ListItemIcon>
-          <PinDropRounded />
-        </ListItemIcon>
-      <ListItemText
-        primary={
-          <Typography>Zipcode: 
-            {villager.zipcode}
-          </Typography>
-          }
-        />
-        </ListItem>
-      </List>
-      <Box textAlign='center'>
-        <Button
-          color="primary"
-          size="large"
-          variant="filled"
-          onClick={handleClick}>Edit Your Profile</Button>
-          </Box>
+        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+          <ListItem alignItems="flex-start">
+            <ListItemIcon>
+              <AccountCircle />
+            </ListItemIcon>
+            <ListItemText
+              primary={
+                <Typography>First Name:
+                  {villager.firstName}
+                </Typography>
+              }
+            />
+          </ListItem>
+          <Divider variant="inset" component="li" />
+          <ListItem alignItems="flex-start">
+            <ListItemIcon>
+              <AccountCircle />
+            </ListItemIcon>
+            <ListItemText
+              primary={
+                <Typography>Last Name:
+                  {villager.lastName}
+                </Typography>
+              }
+            />
+          </ListItem>
+          <Divider variant="inset" component="li" />
+          <ListItem alignItems="flex-start">
+            <ListItemIcon>
+              <EmailRounded />
+            </ListItemIcon>
+            <ListItemText
+              primary={
+                <Typography>Email:
+                  {villager.email}
+                </Typography>
+              }
+            />
+          </ListItem>
+          <Divider variant="inset" component="li" />
+          <ListItem alignItems="flex-start">
+            <ListItemIcon>
+              <PinDropRounded />
+            </ListItemIcon>
+            <ListItemText
+              primary={
+                <Typography>Zipcode:
+                  {villager.zipcode}
+                </Typography>
+              }
+            />
+          </ListItem>
+        </List>
+        <Box textAlign='center'>
+          <Button
+            color="primary"
+            size="large"
+            variant="filled"
+            onClick={handleClick}>Edit Your Profile</Button>
+        </Box>
       </CardContent>
     </Card>
   );
