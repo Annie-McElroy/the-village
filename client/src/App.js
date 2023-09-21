@@ -24,6 +24,7 @@ import CreateReq from './pages/CreateReq';
 import CreateVillages from './pages/CreateVillage';
 import EditRequest from './pages/EditReq';
 import EditVillages from './pages/EditVillage'
+import NotFound from './pages/404Page';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -101,6 +102,10 @@ function App() {
             <Route
               path='/search'
               element={<Search />}
+            />
+            <Route
+              path='*'
+              element={<NotFound />}
             />
             
           </Routes>

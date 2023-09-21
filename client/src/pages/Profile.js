@@ -19,39 +19,6 @@ function Profile() {
     }
   });
 
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  const handleDeleteClick = () => {
-    if (window.confirm('Are you sure you want to delete your account?')) {
-      // Set isLoading to true to show a loading indicator.
-      setIsDeleting(true);
-
-      // Make an API request to delete the user's account.
-      // You would replace this with your actual API endpoint.
-      // Example using fetch:
-      fetch('/api/delete-account', {
-        method: 'DELETE',
-        headers: {
-          'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
-        },
-      })
-        .then(response => {
-          if (response.ok) {
-            console.log( 'Account deleted successfully')
-          } else {
-            console.error(error)
-          }
-        })
-        .catch(error => {
-          console.error(error)
-        })
-        .finally(() => {
-          // Reset isLoading when the request is completed.
-          setIsDeleting(false);
-        });
-    }
-  };
-
   const villager = data?.villager || {};
   console.log(villager);
   // setCardData(villager);
