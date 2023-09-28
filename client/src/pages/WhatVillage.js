@@ -40,7 +40,7 @@ const WhatVillage = () => {
         <div className='introText'>
          <h3>"It Takes a Village to Raise a Child..."</h3>
         <Typography>
-          <p>You may be familiar with the old proverb, but...where do you find your village...and how do you use it? </p>
+          You may be familiar with the old proverb, but...where do you find your village...and how do you use it? 
         </Typography>
         </div>
         
