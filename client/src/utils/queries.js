@@ -99,7 +99,6 @@ query Query($id: ID!) {
       _id
       amount
     }
-    
   }
 }
 `
