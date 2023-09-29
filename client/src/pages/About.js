@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import TeamMember from '../components/TeamMember';
 import BackMeUp from '../components/BackBtn';
+import AuthService from '../utils/auth';
+import Nav from '../components/Nav';
 
 export default function About() {
   // Define an array of data for your cards
-  
+
   const cardData = [
     {
       avatarSrc: '/images/gravatar.png',
@@ -47,12 +49,15 @@ export default function About() {
 
   return (
     <div className='villagehero'>
-    <div className='pageFrame'>
-      <BackMeUp />
-      {cardData.map((data, index) => (
-        <TeamMember key={index} {...data} />
-      ))}
-    </div>
+      <div className='pageFrame'>
+        <BackMeUp />
+        {cardData.map((data, index) => (
+          <TeamMember key={index} {...data} />
+        ))}
+      </div>
+      {
+        AuthService.loggedIn() && (<footer><Nav /></footer>)
+      }
     </div>
   );
 }
