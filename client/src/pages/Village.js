@@ -14,8 +14,9 @@ const Village = () => {
   console.log(window.location.href);
   return (
     <div className='villagehero'>
+       <BackMeUp />
       <div className="pageFrame patternbkg">
-        <BackMeUp />
+       
         <h1>Parentland</h1>
         <CreateReqButton url={`${url}/create-request`}
         />

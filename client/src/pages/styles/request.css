@@ -1,0 +1,8 @@
+div.pageFrame>h1 {
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+  color: #00425a;
+  font-size: 2rem;
+  /* font-family: Marcellus, serif; */
+  padding-top: 3%
+}
