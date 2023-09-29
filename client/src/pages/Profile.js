@@ -40,7 +40,7 @@ function Profile() {
       </Grid>
 
       <div className="div-2">
-        <div className="overlap" sx={{marginBottom: "180px"}}>
+        <div className="overlap">
           <ProfileInfo villager={villager} />
           <ReqsByVillager />
           <DeleteHook villager={id} />
