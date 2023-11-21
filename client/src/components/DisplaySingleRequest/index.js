@@ -7,9 +7,9 @@ import { CardActionArea, CardActions } from '@mui/material';
 import ClaimRequestButton from '../ClaimRequestButton';
 import Comments from '../Comment';
 
-export default function MultiActionAreaCard() {
+export default function SingleRequest() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card >
       <CardActionArea>
         <CardMedia
           component="img"

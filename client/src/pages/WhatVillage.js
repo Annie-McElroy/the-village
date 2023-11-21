@@ -8,7 +8,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import BackMeUp from '../components/BackBtn';
+import './styles/whatvillage.css';
 import Stack from '@mui/material/Stack';
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
@@ -33,15 +33,17 @@ const WhatVillage = () => {
 
       </div>
       <div className='pageFrame'>
-        <Typography sx={{ fontSize: '2.3rem', fontFamily: 'Marcellus, serif', color: '#00425a', paddingTop: '3%' }}>
+        
           <h2>What Is The Village?</h2>
+       
+
+        <div className='introText'>
+         <h3>"It Takes a Village to Raise a Child..."</h3>
+        <Typography>
+          You may be familiar with the old proverb, but...where do you find your village...and how do you use it? 
         </Typography>
-        <Typography sx={{ marginTop: "37.5%", fontSize: 20 }}>
-          <h4>"It Takes a Village to Raise a Child..."</h4>
-        </Typography>
-        <Typography sx={{ fontSize: 20, fontWeight: 'bold', m: 1, marginTop: "-5.6%", marginBottom: "2%" }}>
-          <p>You may be familiar with the old proverb, but...where do you find your village...and how do you use it? </p>
-        </Typography>
+        </div>
+        
         <Stack
           // marginTop="15%"
           marginBottom="12%"

@@ -1,0 +1,43 @@
+.introText {
+  margin-top: 181px;
+  margin-bottom: "2%";
+}
+
+div.pageFrame>h2 {
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+  color: #00425a;
+  font-size: 2rem;
+  font-family: Marcellus, serif;
+  padding-top: 3%
+}
+
+
+div.pageFrame>div.introText>h3 {
+  font-size: 1.6rem;
+  color: #00425a;
+}
+
+div.pageFrame>div.introText>p {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+@media (min-width: 600px) {
+  .introText {
+    margin-top: 196px;
+  }
+
+  div.pageFrame>h2 {
+    font-size: 3.2rem;
+    }
+}
+
+@media (min-width: 960px) {
+  .introText {
+    margin-top: 296px;
+  }
+  div.pageFrame>h2 {
+    font-size: 3.2rem;
+    }
+}
