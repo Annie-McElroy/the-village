@@ -75,7 +75,7 @@ function App() {
               element={<EditProf />}
             />
             <Route
-              path='/village/:id/create-village'
+              path='/village/create-village'
               element={<CreateVillages />}
             />
             <Route

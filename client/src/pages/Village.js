@@ -7,7 +7,11 @@ import AuthService from '../utils/auth';
 import Nav from '../components/Nav';
 
 
-
+// Query the village ID from the villager
+// auth.getProfile to get village ID from loggedin Villager
+// Conditional statement for village ID existing or being null
+// If null, directs to "FindVillage" component
+// If existing, query single village with village ID to render all village information
 
 const Village = () => {
   const url = window.location.href;
