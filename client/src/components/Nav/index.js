@@ -61,7 +61,7 @@ export default function Nav() {
             color="tertiary"
             aria-label="village"
             component={Link}
-            to={`/village/${villageID}`}
+            to={`/village`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={handleClick}

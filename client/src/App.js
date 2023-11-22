@@ -79,7 +79,7 @@ function App() {
               element={<CreateVillages />}
             />
             <Route
-              path='/village/:id'
+              path='/village'
               element={<Village />}
             />
             <Route

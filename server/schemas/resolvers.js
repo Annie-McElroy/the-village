@@ -19,7 +19,10 @@ const resolvers = {
             return await Villager.find();
         },
         village: async (parent, { _id }) => {
-            return await Village.findById(_id).populate('villagers').populate('admin').populate('requests');
+            return await Village.findById(_id).populate('villagers').populate('admin').populate('requests').populate({
+                path: 'requests',
+                populate: 'authorId'
+            });
         },
         villages: async () => {
             return await Village.find().populate('villagers').populate('admin');

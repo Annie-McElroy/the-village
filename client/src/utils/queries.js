@@ -102,3 +102,29 @@ query Query($id: ID!) {
   }
 }
 `
+
+
+export const QUERY_VILLAGE = gql`
+query Village($id: ID!) {
+  village(_id: $id) {
+    _id
+    admin {
+      _id
+      username
+    }
+    name
+    zipcode
+    requests {
+      _id
+      title
+      body
+      crayons
+      authorId {
+        username
+      }
+      createdAt
+      isClaimed
+    }
+  }
+}
+`
