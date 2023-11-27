@@ -8,18 +8,17 @@ import { QUERY_ALL_REQUEST } from '../../utils/queries';
 import DrawIcon from '@mui/icons-material/Draw';
 
 
-export default function VillageRequests() {
+export default function VillageRequests( props ) {
 
-  const { loading, data } = useQuery(QUERY_ALL_REQUEST);
-  const requests = data?.requests;
+  console.log(props.requests)
+
+  // const { loading, data } = useQuery(QUERY_ALL_REQUEST);
+  // const requests = data?.requests;
 
   return (
     <div>
-      {loading ? (
-        <Skeleton />
-      ) : (
-        requests ? (
-          requests.map((request) => (
+      {(
+          props.requests.map((request) => (
             <Card className="request-card" key={request.id}>
               <div className='req-info'>
                 <Typography className='requested-by'>Requested by: {request.authorId.username}</Typography>
@@ -34,9 +33,6 @@ export default function VillageRequests() {
 
             </Card>
           ))
-        ) : (
-          <p>No requests found</p>
-        )
 
       )}
 

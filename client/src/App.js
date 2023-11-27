@@ -75,11 +75,11 @@ function App() {
               element={<EditProf />}
             />
             <Route
-              path='/village/:id/create-village'
+              path='/village/create-village'
               element={<CreateVillages />}
             />
             <Route
-              path='/village/:id'
+              path='/village'
               element={<Village />}
             />
             <Route
@@ -87,7 +87,7 @@ function App() {
               element={<EditVillages />}
             />
             <Route
-              path='/village/:id/create-request'
+              path='/village/create-request'
               element={<CreateReq />}
             />
             <Route
