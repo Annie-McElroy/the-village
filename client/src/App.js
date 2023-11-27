@@ -87,7 +87,7 @@ function App() {
               element={<EditVillages />}
             />
             <Route
-              path='/village/:id/create-request'
+              path='/village/create-request'
               element={<CreateReq />}
             />
             <Route

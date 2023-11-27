@@ -7,6 +7,7 @@ import AuthService from '../utils/auth';
 import Nav from '../components/Nav';
 import { useQuery } from '@apollo/client';
 import { QUERY_VILLAGE } from '../utils/queries.js';
+import Skeleton from '@mui/material/Skeleton';
 
 
 
@@ -31,8 +32,8 @@ const Village = () => {
 
   const village = data?.village || {};
   console.log(village);
-  const requests = village.requests
-  console.log(requests)
+  // const requests = village.requests
+  // console.log(requests)
 
 
   // const url = window.location.href;
@@ -41,14 +42,18 @@ const Village = () => {
   return (
     <div className='villagehero'>
       <BackMeUp />
-      <div className="pageFrame patternbkg">
+      {loading ? (
+        <Skeleton />
+      ) : (
+        <div className="pageFrame patternbkg">
 
-        <h1>{village.name}</h1>
-        <CreateReqButton url={`/create-request`}
-        />
-        <AllRequests requests={requests}/>
+          <h1>{village.name}</h1>
+          <CreateReqButton url={`/village/create-request`}
+          />
+          <AllRequests requests={village.requests} />
 
-      </div>
+        </div>
+      )}
       {
         AuthService.loggedIn() && (<footer><Nav /></footer>)
       }

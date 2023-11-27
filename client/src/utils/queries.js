@@ -113,18 +113,24 @@ query Village($id: ID!) {
       username
     }
     name
-    zipcode
     requests {
       _id
-      title
-      body
-      crayons
       authorId {
+        _id
         username
       }
+      body
+      crayons
       createdAt
       isClaimed
+      isComplete
+      title
     }
+    villagers {
+      _id
+      username
+    }
+    zipcode
   }
 }
 `
