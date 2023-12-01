@@ -80,7 +80,7 @@ const resolvers = {
 
                 
                 // console.log('user info', context.user)
-                await Villager.findByIdAndUpdate(context.user._id, { $addToSet: { requests: request } }).populate('village');
+                await Villager.findByIdAndUpdate(context.user._id, { $addToSet: { requests: request } }, { new: true }).populate('village');
                 
                 
                 // console.log('new request id', request._id)
