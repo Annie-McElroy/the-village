@@ -30,7 +30,7 @@ export default function VillageRequests( props ) {
     <div>
       {(
           props.requests.map((request) => (
-            <Card className="request-card" key={request.id}>
+            <Card className="request-card" key={request._id}>
               <div className='req-info'>
                 <Typography className='requested-by'>Requested by: {request.authorId.username}</Typography>
                 <Typography className='request-card-title'>{request.title}</Typography>

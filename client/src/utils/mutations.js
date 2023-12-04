@@ -49,20 +49,14 @@ mutation AddVillage($name: String!, $zipcode: String!) {
 `
 
 export const JOIN_VILLAGE = gql`
-mutation JoinVillage($villageId: ID!) {
-  joinVillage(villageId: $villageID) {
-    villager {
+mutation JoinVillage($village: ID!) {
+  joinVillage(village: $village) {
+    _id
+    username
+    village {
       _id
-      username
-      email
-      password
-      firstName
-      lastName
+      name
       zipcode
-      crayons {
-        _id
-        amount
-      }
     }
   }
 }
@@ -106,8 +100,8 @@ mutation Mutation($username: String, $email: String, $firstName: String, $lastNa
 `
 
 export const ADD_REQUEST = gql`
-mutation AddRequest($title: String!, $body: String!, $crayons: Int!) {
-  addRequest(title: $title, body: $body, crayons: $crayons) {
+mutation AddRequest($title: String!, $body: String!, $crayons: Int!, $village: ID) {
+  addRequest(title: $title, body: $body, crayons: $crayons, village: $village) {
     _id
     authorId {
       username

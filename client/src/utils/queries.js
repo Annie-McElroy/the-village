@@ -15,72 +15,25 @@ export const QUERY_ALL_REQUEST = gql`
 }
 `
 
-export const QUERY_VILLAGER_PROFILE = gql`
-query Query($id: ID!) {
+export const QUERY_VILLAGER = gql`
+query Villager($id: ID!) {
   villager(_id: $id) {
     _id
-    username
     email
     firstName
     lastName
+    password
+    username
     zipcode
-    crayons {
+    village {
       _id
-      amount
     }
     requests {
       _id
-      title
-      body
-      crayons
-      authorId {
-        _id
-        username
-        email
-        firstName
-        lastName
-        zipcode
-      }
-      createdAt
-      isComplete
-      isClaimed
-      response {
-        _id
-        claimId {
-          _id
-          username
-          email
-            firstName
-          lastName
-          zipcode
-        }
-      }
-      comments {
-        _id
-        body
-        createdAt
-      }
     }
-    village {
+    crayons {
       _id
-      name
-      zipcode
-      admin {
-        _id
-        username
-        email
-        firstName
-        lastName
-        zipcode
-      }
-      villagers {
-        _id
-        username
-        email
-        firstName
-        lastName
-        zipcode
-      }
+      amount
     }
   }
 }
@@ -126,6 +79,24 @@ query Village($id: ID!) {
       isComplete
       title
     }
+    villagers {
+      _id
+      username
+    }
+    zipcode
+  }
+}
+`
+
+export const QUERY_VILLAGES = gql`
+query Villages {
+  villages {
+    _id
+    admin {
+      _id
+      username
+    }
+    name
     villagers {
       _id
       username
