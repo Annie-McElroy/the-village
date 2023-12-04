@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function CreateReq() {
-  const { id } = useParams();
+  // const { id } = useParams();
 
   const navigate = useNavigate();
 
@@ -47,7 +47,7 @@ export default function CreateReq() {
       });
 
       // window.location.assign(`/village/${id}`);
-      navigate(`/village/${id}`);
+      navigate(`/village`);
 
     }
     catch (err) {
