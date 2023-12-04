@@ -6,10 +6,11 @@ import './styles/village.css';
 import AuthService from '../utils/auth';
 import Nav from '../components/Nav';
 import { useQuery } from '@apollo/client';
-import { QUERY_VILLAGE } from '../utils/queries.js';
+import { QUERY_VILLAGER } from '../utils/queries.js';
 import Skeleton from '@mui/material/Skeleton';
-import JoinVillage from '../components/JoinVillage';
+import FindVillage from '../components/FindVillage';
 import VillageInfo from '../components/VillageInfo';
+import VillageRequests from '../components/AllRequests/index.js';
 
 
 
@@ -17,8 +18,35 @@ import VillageInfo from '../components/VillageInfo';
 const Village = () => {
 
   // auth.getProfile to get village ID from logged-in villager
-  let villageId = AuthService.getProfile().data.village[0];
-  console.log(villageId);
+  let villagerId = AuthService.getProfile().data._id;
+
+  const { data, loading, error } = useQuery(
+    QUERY_VILLAGER, {
+      variables: {
+        id: villagerId
+      }
+  });
+
+  if (loading) return 'Loading...';
+  if (error) return `Query error! ${error.message}`;
+
+  const villager = data?.villager || {}
+  console.log(villager);
+
+  const village = villager.village
+  console.log(village);
+
+  // console.log(typeof village)
+
+  // if (village.length !== 0) {
+  //   const villageId = village[0]._id
+  //   console.log(villageId)
+  // } else {
+  //   console.log('This is an empty array')
+  // }
+
+  // const villageId = village[0]._id
+  // console.log(villageId)
 
   // const [villageData, setVillageData] = useState({});
 
@@ -50,11 +78,12 @@ const Village = () => {
   return (
     <div className='villagehero'>
       <BackMeUp />
-      {!villageId
+      {/* <p>This works</p> */}
+      {village.length === 0
         ? (
-          <JoinVillage />
+          <FindVillage />
         ) : (
-          <VillageInfo villageId={villageId}/>
+          <VillageInfo villageId={village}/>
         )}
 
 

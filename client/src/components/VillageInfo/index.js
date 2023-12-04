@@ -14,11 +14,18 @@ const VillageInfo = ({villageId}) => {
     const { data, loading, error } = useQuery(
         QUERY_VILLAGE, {
         variables: {
-            id: villageId
+            id: villageId[0]._id
         }
     },
         { onCompleted: setVillageData }
     );
+
+    // useEffect(() => {
+    //     if (data) {
+    //         setVillageData(villageData)};
+    // }, [villageData]);
+
+    // console.log(villageData)
 
     let village = data?.village || {};
     console.log(village);
@@ -33,7 +40,7 @@ const VillageInfo = ({villageId}) => {
                 <div className="pageFrame patternbkg">
 
                     <h1>{village.name}</h1>
-                    <CreateReqButton url={`/village/create-request`}
+                    <CreateReqButton url={`/village/create-request`} villageId = {village._id}
                     />
                     <AllRequests requests={village.requests} />
 
