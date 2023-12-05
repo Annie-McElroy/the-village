@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ProfileInfo from '../components/UserProfile';
 import BackMeUp from '../components/BackBtn';
 import { useQuery } from '@apollo/client';
-import { QUERY_VILLAGER_CRAYON } from '../utils/queries';
+import { QUERY_VILLAGER } from '../utils/queries';
 import { useParams } from 'react-router-dom';
 import LogoutBtn from '../components/LogoutBtn';
 import Grid from '@mui/material/Grid';
@@ -16,7 +16,7 @@ import ReqsByVillager from '../components/ReqsByVillager'
 function Profile() {
   const { id } = useParams();
 
-  const { data, loading, error } = useQuery(QUERY_VILLAGER_CRAYON, {
+  const { data, loading, error } = useQuery(QUERY_VILLAGER, {
     variables: {
       id: id
     }
@@ -42,7 +42,7 @@ function Profile() {
       <div className="div-2">
         <div className="overlap">
           <ProfileInfo villager={villager} />
-          <ReqsByVillager />
+          <ReqsByVillager requests={villager.requests}/>
           <DeleteHook villager={id} />
         </div>
       </div>
