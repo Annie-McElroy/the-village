@@ -8,39 +8,38 @@ import { QUERY_ALL_REQUEST } from '../../utils/queries';
 import DrawIcon from '@mui/icons-material/Draw';
 import { useParams } from 'react-router-dom';
 
-export default function ReqsByVillager() {
+export default function ReqsByVillager({requests}) {
 
-  // pull in all villagers 
-  const { loading, data } = useQuery(QUERY_ALL_REQUEST);
+  console.log(requests)
 
-  // check for data before assigning requests variable
-  const requests = data?.requests;
+  // // pull in all villagers 
+  // const { loading, data } = useQuery(QUERY_ALL_REQUEST);
+
+  // // check for data before assigning requests variable
+  // const requests = data?.requests;
 
   // pull user id from url
-  const { id } = useParams();
+  // const { id } = useParams();
 
-  // set to empty array, will push in user reqs conditionally
-  const userRequests = []; 
+  // // set to empty array, will push in user reqs conditionally
+  // const userRequests = []; 
 
-  //check to see if requests has been assigned before looping
-  if (requests) {
-    // check through all requests for those where the author id matches the param id from the url
-    for (let i = 0; i < requests.length; i++) {
-      const requestObject = requests[i];
-      let authId = requestObject.authorId._id;
-      if (authId === id) {
-        userRequests.push(requestObject)
-      }
-    }
-  }
+  // //check to see if requests has been assigned before looping
+  // if (requests) {
+  //   // check through all requests for those where the author id matches the param id from the url
+  //   for (let i = 0; i < requests.length; i++) {
+  //     const requestObject = requests[i];
+  //     let authId = requestObject.authorId;
+  //     if (authId === id) {
+  //       userRequests.push(requestObject)
+  //     }
+  //   }
+  // }
 
   return (
     <div>
-      {loading ? (
-        <Skeleton />
-      ) : (
-        userRequests ? (
-          userRequests.map((request) => (
+        {requests ? (
+          requests.map((request) => (
             <Card className="request-card" key={request.id}>
               <div className='req-info'>
                 <Typography className='requested-by'>Requested by: {request.authorId.username}</Typography>
@@ -57,9 +56,7 @@ export default function ReqsByVillager() {
           ))
         ) : (
           <p>No requests found</p>
-        )
-
-      )}
+        )}
 
     </div>
   );
