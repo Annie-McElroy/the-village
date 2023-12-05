@@ -28,7 +28,7 @@ const VillageInfo = ({villageId}) => {
     // console.log(villageData)
 
     let village = data?.village || {};
-    console.log(village);
+    console.log(village._id);
 
 
 
@@ -40,7 +40,7 @@ const VillageInfo = ({villageId}) => {
                 <div className="pageFrame patternbkg">
 
                     <h1>{village.name}</h1>
-                    <CreateReqButton url={`/village/create-request`} villageId = {village._id}
+                    <CreateReqButton url={`/village/create-request`}
                     />
                     <AllRequests requests={village.requests} />
 

@@ -11,6 +11,7 @@ import Skeleton from '@mui/material/Skeleton';
 import FindVillage from '../components/FindVillage';
 import VillageInfo from '../components/VillageInfo';
 import VillageRequests from '../components/AllRequests/index.js';
+import useGetVillager from '../utils/helper.js';
 
 
 
@@ -20,12 +21,7 @@ const Village = () => {
   // auth.getProfile to get village ID from logged-in villager
   let villagerId = AuthService.getProfile().data._id;
 
-  const { data, loading, error } = useQuery(
-    QUERY_VILLAGER, {
-      variables: {
-        id: villagerId
-      }
-  });
+  const { data, loading, error } = useGetVillager(villagerId);
 
   if (loading) return 'Loading...';
   if (error) return `Query error! ${error.message}`;

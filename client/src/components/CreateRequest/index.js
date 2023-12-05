@@ -17,6 +17,8 @@ export default function CreateReq({villageId}) {
 
   const navigate = useNavigate();
 
+  // console.log(villageId);
+
   const [userInput, setUserInput] = useState('');
   const [userInput2, setUserInput2] = useState('');
   const [userInput3, setUserInput3] = useState('');

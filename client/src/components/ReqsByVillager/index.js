@@ -27,7 +27,7 @@ export default function ReqsByVillager() {
     // check through all requests for those where the author id matches the param id from the url
     for (let i = 0; i < requests.length; i++) {
       const requestObject = requests[i];
-      let authId = requestObject.authorId._id;
+      let authId = requestObject.authorId;
       if (authId === id) {
         userRequests.push(requestObject)
       }
