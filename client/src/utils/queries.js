@@ -30,6 +30,13 @@ query Villager($id: ID!) {
     }
     requests {
       _id
+      title
+      body
+      crayons
+      authorId {
+        _id
+        username
+      }
     }
     crayons {
       _id
