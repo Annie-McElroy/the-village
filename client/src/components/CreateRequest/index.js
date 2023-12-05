@@ -5,16 +5,19 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { QUERY_VILLAGE } from '../../utils/queries';
 import { useMutation } from '@apollo/client';
 import { ADD_REQUEST } from '../../utils/mutations';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function CreateReq() {
-  const { id } = useParams();
+export default function CreateReq({villageId}) {
+  // const { id } = useParams();
 
   const navigate = useNavigate();
+
+  // console.log(villageId);
 
   const [userInput, setUserInput] = useState('');
   const [userInput2, setUserInput2] = useState('');
@@ -42,16 +45,26 @@ export default function CreateReq() {
         variables: {
           title: userInput,
           body: userInput2,
-          crayons: parseInt(userInput3)
-        }
+          crayons: parseInt(userInput3),
+          village: villageId
+        },
+        // update: (cache, { data: { addRequestMutation } }) => {
+        //   const data = cache.readQuery({ query: QUERY_VILLAGE,
+        //     variables: {
+        //       id: villageId[0]._id
+        //     }
+        //   });
+        //   data.village.requests = [...data.village.requests, addRequestMutation];
+        //   cache.writeQuery({ query: QUERY_VILLAGE}, data)
+        // }
       });
 
       // window.location.assign(`/village/${id}`);
-      navigate(`/village/${id}`);
+      navigate(`/village`);
 
     }
-    catch (err) {
-      console.err('Mutation error:', err.message);
+    catch (error) {
+      console.error('Mutation error:', error.message);
     }
   };
 

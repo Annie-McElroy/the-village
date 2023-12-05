@@ -68,25 +68,25 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
 
         },
-        addRequest: async (parent, args, context) => {
+        addRequest: async (parent, { title, body, crayons, village}, context) => {
 
             if (context.user) {
 
                 // console.log('args right here', args)
 
-                const request = await Request.create({...args, authorId: context.user, isClaimed: false, isComplete: false });
+                const request = await Request.create({...{title, body, crayons}, authorId: context.user, isClaimed: false, isComplete: false });
 
                 await request.populate('authorId');
 
                 
                 // console.log('user info', context.user)
-                await Villager.findByIdAndUpdate(context.user._id, { $addToSet: { requests: request } }).populate('village');
+                await Villager.findByIdAndUpdate(context.user._id, { $addToSet: { requests: request } }, { new: true }).populate('village');
                 
                 
                 // console.log('new request id', request._id)
                 // console.log('village id', context.user.village)
 
-                await Village.findByIdAndUpdate(context.user.village, { $push: { requests: request._id } }, { new: true });
+                await Village.findByIdAndUpdate(village, { $push: { requests: request._id } }, { new: true });
 
                 return request;
             }

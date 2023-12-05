@@ -77,7 +77,7 @@ const typeDefs = gql`
     type Mutation {
         addVillager(username: String!, email: String!, password: String!, firstName: String!, lastName: String!, zipcode: String!, crayons: CrayonInput!): Auth
         addVillage(name: String!, zipcode: String!): Village
-        addRequest(title: String!, body: String!, crayons: Int!): Request
+        addRequest(title: String!, body: String!, crayons: Int!, village: ID): Request
         addComment(requestId: ID, body: String!): Comment
         updateVillager(username: String, email: String, firstName: String, lastName: String, zipcode: String): Villager
         updateVillage(_id: ID!, name: String, zipcode: String): Village
