@@ -5,15 +5,15 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { QUERY_VILLAGE } from '../../utils/queries';
+import { QUERY_VILLAGE, QUERY_VILLAGER } from '../../utils/queries';
 import { useMutation } from '@apollo/client';
 import { ADD_REQUEST } from '../../utils/mutations';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import AuthService from '../../utils/auth';
 
 
-export default function CreateReq({villageId}) {
-  // const { id } = useParams();
+export default function CreateReq({villageId, villagerId}) {
 
   const navigate = useNavigate();
 
@@ -48,18 +48,20 @@ export default function CreateReq({villageId}) {
           crayons: parseInt(userInput3),
           village: villageId
         },
-        // update: (cache, { data: { addRequestMutation } }) => {
-        //   const data = cache.readQuery({ query: QUERY_VILLAGE,
-        //     variables: {
-        //       id: villageId[0]._id
-        //     }
-        //   });
-        //   data.village.requests = [...data.village.requests, addRequestMutation];
-        //   cache.writeQuery({ query: QUERY_VILLAGE}, data)
-        // }
+        refetchQueries: [
+          {query: QUERY_VILLAGE,
+            variables: {
+              id: villageId
+            }
+          },
+          {query: QUERY_VILLAGER,
+            variables: {
+              id: villagerId
+            }
+          }
+        ]
       });
 
-      // window.location.assign(`/village/${id}`);
       navigate(`/village`);
 
     }
