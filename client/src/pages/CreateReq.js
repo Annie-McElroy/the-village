@@ -27,7 +27,7 @@ function Create() {
         <div sx={{ color: '#00425a' }}>
           <h1>Villager's Request:</h1>
         </div>
-        <CreateReq villageId={village[0]._id}/>
+        <CreateReq villageId={village[0]._id} villagerId={villagerId}/>
       </div>
       {
         AuthService.loggedIn() && (<footer><Nav /></footer>)
