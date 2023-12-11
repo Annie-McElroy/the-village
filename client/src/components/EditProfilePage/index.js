@@ -27,7 +27,7 @@ export default function EditProfile(props) {
     zipcode: props.villager.zipcode
   })
 
-  console.log(props.villager)
+  // console.log(props.villager)
 
   const [updateVillagerMutation, { data, loading, error }] = useMutation(UPDATE_VILLAGER);
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ export default function EditProfile(props) {
       navigate(`/profile/${props.villager._id}`);
       // window.location.assign(`/profile/${props.villager._id}`);
 
-      console.log('Updated')
+      // console.log('Updated')
 
 
 

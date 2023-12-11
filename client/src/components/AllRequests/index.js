@@ -17,7 +17,7 @@ export default function VillageRequests( props ) {
   //   setRequests(props.requests);
   // }, [props.requests]);
 
-  console.log(props.requests)
+  // console.log(props.requests)
 
   // const { loading, data } = useQuery(QUERY_ALL_REQUEST);
   // const requests = data?.requests;

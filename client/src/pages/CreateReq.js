@@ -15,10 +15,10 @@ function Create() {
   if (error) return `Query error! ${error.message}`;
 
   const villager = data?.villager || {}
-  console.log(villager);
+  // console.log(villager);
 
   const village = villager.village
-  console.log(village);
+  // console.log(village);
 
   return (
     <div>

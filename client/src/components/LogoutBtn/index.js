@@ -8,7 +8,7 @@ function LogoutBtn() {
 
   const handleLogout = () => {
     Auth.logout();
-    console.log('logging out....');
+    // console.log('logging out....');
   };
 
   return (

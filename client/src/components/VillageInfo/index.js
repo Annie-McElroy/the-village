@@ -28,8 +28,7 @@ const VillageInfo = ({villageId}) => {
     // console.log(villageData)
 
     let village = data?.village || {};
-    console.log(village._id);
-
+    // console.log(village._id);
 
 
     return (

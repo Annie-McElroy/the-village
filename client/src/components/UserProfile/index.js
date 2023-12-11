@@ -31,7 +31,7 @@ export default function ProfileInfo({ villager }) {
   const handleClick = () => {
     navigate(`/profile/${villager._id}/edit-profile`)
 
-    console.log(villager)
+    // console.log(villager)
   };
 
   return (

@@ -17,7 +17,7 @@ const EditProf = () => {
   });
 
   const villager = data?.villager || {};
-  console.log(villager);
+  // console.log(villager);
   // setCardData(villager);
   // const [cardData, setCardData] = useState({});
 

@@ -27,7 +27,7 @@ export default function LoginForm(props) {
 
       navigate(`/profile/${user._id}`);
 
-      console.log()
+      // console.log()
 
       // window.location.replace(`/profile/${user._id}`);
     } catch (e) {
