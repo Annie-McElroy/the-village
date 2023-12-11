@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 
 export default function ReqsByVillager({requests}) {
 
-  console.log(requests)
+  // console.log(requests)
 
   // // pull in all villagers 
   // const { loading, data } = useQuery(QUERY_ALL_REQUEST);

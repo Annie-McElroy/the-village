@@ -23,7 +23,7 @@ function Profile() {
   });
 
   const villager = data?.villager || {};
-  console.log(villager);
+  // console.log(villager);
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>{error.message}</div>

@@ -30,7 +30,7 @@ export default function Signup(props) {
           }
         },
       });
-      console.log(mutationResponse);
+      // console.log(mutationResponse);
       const user = mutationResponse.data.addVillager.user;
       const token = mutationResponse.data.addVillager.token;
       Auth.login(token);
