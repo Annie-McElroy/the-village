@@ -35,6 +35,9 @@ const resolvers = {
         },
         request: async (parent, { _id }) => {
             return await Request.findById(_id).populate('authorId').populate({
+                path: "comments",
+                populate:"authorId"
+            }).populate({
                 path: 'response',
                 populate: 'claimId'
             });
@@ -156,15 +159,6 @@ const resolvers = {
 
             // Array of ids
             const villagerReqs = villager.requests;
-
-            // console.log('This is the list of request:', villagerReqs)
-
-            // Define villager by Id and populate village
-            // define village Id through villager
-            // define all the request from that villager
-
-            // find the village by villageId
-            // map through all the request and filter out all villager request
 
             await Village.findOneAndUpdate({_id: villageId}, { $pullAll: { requests: villagerReqs } });
 

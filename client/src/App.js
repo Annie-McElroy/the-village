@@ -83,7 +83,7 @@ function App() {
               element={<Village />}
             />
             <Route
-              path="/village/:id/edit-village"
+              path="/village/edit-village"
               element={<EditVillages />}
             />
             <Route
@@ -91,11 +91,11 @@ function App() {
               element={<CreateReq />}
             />
             <Route
-              path='/village/:id/request/:id'
+              path='/request/:id'
               element={<Request />}
             />
             <Route
-              path="/village/:id/request/:id/edit-request"
+              path="/request/:id/edit-request"
               element={<EditRequest />}
             />             
             <Route
