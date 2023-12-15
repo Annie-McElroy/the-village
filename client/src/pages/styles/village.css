@@ -9,6 +9,9 @@
   border-radius: 1em;
   filter: drop-shadow(2px 4px 6px #bfbfbf);
   text-align: left;
+}
+
+.request-card .req-action {
   padding: 3%;
   display: flex;
   justify-content: space-between
@@ -37,7 +40,6 @@
 .request-card .request-card-crayons {
   max-width: 19%;
   text-align: right;
-  
   font-size: 3rem;
   font-weight: 700;
   font-family: "Oxygen", sans-serif;

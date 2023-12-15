@@ -112,3 +112,41 @@ query Villages {
   }
 }
 `
+
+export const QUERY_SINGLE_REQUEST = gql`
+query Request($id: ID!) {
+  request(_id: $id) {
+    _id
+    body
+    title
+    crayons
+    createdAt
+    isClaimed
+    isComplete
+    authorId {
+      _id
+      username
+    }
+    comments {
+      _id
+      authorId {
+        _id
+        username
+      }
+      body
+      createdAt
+    }
+    response {
+      _id
+      claimId {
+        _id
+        username
+        crayons {
+          _id
+          amount
+        }
+      }
+    }
+  }
+}
+`

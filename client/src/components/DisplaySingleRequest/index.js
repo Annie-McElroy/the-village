@@ -5,33 +5,27 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import ClaimRequestButton from '../ClaimRequestButton';
-import Comments from '../Comment';
+import CommentForm from '../CommentForm';
+import DrawIcon from '@mui/icons-material/Draw';
 
-export default function SingleRequest() {
+export default function SingleRequest({ request }) {
   return (
-    <Card >
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image=""
-          alt="user icon"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Request Title
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Request Description
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <ClaimRequestButton />
-      </CardActions>
-      <CardActions>
-        <Comments />
-      </CardActions>
-    </Card>
+    <div>
+      <Card className="request-card" key={request._id}>
+        <div className='req-info'>
+          <Typography className='requested-by'>Requested by: {request.authorId.username}</Typography>
+          <Typography className='request-card-title'>{request.title}</Typography>
+          <Typography className='request-card-description'>{request.body}</Typography>
+        </div>
+        <Typography className='request-card-crayons'>
+          <span>
+            <DrawIcon style={{ color: '#FC7300', fontSize: '2.3rem' }} />
+          </span>{request.crayons} <br />
+          <span>Crayons</span>
+        </Typography>
+      </Card>
+      <ClaimRequestButton />
+      <CommentForm />
+    </div>
   );
 }
