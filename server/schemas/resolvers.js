@@ -149,12 +149,36 @@ const resolvers = {
             throw new AuthenticationError('Not logged in')
         },
         deleteVillager: async (parent, {_id}) => {
+
+            const villager = await Villager.findById(_id).populate('village')
+
+            const villageId = villager.village[0]._id;
+
+            // Array of ids
+            const villagerReqs = villager.requests;
+
+            // console.log('This is the list of request:', villagerReqs)
+
+            // Define villager by Id and populate village
+            // define village Id through villager
+            // define all the request from that villager
+
+            // find the village by villageId
+            // map through all the request and filter out all villager request
+
+            await Village.findOneAndUpdate({_id: villageId}, { $pullAll: { requests: villagerReqs } });
+
+            await Request.deleteMany({authorId: _id});
+
             return Villager.findOneAndDelete({ _id });
         },
         deleteVillage: async (parent, {_id}) => {
             return Village.findOneAndDelete({ _id });
         },
         deleteRequest: async (parent, {_id}) => {
+            // Find villager by authorId and pull request based on _id
+            // Find village from villager info and pull request based on _id
+
             return Request.findOneAndDelete({ _id });
         },
         deleteComment: async (parent, {_id}) => {

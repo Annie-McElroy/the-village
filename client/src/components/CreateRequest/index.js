@@ -8,9 +8,7 @@ import Button from '@mui/material/Button';
 import { QUERY_VILLAGE, QUERY_VILLAGER } from '../../utils/queries';
 import { useMutation } from '@apollo/client';
 import { ADD_REQUEST } from '../../utils/mutations';
-import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import AuthService from '../../utils/auth';
 
 
 export default function CreateReq({villageId, villagerId}) {
