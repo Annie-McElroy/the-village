@@ -1,14 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@mui/material/Typography';
-import Skeleton from '@mui/material/Skeleton';
-import Card from '@mui/material/Card';
-import { useQuery } from '@apollo/client';
+import { CardActionArea, Card, Typography } from '@mui/material';
 import { QUERY_ALL_REQUEST } from '../../utils/queries';
 import DrawIcon from '@mui/icons-material/Draw';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export default function ReqsByVillager({requests}) {
+export default function ReqsByVillager({ requests }) {
 
   // console.log(requests)
 
@@ -38,25 +36,26 @@ export default function ReqsByVillager({requests}) {
 
   return (
     <div>
-        {requests ? (
-          requests.map((request) => (
-            <Card className="request-card" key={request._id}>
+      {requests ? (
+        requests.map((request) => (
+          <Card className="request-card" key={request._id}>
+            <CardActionArea className="req-action" component={Link} to={`/request/${request._id}`}>
               <div className='req-info'>
                 <Typography className='requested-by'>Requested by: {request.authorId.username}</Typography>
                 <Typography className='request-card-title'>{request.title}</Typography>
                 <Typography className='request-card-description'>{request.body}</Typography>
               </div>
-              <Typography className='request-card-crayons'> 
-              <span>
-              <DrawIcon style={{ color: '#FC7300', fontSize: '2.3rem' }} />
-            </span>{request.crayons} <br />
-            <span>Crayons</span></Typography>
-
-            </Card>
-          ))
-        ) : (
-          <p>No requests found</p>
-        )}
+              <Typography className='request-card-crayons'>
+                <span>
+                  <DrawIcon style={{ color: '#FC7300', fontSize: '2.3rem' }} />
+                </span>{request.crayons} <br />
+                <span>Crayons</span></Typography>
+            </CardActionArea>
+          </Card>
+        ))
+      ) : (
+        <p>No requests found</p>
+      )}
 
     </div>
   );

@@ -73,3 +73,9 @@
   align-items: center;
   height: 60px;
 }
+
+.request-card .req-action {
+  padding: 3%;
+  display: flex;
+  justify-content: space-between
+}
