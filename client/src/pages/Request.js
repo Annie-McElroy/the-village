@@ -3,6 +3,7 @@ import SingleRequest from '../components/DisplaySingleRequest';
 import BackMeUp from '../components/BackBtn';
 import AuthService from '../utils/auth';
 import Nav from '../components/Nav';
+import CommentForm from '../components/CommentForm';
 import './styles/request.css';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_REQUEST } from '../utils/queries';
@@ -28,13 +29,12 @@ function Request() {
     <div className='villagehero'>
       <BackMeUp />
       <div className="pageFrame patternbkg">
-      <h1>This is the Request Page</h1>
-      {loading ? (
-        <Skeleton />
-        ) : (
-        <SingleRequest request={request}/>
-      )}
-
+        <h1>This is the Request Page</h1>
+        {loading ? (
+          <Skeleton />
+          ) : (
+          <SingleRequest request={request}/>
+        )}
       </div>
 
       {
