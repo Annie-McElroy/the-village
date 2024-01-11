@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import ClaimRequestButton from '../ClaimRequestButton';
 import CommentForm from '../CommentForm';
+import CommentFormButton from '../CommentFormButton';
 import DisplayComment from '../DisplayComment';
 import DrawIcon from '@mui/icons-material/Draw';
 
@@ -27,6 +28,7 @@ export default function SingleRequest({ request }) {
       </Card>
       <ClaimRequestButton />
       <CommentForm />
+      <CommentFormButton />
       <DisplayComment comments={request.comments}/>
     </div>
   );
