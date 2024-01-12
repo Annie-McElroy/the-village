@@ -6,3 +6,14 @@ div.pageFrame>h1 {
   /* font-family: Marcellus, serif; */
   padding-top: 3%
 }
+
+.request-card {
+  padding: 3%;
+  display: flex;
+  justify-content: space-between
+}
+
+.request-card .req-info {
+  width: 95%;
+  
+}
