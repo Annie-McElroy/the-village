@@ -12,6 +12,7 @@ import DrawIcon from '@mui/icons-material/Draw';
 import { ADD_COMMENT } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
+import { QUERY_SINGLE_REQUEST } from '../../utils/queries';
 
 export default function SingleRequest({ request }) {
 
@@ -29,8 +30,15 @@ export default function SingleRequest({ request }) {
         variables: {
           body: userInput,
           requestId: request._id
-        }
-      })
+        },
+        refetchQueries: [
+          {query: QUERY_SINGLE_REQUEST,
+            variables: {
+              id: request._id
+            }
+          }
+        ]
+      });
     } 
     catch (error) {
       console.error('Mutation error: ', error.message)
