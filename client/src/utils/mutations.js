@@ -73,16 +73,15 @@ mutation Mutation($_id: ID!) {
 
 
 export const ADD_COMMENT = gql`
-mutation AddComment($requestId: ID, $body: String!) {
-  addComment(requestId: $requestId, body: $body) {
-    comment {
+mutation AddComment($body: String!, $requestId: ID) {
+  addComment(body: $body, requestId: $requestId) {
+    _id
+    authorId {
       _id
-      body
-      authorId {
-        _id
-        username
-      }
+      username
     }
+    body
+    createdAt
   }
 }
 `
