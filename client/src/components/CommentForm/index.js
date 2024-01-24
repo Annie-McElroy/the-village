@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
-import CommentFormButton from '../CommentFormButton';
+import FunkButton from '../FunkButton';
 
 export default function CommentForm(props) {
 
@@ -30,7 +30,7 @@ export default function CommentForm(props) {
           multiline
         />
       </div>
-      <CommentFormButton onClick={ props.onClick }/>
+      <FunkButton onClick={ props.onClick } value="Submit Comment" />
     </Box>
   );
 }

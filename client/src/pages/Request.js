@@ -23,13 +23,12 @@ function Request() {
   );
 
   const request = data?.request || {};
-  console.log(request);
+  // console.log(request);
 
   return (
     <div className='villagehero'>
       <BackMeUp />
       <div className="pageFrame patternbkg">
-        <h1>This is the Request Page</h1>
         {loading ? (
           <Skeleton />
           ) : (
