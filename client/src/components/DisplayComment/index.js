@@ -6,6 +6,7 @@ import FunkButton from '../FunkButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { DELETE_COMMENT } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
+import AuthService from '../../utils/auth';
 
 export default function DisplayComment({ comments }) {
     const [commentList, setCommentList] = useState(comments); // using state to manage comments
@@ -35,6 +36,10 @@ export default function DisplayComment({ comments }) {
 
     // console.log('Display Comments render')
 
+    // const villagerId = AuthService.getProfile().data._id;
+    // console.log(villagerId);
+    // console.log(commentList);
+
     return (
         <div>
             {
@@ -43,7 +48,7 @@ export default function DisplayComment({ comments }) {
                         <CardContent>
                             <Typography>By: {comment.authorId.username}, Date: {comment.createdAt}</Typography>
                             <Typography>{comment.body}</Typography>
-                            <FunkButton value={<DeleteIcon />} onClick={() => handleDelete(comment._id)} />
+                            {AuthService.getProfile().data._id == comment.authorId._id && <FunkButton value={<DeleteIcon />} onClick={() => handleDelete(comment._id)} />}
                         </CardContent>
                     </Card>
                 ))
