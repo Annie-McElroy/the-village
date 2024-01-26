@@ -13,6 +13,9 @@ class ClaimRequestButton extends Component {
     this.setState({ clicked: true });
   }
   render() {
+
+    console.log('Claims button')
+
     return (
       <div>
         <Button variant="contained" color="primary" onClick={this.handleClick} disabled={this.state.clicked}> 

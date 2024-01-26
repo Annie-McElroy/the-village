@@ -33,6 +33,8 @@ export default function DisplayComment({ comments }) {
         }
     };
 
+    console.log('Display Comments render')
+
     return (
         <div>
             {

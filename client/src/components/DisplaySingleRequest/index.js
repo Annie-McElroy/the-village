@@ -16,44 +16,44 @@ import { QUERY_SINGLE_REQUEST } from '../../utils/queries';
 
 export default function SingleRequest({ request }) {
 
-  const [userInput, setUserInput] = useState('')
+  // const [userInput, setUserInput] = useState('')
 
-  const [addCommentMutation, { data, loading, error }] = useMutation(ADD_COMMENT);
+  // const [addCommentMutation, { data, loading, error }] = useMutation(ADD_COMMENT);
 
-  if (loading) return 'Submitting...';
-  if (error) return `Submission error! ${error.message}`;
+  // if (loading) return 'Submitting...';
+  // if (error) return `Submission error! ${error.message}`;
 
-  const handleMutation = async (userInput) => {
-    try {
-      // console.log('Mutation runs')
-      await addCommentMutation({
-        variables: {
-          body: userInput,
-          requestId: request._id
-        },
-        refetchQueries: [
-          {query: QUERY_SINGLE_REQUEST,
-            variables: {
-              id: request._id
-            }
-          }
-        ]
-      });
-    } 
-    catch (error) {
-      console.error('Mutation error: ', error.message)
-    }
-  };
+  // const handleMutation = async (userInput) => {
+  //   try {
+  //     // console.log('Mutation runs')
+  //     await addCommentMutation({
+  //       variables: {
+  //         body: userInput,
+  //         requestId: request._id
+  //       },
+  //       refetchQueries: [
+  //         {query: QUERY_SINGLE_REQUEST,
+  //           variables: {
+  //             id: request._id
+  //           }
+  //         }
+  //       ]
+  //     });
+  //   } 
+  //   catch (error) {
+  //     console.error('Mutation error: ', error.message)
+  //   }
+  // };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      handleMutation(userInput);
-    } 
-    catch (error) {
-      console.error('Mutation error: ', error.message)
-    }
-  };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     handleMutation(userInput);
+  //   } 
+  //   catch (error) {
+  //     console.error('Mutation error: ', error.message)
+  //   }
+  // };
 
   return (
     <div>
@@ -71,7 +71,7 @@ export default function SingleRequest({ request }) {
         </Typography>
       </Card>
       <ClaimRequestButton />
-      <CommentForm onClick={handleSubmit} userInput={userInput} setUserInput={setUserInput}/>
+      <CommentForm  requestId={request._id} />
       {/* <CommentFormButton onClick={handleSubmit}/> */}
       <DisplayComment comments={request.comments}/>
     </div>
