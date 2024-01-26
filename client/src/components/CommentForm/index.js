@@ -1,14 +1,60 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
 import FunkButton from '../FunkButton';
+import { ADD_COMMENT } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { useState } from 'react';
+import { QUERY_SINGLE_REQUEST } from '../../utils/queries';
 
-export default function CommentForm(props) {
+export default function CommentForm({ requestId }) {
+
+  const [userInput, setUserInput] = useState('')
+
+  const [addCommentMutation, { data, loading, error }] = useMutation(ADD_COMMENT);
+
+  if (loading) return 'Submitting...';
+  if (error) return `Submission error! ${error.message}`;
+
+  const handleMutation = async (userInput) => {
+    try {
+      // console.log('Mutation runs')
+      await addCommentMutation({
+        variables: {
+          body: userInput,
+          requestId: requestId
+        },
+        refetchQueries: [
+          {query: QUERY_SINGLE_REQUEST,
+            variables: {
+              id: requestId
+            }
+          }
+        ]
+      });
+    } 
+    catch (error) {
+      console.error('Mutation error: ', error.message)
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      handleMutation(userInput);
+      setUserInput('')
+    } 
+    catch (error) {
+      console.error('Mutation error: ', error.message)
+    }
+  };
+
 
   const handleInputChange = (event) => {
-    props.setUserInput(event.target.value);
+    setUserInput(event.target.value);
   }
+
+  // console.log('Form renders');
 
   return (
     <Box
@@ -25,12 +71,12 @@ export default function CommentForm(props) {
           label="Comment Here"
           placeholder="Comment"
           name="body"
-          value={props.userInput}
+          value={userInput}
           onChange={handleInputChange}
           multiline
         />
       </div>
-      <FunkButton onClick={ props.onClick } value="Submit Comment" />
+      <FunkButton onClick={ handleSubmit } value="Submit Comment" />
     </Box>
   );
 }

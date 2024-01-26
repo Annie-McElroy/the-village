@@ -16,8 +16,8 @@ export default function DisplayComment({ comments }) {
 
     const [deleteCommentMutation, { data, loading, error }] = useMutation(DELETE_COMMENT);
 
-    if (loading) return 'Deleting...';
-    if (error) return `Delete error! ${error.message}`;
+  if (loading) return "Deleting...";
+  if (error) return `Delete error! ${error.message}`;
 
     const handleDelete = async (id) => {
         try {
@@ -32,6 +32,8 @@ export default function DisplayComment({ comments }) {
             console.error('Mutation error: ', error.message);
         }
     };
+
+    // console.log('Display Comments render')
 
     return (
         <div>
