@@ -14,7 +14,7 @@ class ClaimRequestButton extends Component {
   }
   render() {
 
-    console.log('Claims button')
+    // console.log('Claims button')
 
     return (
       <div>

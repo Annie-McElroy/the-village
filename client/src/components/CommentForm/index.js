@@ -42,6 +42,7 @@ export default function CommentForm({ requestId }) {
     event.preventDefault();
     try {
       handleMutation(userInput);
+      setUserInput('')
     } 
     catch (error) {
       console.error('Mutation error: ', error.message)
@@ -50,12 +51,10 @@ export default function CommentForm({ requestId }) {
 
 
   const handleInputChange = (event) => {
-    // const userInput = event.target.value;
-    // setUserInput({ ...userInput})
     setUserInput(event.target.value);
   }
 
-  console.log('Form renders');
+  // console.log('Form renders');
 
   return (
     <Box
