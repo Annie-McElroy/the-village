@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import ClaimRequestButton from '../ClaimRequestButton';
 import CommentForm from '../CommentForm';
-import CommentFormButton from '../CommentFormButton';
+import CommentFormButton from '../FunkButton';
 import DisplayComment from '../DisplayComment';
 import DrawIcon from '@mui/icons-material/Draw';
 import { ADD_COMMENT } from '../../utils/mutations';
@@ -25,7 +25,7 @@ export default function SingleRequest({ request }) {
 
   const handleMutation = async (userInput) => {
     try {
-      console.log('Mutation runs')
+      // console.log('Mutation runs')
       await addCommentMutation({
         variables: {
           body: userInput,

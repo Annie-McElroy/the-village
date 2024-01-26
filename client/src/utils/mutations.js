@@ -86,6 +86,20 @@ mutation AddComment($body: String!, $requestId: ID) {
 }
 `
 
+export const DELETE_COMMENT = gql`
+mutation DeleteComment($id: ID!) {
+  deleteComment(_id: $id) {
+    _id
+    authorId {
+      _id
+      username
+    }
+    body
+    createdAt
+  }
+}
+`
+
 export const UPDATE_VILLAGER = gql`
 mutation Mutation($username: String, $email: String, $firstName: String, $lastName: String, $zipcode: String) {
   updateVillager(username: $username, email: $email, firstName: $firstName, lastName: $lastName, zipcode: $zipcode) {
