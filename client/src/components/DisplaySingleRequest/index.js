@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import ClaimRequestButton from '../ClaimRequestButton';
 import CommentForm from '../CommentForm';
-import CommentFormButton from '../FunkButton';
+import FunkButton from '../FunkButton';
 import DisplayComment from '../DisplayComment';
 import DrawIcon from '@mui/icons-material/Draw';
 import { ADD_COMMENT } from '../../utils/mutations';
