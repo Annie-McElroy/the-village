@@ -11,10 +11,25 @@ import DisplayComment from '../DisplayComment';
 import DrawIcon from '@mui/icons-material/Draw';
 import { ADD_COMMENT } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { QUERY_SINGLE_REQUEST } from '../../utils/queries';
 
 export default function SingleRequest({ request }) {
+
+  const [commentList, setCommentList] = useState(request.comments);
+
+  useEffect(() => {
+    setCommentList(request.comments); // Update comments when props change
+}, [request.comments]);
+
+  // const addComment = (comment) => {
+  //   console.log('AddComment called')
+  //   setCommentList((prevComments) => [...prevComments, comment])
+  // };
+
+  const deleteComment = (id) => {
+    setCommentList(prevComments => prevComments.filter(comment => comment._id !== id));
+  }
 
   return (
     <div>
@@ -32,9 +47,9 @@ export default function SingleRequest({ request }) {
         </Typography>
       </Card>
       <ClaimRequestButton />
-      <CommentForm  requestId={request._id} />
+      <CommentForm  requestId={request._id} setCommentList={setCommentList} />
       {/* <CommentFormButton onClick={handleSubmit}/> */}
-      <DisplayComment comments={request.comments}/>
+      <DisplayComment comments={commentList} deleteComment={deleteComment} />
     </div>
   );
 }
