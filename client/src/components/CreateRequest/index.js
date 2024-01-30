@@ -46,6 +46,9 @@ export default function CreateReq({villageId, villagerId}) {
           crayons: parseInt(userInput3),
           village: villageId
         },
+        // Replace refetchQueries using State
+        // Request array for both Village and Villager becomes two states
+        // With the addRequest mutation we use useState method to update the state of the request arrays for both objects
         refetchQueries: [
           {query: QUERY_VILLAGE,
             variables: {

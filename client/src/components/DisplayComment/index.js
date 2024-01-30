@@ -8,12 +8,14 @@ import { DELETE_COMMENT } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 import AuthService from '../../utils/auth';
 
-export default function DisplayComment({ comments }) {
-    const [commentList, setCommentList] = useState(comments); // using state to manage comments
+export default function DisplayComment({ comments, deleteComment }) {
+    // const [commentList, setCommentList] = useState(comments); // using state to manage comments
 
-    useEffect(() => {
-        setCommentList(comments); // Update comments when props change
-    }, [comments]);
+    // console.log(comments);
+
+    // useEffect(() => {
+    //     setCommentList(comments); // Update comments when props change
+    // }, [comments]);
 
     const [deleteCommentMutation, { data, loading, error }] = useMutation(DELETE_COMMENT);
 
@@ -28,7 +30,8 @@ export default function DisplayComment({ comments }) {
                 }
             });
             // Update commentList after successful deletion by filtering through the array of previous comments and removing comments by id that are no longer listed
-            setCommentList(prevComments => prevComments.filter(comment => comment._id !== id));
+            deleteComment(id);
+            // setCommentList(prevComments => prevComments.filter(comment => comment._id !== id));
         } catch (error) {
             console.error('Mutation error: ', error.message);
         }
@@ -43,7 +46,7 @@ export default function DisplayComment({ comments }) {
     return (
         <div>
             {
-                commentList.map((comment) => (
+                comments.map((comment) => (
                     <Card key={comment._id}>
                         <CardContent>
                             <Typography>By: {comment.authorId.username}, Date: {comment.createdAt}</Typography>
