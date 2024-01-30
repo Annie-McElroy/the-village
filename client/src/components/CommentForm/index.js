@@ -24,6 +24,7 @@ export default function CommentForm({ requestId }) {
           body: userInput,
           requestId: requestId
         },
+        // Possible way to replace refetchQueries is bring in the comment array as a prop, create a state using useState, change state by pushing the new comment into the comment array
         refetchQueries: [
           {query: QUERY_SINGLE_REQUEST,
             variables: {
