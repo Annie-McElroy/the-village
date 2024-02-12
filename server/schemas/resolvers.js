@@ -176,6 +176,10 @@ const resolvers = {
             return Request.findOneAndDelete({ _id });
         },
         deleteComment: async (parent, {_id}) => {
+            
+            // Find request
+            await Request.findOneAndUpdate({ comments: _id }, { $pull: { comments: _id } }, { new: true })
+            
             return Comment.findOneAndDelete({ _id });
         },
         login: async (parent, { email, password }) => {
