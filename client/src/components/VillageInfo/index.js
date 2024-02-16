@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CreateReqButton from '../CreateReqButton';
+import LinkButton from '../LinkButton/index.js';
 import AllRequests from '../AllRequests/index.js';
 import Skeleton from '@mui/material/Skeleton';
 import AuthService from '../../utils/auth.js';
@@ -39,7 +39,7 @@ const VillageInfo = ({villageId}) => {
                 <div className="pageFrame patternbkg">
 
                     <h1>{village.name}</h1>
-                    <CreateReqButton url={`/village/create-request`}
+                    <LinkButton url={`/village/create-request`}
                     />
                     <AllRequests requests={village.requests} />
 
