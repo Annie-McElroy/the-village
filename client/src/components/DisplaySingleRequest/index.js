@@ -1,35 +1,50 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions } from '@mui/material';
 import ClaimRequestButton from '../ClaimRequestButton';
 import CommentForm from '../CommentForm';
 import FunkButton from '../FunkButton';
 import DisplayComment from '../DisplayComment';
 import DrawIcon from '@mui/icons-material/Draw';
-import { ADD_COMMENT } from '../../utils/mutations';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useMutation } from '@apollo/client';
 import { useState, useEffect } from 'react';
-import { QUERY_SINGLE_REQUEST } from '../../utils/queries';
+import { DELETE_REQUEST } from '../../utils/mutations';
+import AuthService from '../../utils/auth';
 
 export default function SingleRequest({ request }) {
 
+  
   const [commentList, setCommentList] = useState(request.comments);
-
+  
   useEffect(() => {
     setCommentList(request.comments); // Update comments when props change
-}, [request.comments]);
-
-  // const addComment = (comment) => {
-  //   console.log('AddComment called')
-  //   setCommentList((prevComments) => [...prevComments, comment])
-  // };
-
+  }, [request.comments]);
+  
   const deleteComment = (id) => {
     setCommentList(prevComments => prevComments.filter(comment => comment._id !== id));
   }
+
+  // State for request (global state needed)
+  // Hidden Button -> Are you sure? No or Yes OR alert before deletion is put through
+
+  const [deleteReqMutation, { data, loading, error }] = useMutation(DELETE_REQUEST);
+
+  if (loading) return "Deleting...";
+  if (error) return `Delete error! ${error.message}`;
+
+  const handleDelete = async () => {
+    try {
+      await deleteReqMutation({
+        variables: {
+          id: request._id
+        }
+      });
+
+    } catch (error) {
+      console.error('Mutation error: ', error.message);
+    }
+  };
 
   return (
     <div>
@@ -45,6 +60,7 @@ export default function SingleRequest({ request }) {
           </span>{request.crayons} <br />
           <span>Crayons</span>
         </Typography>
+        {AuthService.getProfile().data._id == request.authorId._id && <FunkButton value={<DeleteIcon />} onClick={() => handleDelete(request._id)} />}
       </Card>
       <ClaimRequestButton />
       <CommentForm  requestId={request._id} setCommentList={setCommentList} />

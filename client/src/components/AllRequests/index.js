@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 
 export default function VillageRequests(props) {
 
+  // Grabbing the requests from the villageReqList prop
+  
+
   return (
     <div>
       {(
