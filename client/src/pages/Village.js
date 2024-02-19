@@ -26,45 +26,6 @@ const Village = () => {
   const village = villager.village
   // console.log(village);
 
-  // console.log(typeof village)
-
-  // if (village.length !== 0) {
-  //   const villageId = village[0]._id
-  //   console.log(villageId)
-  // } else {
-  //   console.log('This is an empty array')
-  // }
-
-  // const villageId = village[0]._id
-  // console.log(villageId)
-
-  // const [villageData, setVillageData] = useState({});
-
-  // const { data, loading, error } = useQuery(
-  //   QUERY_VILLAGE, {
-  //   variables: {
-  //     id: villageId
-  //   }},
-  //   {onCompleted: setVillageData}
-  // );
-
-  // let village = data?.village || {};
-  // console.log(village);
-
-  // useEffect(() => {
-  //   setVillageData(villageData);
-  // }, [villageData]);
-  // const requests = village.requests
-  // console.log(requests)
-
-  // useEffect(() => {
-  //   console.log('Request added:', village.requests);
-  // }, [village.requests])
-
-
-  // const url = window.location.href;
-  // console.log(window.location.href);
-
   return (
     <div className='villagehero'>
       <BackMeUp />
