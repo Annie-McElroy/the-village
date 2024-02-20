@@ -1,38 +1,9 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { CardActionArea, Card, Typography } from '@mui/material';
-import { QUERY_ALL_REQUEST } from '../../utils/queries';
 import DrawIcon from '@mui/icons-material/Draw';
-import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export default function ReqsByVillager({ requests }) {
-
-  // console.log(requests)
-
-  // // pull in all villagers 
-  // const { loading, data } = useQuery(QUERY_ALL_REQUEST);
-
-  // // check for data before assigning requests variable
-  // const requests = data?.requests;
-
-  // pull user id from url
-  // const { id } = useParams();
-
-  // // set to empty array, will push in user reqs conditionally
-  // const userRequests = []; 
-
-  // //check to see if requests has been assigned before looping
-  // if (requests) {
-  //   // check through all requests for those where the author id matches the param id from the url
-  //   for (let i = 0; i < requests.length; i++) {
-  //     const requestObject = requests[i];
-  //     let authId = requestObject.authorId;
-  //     if (authId === id) {
-  //       userRequests.push(requestObject)
-  //     }
-  //   }
-  // }
 
   return (
     <div>
