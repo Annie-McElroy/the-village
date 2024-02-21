@@ -169,9 +169,18 @@ const resolvers = {
         deleteVillage: async (parent, {_id}) => {
             return Village.findOneAndDelete({ _id });
         },
-        deleteRequest: async (parent, {_id}) => {
+        deleteRequest: async (parent, { _id }) => {
+
+            const request = await Request.findById({ _id });
+            
             // Find villager by authorId and pull request based on _id
+            await Villager.findOneAndUpdate({ requests: _id }, { $pull: { requests: _id } }, { new: true });
+
             // Find village from villager info and pull request based on _id
+            await Village.findOneAndUpdate({ requests: _id }, { $pull: { requests: _id } }, { new: true });
+
+            // Find and delete many comments from Request comments array
+            await Comment.deleteMany({ _id: { $in: request.comments } });
 
             return Request.findOneAndDelete({ _id });
         },
