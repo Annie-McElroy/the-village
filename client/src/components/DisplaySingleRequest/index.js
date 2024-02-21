@@ -11,9 +11,11 @@ import { useMutation } from '@apollo/client';
 import { useState, useEffect } from 'react';
 import { DELETE_REQUEST } from '../../utils/mutations';
 import AuthService from '../../utils/auth';
+import { useNavigate } from 'react-router-dom';
 
 export default function SingleRequest({ request }) {
 
+  const navigate = useNavigate();
   
   const [commentList, setCommentList] = useState(request.comments);
   
@@ -40,6 +42,8 @@ export default function SingleRequest({ request }) {
           id: request._id
         }
       });
+
+      navigate(-1);
 
     } catch (error) {
       console.error('Mutation error: ', error.message);
