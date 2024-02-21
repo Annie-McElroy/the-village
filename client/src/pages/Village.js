@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import CreateReqButton from '../components/CreateReqButton';
-import AllRequests from '../components/AllRequests/index.js'
+import React from 'react';
 import BackMeUp from '../components/BackBtn/index.js';
 import './styles/village.css';
 import AuthService from '../utils/auth';
 import Nav from '../components/Nav';
-import { useQuery } from '@apollo/client';
-import { QUERY_VILLAGER } from '../utils/queries.js';
-import Skeleton from '@mui/material/Skeleton';
 import FindVillage from '../components/FindVillage';
 import VillageInfo from '../components/VillageInfo';
-import VillageRequests from '../components/AllRequests/index.js';
 import useGetVillager from '../utils/helper.js';
 
 

@@ -30,6 +30,9 @@ const VillageInfo = ({villageId}) => {
     let village = data?.village || {};
     // console.log(village._id);
 
+    // State for request array for Village: villageReqList and setVillageReqList
+    // Send villageReqList and SetVillageReqList as prop to AllRequest
+
 
     return (
         <div>

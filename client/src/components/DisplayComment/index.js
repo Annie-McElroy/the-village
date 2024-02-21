@@ -9,18 +9,11 @@ import { useMutation } from '@apollo/client';
 import AuthService from '../../utils/auth';
 
 export default function DisplayComment({ comments, deleteComment }) {
-    // const [commentList, setCommentList] = useState(comments); // using state to manage comments
-
-    // console.log(comments);
-
-    // useEffect(() => {
-    //     setCommentList(comments); // Update comments when props change
-    // }, [comments]);
 
     const [deleteCommentMutation, { data, loading, error }] = useMutation(DELETE_COMMENT);
 
-  if (loading) return "Deleting...";
-  if (error) return `Delete error! ${error.message}`;
+    if (loading) return "Deleting...";
+    if (error) return `Delete error! ${error.message}`;
 
     const handleDelete = async (id) => {
         try {
@@ -36,12 +29,6 @@ export default function DisplayComment({ comments, deleteComment }) {
             console.error('Mutation error: ', error.message);
         }
     };
-
-    // console.log('Display Comments render')
-
-    // const villagerId = AuthService.getProfile().data._id;
-    // console.log(villagerId);
-    // console.log(commentList);
 
     return (
         <div>

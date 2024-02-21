@@ -71,6 +71,17 @@ mutation Mutation($_id: ID!) {
 }
 `
 
+export const UPDATE_VILLAGER = gql`
+mutation Mutation($username: String, $email: String, $firstName: String, $lastName: String, $zipcode: String) {
+  updateVillager(username: $username, email: $email, firstName: $firstName, lastName: $lastName, zipcode: $zipcode) {
+    username
+    email
+    firstName
+    lastName
+    zipcode
+  }
+}
+`
 
 export const ADD_COMMENT = gql`
 mutation AddComment($body: String!, $requestId: ID) {
@@ -100,18 +111,6 @@ mutation DeleteComment($id: ID!) {
 }
 `
 
-export const UPDATE_VILLAGER = gql`
-mutation Mutation($username: String, $email: String, $firstName: String, $lastName: String, $zipcode: String) {
-  updateVillager(username: $username, email: $email, firstName: $firstName, lastName: $lastName, zipcode: $zipcode) {
-    username
-    email
-    firstName
-    lastName
-    zipcode
-  }
-}
-`
-
 export const ADD_REQUEST = gql`
 mutation AddRequest($title: String!, $body: String!, $crayons: Int!, $village: ID) {
   addRequest(title: $title, body: $body, crayons: $crayons, village: $village) {
@@ -125,6 +124,39 @@ mutation AddRequest($title: String!, $body: String!, $crayons: Int!, $village: I
     isClaimed
     createdAt
     isComplete
+  }
+}
+`
+
+export const DELETE_REQUEST = gql`
+mutation DeleteRequest($id: ID!) {
+  deleteRequest(_id: $id) {
+    _id
+    authorId {
+      _id
+      username
+    }
+    body
+    comments {
+      _id
+      body
+      authorId {
+        _id
+        username
+      }
+    }
+    createdAt
+    isClaimed
+    isComplete
+    title
+    response {
+      _id
+      claimId {
+        _id
+        username
+      }
+    }
+    crayons
   }
 }
 `
