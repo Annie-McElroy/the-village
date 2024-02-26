@@ -1,14 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import ClaimRequestButton from '../ClaimRequestButton';
-import CommentForm from '../CommentForm';
 import FunkButton from '../FunkButton';
-import DisplayComment from '../DisplayComment';
 import DrawIcon from '@mui/icons-material/Draw';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useMutation } from '@apollo/client';
-import { useState, useEffect } from 'react';
 import { DELETE_REQUEST } from '../../utils/mutations';
 import AuthService from '../../utils/auth';
 import { useNavigate } from 'react-router-dom';
@@ -16,16 +13,6 @@ import { useNavigate } from 'react-router-dom';
 export default function SingleRequest({ request }) {
 
   const navigate = useNavigate();
-  
-  const [commentList, setCommentList] = useState(request.comments);
-  
-  useEffect(() => {
-    setCommentList(request.comments); // Update comments when props change
-  }, [request.comments]);
-  
-  const deleteComment = (id) => {
-    setCommentList(prevComments => prevComments.filter(comment => comment._id !== id));
-  }
 
   // State for request (global state needed)
   // Hidden Button -> Are you sure? No or Yes OR alert before deletion is put through
@@ -67,9 +54,6 @@ export default function SingleRequest({ request }) {
         {AuthService.getProfile().data._id == request.authorId._id && <FunkButton value={<DeleteIcon />} onClick={() => handleDelete(request._id)} />}
       </Card>
       <ClaimRequestButton />
-      <CommentForm  requestId={request._id} setCommentList={setCommentList} />
-      {/* <CommentFormButton onClick={handleSubmit}/> */}
-      <DisplayComment comments={commentList} deleteComment={deleteComment} />
     </div>
   );
 }
