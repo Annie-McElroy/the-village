@@ -3,12 +3,12 @@ import SingleRequest from '../components/DisplaySingleRequest';
 import BackMeUp from '../components/BackBtn';
 import AuthService from '../utils/auth';
 import Nav from '../components/Nav';
-import CommentForm from '../components/CommentForm';
 import './styles/request.css';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_REQUEST } from '../utils/queries';
 import { useParams } from 'react-router-dom';
 import Skeleton from '@mui/material/Skeleton';
+import CommentBox from '../components/CommentBox';
 
 function Request() {
 
@@ -31,8 +31,11 @@ function Request() {
       <div className="pageFrame patternbkg">
         {loading ? (
           <Skeleton />
-          ) : (
-          <SingleRequest request={request}/>
+        ) : (
+            <div>
+              <SingleRequest request={request} />
+              <CommentBox request={request} />
+            </div>
         )}
       </div>
 

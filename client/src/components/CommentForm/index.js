@@ -1,11 +1,10 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import FunkButton from '../FunkButton';
 import { ADD_COMMENT } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
-import { useState, useEffect } from 'react';
-// import { QUERY_SINGLE_REQUEST } from '../../utils/queries';
+
 
 export default function CommentForm({ requestId, setCommentList }) {
 
