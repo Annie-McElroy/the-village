@@ -42,7 +42,7 @@ const VillageInfo = ({villageId}) => {
                 <div className="pageFrame patternbkg">
 
                     <h1>{village.name}</h1>
-                    <LinkButton url={`/village/create-request`}
+                        <LinkButton value={ 'Ask the Village!'} url={`/village/create-request`}
                     />
                     <AllRequests requests={village.requests} />
 
