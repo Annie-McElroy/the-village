@@ -97,7 +97,10 @@ export default function EditReqForm({ title, desc, crayon }) {
           value={formState.body}
           onChange={handleEdit}
           multiline
-          // These rows resolve the infinite loop error when loading the form on development mode. The form works without it in production (deployed site) so the rows are not 'needed' and should remain commented out unless in development mode.
+/*
+          Setting the maxRows and minRows below will avoid the rendering loop error that arises in development mode. This error is not occurring in production. 
+*/
+
           // maxRows={7}
           // minRows={5}
         />

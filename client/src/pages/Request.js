@@ -38,9 +38,9 @@ function Request() {
         )}
       </div>
 
-      {
+      {/* {
         AuthService.loggedIn() && (<footer><Nav /></footer>)
-      }
+      } */}
     </div>
   )
 

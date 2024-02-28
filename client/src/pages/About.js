@@ -55,9 +55,9 @@ export default function About() {
           <TeamMember key={index} {...data} />
         ))}
       </div>
-      {
+      {/* {
         AuthService.loggedIn() && (<footer><Nav /></footer>)
-      }
+      } */}
     </div>
   );
 }

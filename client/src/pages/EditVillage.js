@@ -11,9 +11,6 @@ function EditVillages() {
       <h1>Create your village!</h1>
       <br></br>
       <EditVillage />
-      {
-        AuthService.loggedIn() && (<footer><Nav /></footer>)
-      }
     </div>
   )
 

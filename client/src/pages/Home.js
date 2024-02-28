@@ -56,17 +56,12 @@ const Home = () => {
 
         </div>
 
-
-        {/* {AuthService.loggedIn()
-        ? (<div>Logged In!</div>)
-        : (<LoginForm />)
-      } */}
         <div style={{ height: '80px' }}></div>
 
       </div>
-      {
+      {/* {
         AuthService.loggedIn() && (<footer><Nav /></footer>)
-      }
+      } */}
     </div>
   );
 };

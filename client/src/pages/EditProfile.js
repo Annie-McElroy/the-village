@@ -29,9 +29,9 @@ const EditProf = () => {
       <BackMeUp />
       <h1>Edit Your Profile</h1>
       <EditProfile villager={villager}/>
-      {
+      {/* {
             AuthService.loggedIn() && (<footer><Nav /></footer>)
-          }
+          } */}
     </div>
 
   );

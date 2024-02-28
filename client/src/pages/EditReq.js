@@ -35,11 +35,11 @@ function EditRequest() {
           key={request._id}
         />
       </div>
-      {AuthService.loggedIn() && (
+      {/* {AuthService.loggedIn() && (
         <footer>
           <Nav />
         </footer>
-      )}
+      )} */}
     </div>
   );
 }

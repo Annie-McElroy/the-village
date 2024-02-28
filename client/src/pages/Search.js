@@ -10,9 +10,6 @@ function Search() {
       <BackMeUp />
       <h1>Search </h1>
       <CreateVillageBttn />
-      {
-        AuthService.loggedIn() && (<footer><Nav /></footer>)
-      }
     </div>
   )
 

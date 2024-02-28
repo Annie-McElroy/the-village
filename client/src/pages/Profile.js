@@ -46,9 +46,9 @@ function Profile() {
           <DeleteHook villager={id} />
         </div>
       </div>
-      {
+      {/* {
             AuthService.loggedIn() && (<footer><Nav /></footer>)
-          }
+          } */}
 
     </div >
   );
