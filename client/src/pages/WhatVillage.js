@@ -161,9 +161,9 @@ const WhatVillage = () => {
           </Card>
         </Stack>
       </div>
-      {
+      {/* {
         AuthService.loggedIn() && (<footer><Nav /></footer>)
-      }
+      } */}
     </div>
 
   );

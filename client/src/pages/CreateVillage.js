@@ -11,9 +11,6 @@ function CreateVillages() {
       <BackMeUp />
       <h1>Create your village!</h1>
       <CreateVillage />
-      {
-        AuthService.loggedIn() && (<footer><Nav /></footer>)
-      }
     </div>
   )
 
