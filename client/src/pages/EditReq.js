@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import EditReqForm from "../components/EditReqForm.js/index.js";
-import SubmitReqBttn from "../components/SubmitReqBtn";
 import BackMeUp from "../components/BackBtn/index.js";
 import { useParams } from "react-router-dom";
 import { QUERY_SINGLE_REQUEST } from "../utils/queries.js";
@@ -35,7 +34,6 @@ function EditRequest() {
           crayon={crayon}
           key={request._id}
         />
-        <SubmitReqBttn />
       </div>
       {AuthService.loggedIn() && (
         <footer>

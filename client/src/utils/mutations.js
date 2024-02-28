@@ -162,8 +162,8 @@ mutation DeleteRequest($id: ID!) {
 `
 
 export const UPDATE_REQUEST = gql`
-mutation UpdateRequest($id: ID!, $title: String, $body: String, $crayon: Int) {
-  updateRequest(_id: $id, title: $title, body: $body, crayon: $crayon) {
+mutation UpdateRequest($id: ID!, $title: String, $body: String, $crayons: Int) {
+  updateRequest(_id: $id, title: $title, body: $body, crayons: $crayons) {
     _id
     authorId {
       _id
