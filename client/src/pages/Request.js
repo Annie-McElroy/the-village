@@ -9,7 +9,6 @@ import { QUERY_SINGLE_REQUEST } from '../utils/queries';
 import { useParams } from 'react-router-dom';
 import Skeleton from '@mui/material/Skeleton';
 import CommentBox from '../components/CommentBox';
-
 function Request() {
 
   const { id } = useParams();
