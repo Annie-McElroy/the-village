@@ -3,8 +3,10 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import ClaimRequestButton from '../ClaimRequestButton';
 import FunkButton from '../FunkButton';
+import LinkButton from '../LinkButton';
 import DrawIcon from '@mui/icons-material/Draw';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import { useMutation } from '@apollo/client';
 import { DELETE_REQUEST } from '../../utils/mutations';
 import AuthService from '../../utils/auth';
@@ -51,7 +53,13 @@ export default function SingleRequest({ request }) {
           </span>{request.crayons} <br />
           <span>Crayons</span>
         </Typography>
-        {AuthService.getProfile().data._id == request.authorId._id && <FunkButton value={<DeleteIcon />} onClick={() => handleDelete(request._id)} />}
+        {AuthService.getProfile().data._id == request.authorId._id
+          &&
+          <div>
+            <FunkButton value={<DeleteIcon />} onClick={() => handleDelete(request._id)} />
+            <LinkButton value={<EditIcon />} url={`/request/${request._id}/edit-request`} />
+          </div>
+        }
       </Card>
       <ClaimRequestButton />
     </div>

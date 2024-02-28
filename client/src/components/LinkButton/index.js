@@ -6,7 +6,7 @@ export default function LinkButton(props) {
   return (
 
     <Button variant="contained" component={Link} to={props.url}>
-      Ask the Village!
+      {props.value}
     </Button>
 
   );
