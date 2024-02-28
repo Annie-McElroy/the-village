@@ -37,11 +37,11 @@ function EditRequest() {
         />
         <SubmitReqBttn />
       </div>
-      {AuthService.loggedIn() && (
+      {/* {AuthService.loggedIn() && (
         <footer>
           <Nav />
         </footer>
-      )}
+      )} */}
     </div>
   );
 }

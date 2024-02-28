@@ -31,11 +31,11 @@ const Village = () => {
         <VillageInfo villageId={village} />
       )}
 
-      {AuthService.loggedIn() && (
+      {/* {AuthService.loggedIn() && (
         <footer>
           <Nav />
         </footer>
-      )}
+      )} */}
     </div>
   );
 };

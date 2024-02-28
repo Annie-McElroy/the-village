@@ -29,9 +29,9 @@ function Create() {
         </div>
         <CreateReq villageId={village[0]._id} villagerId={villagerId}/>
       </div>
-      {
+      {/* {
         AuthService.loggedIn() && (<footer><Nav /></footer>)
-      }
+      } */}
     </div>
   )
 };

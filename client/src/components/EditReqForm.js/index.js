@@ -51,6 +51,10 @@ export default function EditReqForm({ title, desc, crayon }) {
           value={descInput}
           onChange={handleInputChange2}
           multiline
+/*
+          Setting the maxRows and minRows below will avoid the rendering loop error that arises in development mode. This error is not occurring in production. 
+*/
+
           // maxRows={7}
           // minRows={5}
         />
